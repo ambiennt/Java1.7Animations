@@ -1,0 +1,31 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.player.hurt_limbs": {
+      "loop": true,
+      "animation_length": 0.5,
+      "bones": {
+        // no variable created here because it doesnt seem to update smoothly
+        "rightarm": {
+          "rotation": [ "math.sin(math.pow(1 - (query.anim_time * 2.0), 7) * 180.0) * (1.0 - variable.modified_move_speed) * -45.0", 0.0, 0.0 ]
+        },
+        "leftarm": {
+          "rotation": [ "math.sin(math.pow(1 - (query.anim_time * 2.0), 7) * 180.0) * (1.0 - variable.modified_move_speed) * 45.0", 0.0, 0.0 ]
+        },
+        "rightleg": {
+          "rotation": [ "math.sin(math.pow(1 - (query.anim_time * 2.0), 7) * 180.0) * (1.0 - variable.modified_move_speed) * 45.0", 0.0, 0.0 ]
+        },
+        "leftleg": {
+          "rotation": [ "math.sin(math.pow(1 - (query.anim_time * 2.0), 7) * 180.0) * (1.0 - variable.modified_move_speed) * -45.0", 0.0, 0.0 ]
+        },
+
+        "rightarm_custom": {
+          "rotation": [ "math.sin(math.pow(1 - (query.anim_time * 2.0), 7) * 180.0) * (1.0 - variable.modified_move_speed) * -45.0", 0.0, 0.0 ]
+        },
+        "leftarm_custom": {
+          "rotation": [ "math.sin(math.pow(1 - (query.anim_time * 2.0), 7) * 180.0) * (1.0 - variable.modified_move_speed) * 45.0", 0.0, 0.0 ]
+        }
+      }
+    }
+  }
+}

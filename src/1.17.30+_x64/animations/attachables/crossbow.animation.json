@@ -1,0 +1,59 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.player.first_person.attack_rotation_crossbow" : {
+      "loop" : true,
+      "bones" : {
+        "rightitem": {
+          "position": [
+            "math.sin(math.pow(v.attack_time, 0.5) * 180) * -10.0",
+            "(math.sin(math.pow(v.attack_time, 0.5) * 360) * 5.25) + (math.sin(math.pow(v.attack_time, 0.5) * 180) * 6.25)",
+            "math.sin(math.pow(v.attack_time, 1.0) * 180) * 5.0"
+          ],
+          "rotation": [
+            "math.sin(math.pow(v.attack_time, 0.5) * 180) * -60.0",
+            "math.sin(math.pow(1 - v.attack_time, 2.5) * 180) * -30.0",
+            "math.sin(math.pow(v.attack_time, 0.5) * 180) * -30.0"
+          ]
+        }
+      }
+    },
+    "animation.crossbow.wield": {
+      "loop": true,
+      "bones": {
+        "rightitem": {
+          "position": [
+            "c.is_first_person ? 21.0 : -5.25",
+            "c.is_first_person ? 32.0 + (c.owning_entity->v.short_arm_offset_right) : 0.5",
+            "c.is_first_person ? 29.75 : -0.5"
+          ],
+          "rotation": [
+            "c.is_first_person ? 90.0",
+            0,
+            "c.is_first_person ? 0.0 : 15.0"
+          ]
+        }
+      }
+    },
+    "animation.crossbow.first_person_charging": {
+      "loop": true,
+      "bones": {
+        "rightitem": {
+          "position": [ -12.75, "-7.5 + (math.sin(v.charge_time * 810.0) * 0.04) * v.charge_time + (v.charge_time * 0.1)", 0.5 ],
+          "rotation": [ -20.0, -10.0, 7.5 ],
+          "scale": [ 1, "1 + (v.charge_time * 0.05)", 1 ]
+        }
+      }
+    },
+    "animation.crossbow.first_person_charged": {
+      "loop": true,
+      "override_previous_animation": true,
+      "bones": {
+        "rightitem": {
+          "position": [ 5.5, 32.0, 29.75 ],
+          "rotation": [ 90.0, -4.25, 0.0 ] // why -4.25?!?!
+        }
+      }
+    }
+  }
+}

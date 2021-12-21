@@ -1,0 +1,136 @@
+{
+  "format_version" : "1.8.0",
+  "animations": {
+  	"animation.player.first_person.attack_rotation" : {
+      "loop" : true,
+      "bones" : {
+        "rightarm" : {
+          "position" : [
+            "math.sin(math.pow(variable.attack_time, 0.5) * 180.0) * -2.6",
+            "math.sin(math.pow(variable.attack_time, 0.5) * 360.0) * 6.1",
+            "math.sin(math.pow(variable.attack_time, 1.1) * 180.0) * 3.1"
+          ],
+          "rotation" : [
+            "math.sin(math.pow(variable.attack_time, 0.45) * 180.0) * -56.0",
+            "math.sin(math.pow(variable.attack_time, 0.5) * 180.0) * 45.0",
+            "math.sin(math.pow(variable.attack_time, 0.3) * 180.0) * 22.5"
+          ]
+        	//what I think the java code says - doesnt look right
+        	//"position" : [ "math.sin(math.sqrt(variable.attack_time) * 180.0) * -3.0", "math.sin(math.sqrt(variable.attack_time) * 360.0) * 4.0", "math.sin(variable.attack_time * 180.0) * -4.0" ],
+        	//"rotation" : [ 0.0, "math.sin(math.sqrt(variable.attack_time) * 180.0) * 70.0", "math.sin(variable.attack_time * variable.attack_time * 180.0) * -20.0" ]
+        }
+      }
+    },
+    "animation.player.first_person.empty_hand" : {
+      "loop" : true,
+      "bones" : {
+        "rightarm" : {
+          "position" : [ 13.15, "(variable.short_arm_offset_right * 1.8) - 7.45", 10.5 ],
+          "rotation" : [ 95.5, -40.0, 116.0 ]
+        }
+      }
+    },
+    "animation.player.first_person.swap_item": {
+			"loop": true,
+			"bones": {
+				"leftarm": {
+					"position": [ 0.0, "query.get_equipped_item_name(1) == 'filled_map' ? 0.0 : (1.0 - variable.player_arm_height) * -10.0", 0.0 ]
+				},
+				"rightarm": {
+					"position": [ 0.0, "(1.0 - variable.player_arm_height) * -10.0", 0.0 ]
+				}
+			}
+		},
+    "animation.player.first_person.map_hold": {
+      "loop": true,
+      "bones": {
+        "leftarm": {
+          "position": [
+            -15.5,
+            "-7.5 - variable.short_arm_offset_left - (variable.map_angle * 8.0)",
+            "9.0 + variable.short_arm_offset_left - (variable.map_angle * 8.0)"
+          ],
+          "rotation": [
+            37.5,
+            -20,
+            -150
+          ]
+        },
+        "rightarm": {
+          "position": [
+            15.5,
+            "-7.0 - variable.short_arm_offset_right - (variable.map_angle * 8.0)",
+            "8.0 + variable.short_arm_offset_right - (variable.map_angle * 8.0)"
+          ],
+          "rotation": [
+            50,
+            30,
+            165
+          ]
+        }
+      }
+    },
+    "animation.player.first_person.map_hold_attack": {
+      "loop": true,
+      "bones": {
+        "leftarm": {
+          "position": [
+            "math.sin(math.pow(variable.attack_time, 0.5) * 180.0) * -3.0",
+            "math.sin(math.pow(variable.attack_time, 0.5) * 360.0) * 3.0",
+            "math.sin(math.pow(variable.attack_time, 1.0) * 180.0) * 4.0"
+          ],
+          "rotation": [ "variable.map_angle * 90.0", 0, 0 ]
+        },
+        "rightarm": {
+          "position": [
+            "math.sin(math.pow(variable.attack_time, 0.5) * 180.0) * -8.0",
+            "math.sin(math.pow(variable.attack_time, 0.5) * 360.0) * 4.5",
+            "math.sin(math.pow(variable.attack_time, 1.0) * 180.0) * 4.0"
+          ],
+          "rotation": [ "variable.map_angle * 90.0", 0, 0 ]
+        }
+      }
+    },
+    "animation.player.first_person.map_hold_main_hand": {
+      "loop": true,
+      "bones": {
+        "rightarm": {
+          "position" : [
+            "14.5 - (math.sin(variable.attack_time * 180.0) * 2.0)",
+            "(variable.short_arm_offset_right * 1.5) - 7.0 + (math.sin(math.pow(variable.attack_time, 0.5) * 360.0) * 4.0)",
+            "9.0 + (math.sin(math.pow(variable.attack_time, 0.5) * 180.0) * 3.0)"
+          ],
+          "rotation" : [ 90.0, -40.0, 105.0 ]
+        }
+      }
+    },
+    "animation.player.first_person.map_hold_off_hand": {
+      "loop": true,
+      "bones": {
+        "leftarm": {
+          "position" : [
+            -14.4,
+            "(variable.short_arm_offset_left * 1.5) - 7.0",
+            9.0
+          ],
+          "rotation" : [ -92.5, 135, 77.5 ]
+        }
+      }
+    },
+		"animation.player.first_person.crossbow_equipped": { // charging crossbow in 1st person
+			"loop" : true,
+			"override_previous_animation" : true,
+			"bones" : {
+				"leftarm" : {
+					"position" : [
+            "1.5 - (variable.item_use_normalized * 3.5)",
+            "-3.8 + variable.short_arm_offset_left",
+            "8.25 - (1.0 - variable.item_use_normalized)"
+          ],
+					"rotation" : [ 165.0, -60.0, 45.0 ],
+					"scale" : [ 0.4, 0.4, 0.4 ]
+				}
+			}
+		}
+  }
+}

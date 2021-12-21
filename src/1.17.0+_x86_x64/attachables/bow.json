@@ -1,0 +1,42 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "minecraft:bow",
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "entity_alphatest_glint"
+      },
+      "textures": {
+        "default": "textures/items/bow_standby",
+        "bow_pulling_0": "textures/items/bow_pulling_0",
+        "bow_pulling_1": "textures/items/bow_pulling_1",
+        "bow_pulling_2": "textures/items/bow_pulling_2",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.bow_standby",
+        "bow_pulling_0": "geometry.bow_pulling_0",
+        "bow_pulling_1": "geometry.bow_pulling_1",
+        "bow_pulling_2": "geometry.bow_pulling_2"
+      },
+      "animations": {
+        "wield": "animation.bow.wield",
+        "first_person_draw": "animation.bow.wield_first_person_pull"
+      },
+      "scripts": {
+        "initialize": [
+          "v.charge_time = 0.0;"
+        ],
+        "pre_animation": [
+          "v.charge_time = q.main_hand_item_use_duration > 0.0f ? (q.main_hand_item_max_duration - (q.main_hand_item_use_duration - q.frame_alpha + 1)) / 10;"
+        ],
+        "animate": [
+          "wield",
+          { "first_person_draw": "c.is_first_person && (q.main_hand_item_use_duration > 0.0f)" }
+        ]
+      },
+      "render_controllers": [ "controller.render.bow" ]
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "minecraft:shield",
+      "materials": {
+        "default": "entity_alphatest",
+        "enchanted": "entity_alphatest_glint"
+      },
+      "textures": {
+        "default": "textures/entity/shield",
+        "enchanted": "textures/misc/enchanted_item_glint"
+      },
+      "geometry": {
+        "default": "geometry.shield"
+      },
+      "animations": {
+        "wield": "controller.animation.shield.wield",
+        "wield_main_hand_first_person": "animation.shield.wield_main_hand_first_person",
+        "wield_off_hand_first_person": "animation.shield.wield_off_hand_first_person",
+        "wield_first_person_block": "animation.shield.wield_first_person_blocking",
+        "wield_main_hand_first_person_block": "animation.shield.wield_main_hand_first_person_blocking",
+        "wield_off_hand_first_person_block": "animation.shield.wield_off_hand_first_person_blocking",
+        "wield_third_person": "animation.shield.wield_third_person",
+        "block_time": "controller.animation.shield.block_time"
+      },
+      "scripts": {
+        "initialize": [
+          "v.block_time_start = 0.0;",
+          "v.block_time = 0.0;"
+        ],
+        "animate": [
+          "wield",
+          "block_time"
+        ]
+      },
+      "render_controllers": [ "controller.render.item_default" ]
+    }
+  }
+}

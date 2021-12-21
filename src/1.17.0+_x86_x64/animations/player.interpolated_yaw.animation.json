@@ -1,0 +1,15 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.player.interpolated_yaw": {
+      "loop": true,
+      "bones": {
+        "head": {
+          "rotation": [ 0, "variable.relative_head_yaw = math.mod(variable.new_head_yaw - query.head_y_rotation(0) + 900, 360) - 180; variable.new_relative_head_yaw = math.clamp(variable.relative_head_yaw * math.exp(-variable.delta_time * 30 * (variable.yaw_fix * 30 + 1)), -120, 120); variable.new_head_yaw = variable.new_relative_head_yaw + query.head_y_rotation(0); return variable.new_head_yaw - query.body_y_rotation - this;", 0 ]
+        }
+      }
+    }
+  }
+}
+// variable.yaw_fix is needed because head rotation returns 0 in 3rd person, so the interpolation must be
+// counteracted to prevent head snaps from 0 to the current roation when changing from 1st to 3rd person and vice versa

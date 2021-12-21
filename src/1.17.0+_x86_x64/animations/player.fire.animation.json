@@ -1,0 +1,38 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.player.fire": {
+      "loop": true,
+      "bones": {
+        "fire_root": {
+          // prevent rotation in paper doll and ui players
+          "rotation": [ 0.0, "(query.is_in_ui ? 0.0 : query.camera_rotation(1) - 180.0f) - query.body_y_rotation", 0.0 ]
+        },
+        "fire_1": {
+          "position": [ 0.0, 0.0, -4.5 ],
+          "scale": [ 0.875, 1.4125, 0.875 ]
+        },
+        "fire_2": {
+          "position": [ 0.0, 6.0, -3.9 ],
+          "scale": [ 0.8125, 1.365, 0.8125 ]
+        },
+        "fire_3": {
+          "position": [ 0.0, 12.0, -3.3 ],
+          "scale": [ 0.735, 1.335, 0.735 ]
+        },
+        "fire_4": {
+          "position": [ 0.0, 17.0, -2.7 ],
+          "scale": [ 0.6875, 1.275, 0.675 ]
+        },
+        "fire_5": {
+          "position": [ 0.0, 21.5, -2.1 ],
+          "scale": [ 0.625, 1.25, 0.625 ]
+        },
+        "fire_6": {
+          "position": [ 0.0, 25.5, -1.5 ],
+          "scale": [ 0.575, 1.225, 0.575 ]
+        }
+      }
+    }
+  }
+}

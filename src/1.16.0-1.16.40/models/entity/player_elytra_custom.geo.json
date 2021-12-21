@@ -1,0 +1,41 @@
+{
+  "format_version": "1.12.0",
+  "minecraft:geometry": [
+    {
+      "description": {
+        "identifier": "geometry.player_elytra_custom",
+        "texture_width": 64,
+        "texture_height": 32,
+        "visible_bounds_width": 3,
+        "visible_bounds_height": 4,
+        "visible_bounds_offset": [0, 2, 0]
+      },
+      "bones": [
+        { "name": "root", "pivot": [0, 0, 0] },
+        { "name": "waist", "parent": "root", "pivot": [0, 12, 0] },
+        { "name": "body", "parent": "waist", "pivot": [0, 24, 0] },
+        { "name": "body_custom", "parent": "body", "pivot": [0, 24, 0] },
+        { "name": "left_wing", "parent": "body_custom", "pivot": [0, 24, 0], "cubes": [ {"origin": [-10, 0, 0], "size": [10, 20, 2], "uv": [22, 0]} ] },
+        { "name": "right_wing", "parent": "body_custom", "pivot": [0, 24, 0], "mirror": true, "cubes": [ {"origin": [0, 0, 0], "size": [10, 20, 2], "uv": [22, 0]} ] }
+      ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.player_elytra_custom_hurt",
+        "texture_width": 64,
+        "texture_height": 32,
+        "visible_bounds_width": 3,
+        "visible_bounds_height": 4,
+        "visible_bounds_offset": [0, 2, 0]
+      },
+      "bones": [
+        { "name": "root", "pivot": [0, 0, 0] },
+        { "name": "waist", "parent": "root", "pivot": [0, 12, 0] },
+        { "name": "body", "parent": "waist", "pivot": [0, 24, 0] },
+        { "name": "body_custom", "parent": "body", "pivot": [0, 24, 0] },
+        { "name": "left_wing_custom", "parent": "body_custom", "pivot": [0, 24, 0], "cubes": [ {"origin": [-10, 0, 0], "size": [10, 20, 2], "uv": [22, 0]} ] },
+        { "name": "right_wing_custom", "parent": "body_custom", "pivot": [0, 24, 0], "mirror": true, "cubes": [ {"origin": [0, 0, 0], "size": [10, 20, 2], "uv": [22, 0]} ] }
+      ]
+    }
+  ]
+}
