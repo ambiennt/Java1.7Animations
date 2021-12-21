@@ -1,0 +1,18 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.player.fire": {
+      "geometry": "geometry.player_fire",
+      "materials": [ { "*": "material.ambient_uv" } ],
+      "textures": [ "texture.fire" ],
+      "uv_anim": {
+        "offset": [ 0.0, "math.mod(math.floor(query.life_time * 20), 16) / 32" ], // show first 16 frames in 1 second
+        "scale": [ 1.0, 1.0 ]
+      },
+      "is_hurt_color": {},
+      "on_fire_color": {},
+      "light_color_multiplier": 1.35,
+      "ignore_lighting": true
+    }
+  }
+}

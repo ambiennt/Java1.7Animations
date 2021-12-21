@@ -1,0 +1,51 @@
+{
+  "format_version": "1.10.0",
+  "animations": {
+    "animation.player.first_person.attack_rotation_spyglass" : {
+      "loop" : true,
+      "bones" : {
+        "rightitem": {
+          "position": [
+            0,
+            "((math.sin(math.pow(v.attack_time, 0.5) * 360) * 5.25) + (math.sin(math.pow(v.attack_time, 0.5) * 180) * 6.25)) * 0.5",
+            "(math.sin(math.pow(v.attack_time, 1.0) * 180) * 5.0) * 0.5"
+          ],
+          "rotation": [
+            "math.sin(math.pow(v.attack_time, 0.5) * 180) * -60.0",
+            "math.sin(math.pow(1 - v.attack_time, 2.5) * 180) * -30.0",
+            "math.sin(math.pow(v.attack_time, 0.5) * 180) * -30.0"
+          ]
+        }
+      }
+    },
+    "animation.player.scoping_spyglass" : {
+      "loop" : true,
+      "bones" : {
+        "rightarm" : {
+          "rotation" : [ "(q.target_x_rotation * 0.8) - 110 - this", "(q.target_y_rotation * 0.8) - 15 - this", "-this" ]
+        },
+        "rightarm_custom" : {
+          "rotation" : [ "(q.target_x_rotation * 0.8) - 110 - this", "(q.target_y_rotation * 0.8) - 15 - this", "-this" ]
+        }
+      }
+    },
+    "animation.spyglass.holding": {
+      "loop": true,
+      "bones": {
+        "spyglass": {
+          "position": [ "c.is_first_person ? 14.25 : -1.01", "c.is_first_person ? 34.25 + (c.owning_entity->v.short_arm_offset_right) : 20.0", "c.is_first_person ? 11.5 : -6.5" ],
+          "rotation": [ 0, "c.is_first_person ? 180.0 : 90.0", "c.is_first_person ? 90.0" ]
+        }
+      }
+    },
+    "animation.spyglass.scoping": { // 3rd person
+      "loop": true,
+      "bones": {
+        "spyglass": {
+          "position": [ -1.0, 27.0, -3.0 ],
+          "rotation": [ 0.0, -90.0, 0.0 ]
+        }
+      }
+    }
+  }
+}

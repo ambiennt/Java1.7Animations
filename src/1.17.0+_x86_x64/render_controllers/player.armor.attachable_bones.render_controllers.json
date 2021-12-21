@@ -1,0 +1,32 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.player.armor.attachable_bones": {
+      "geometry": "geometry.player_armor_custom",
+      "materials": [ { "*": "material.default" } ],
+      "textures": [ "texture.default" ],
+      "part_visibility": [
+        { "*": false }
+      ]
+    },
+    "controller.render.player.armor.attachable_bones_elytra": {
+      "geometry": "geometry.player_elytra_custom",
+      "materials": [ { "*": "material.default" } ],
+      "textures": [ "texture.default" ],
+      "part_visibility": [
+        { "*": false }
+      ]
+    },
+    "controller.render.player.armor.attachable_bones_leggings": {
+      "geometry": "geometry.player_armor_leggings_custom",
+      "materials": [ { "*": "material.default" } ],
+      "textures": [ "texture.default" ],
+      "part_visibility": [
+        { "*": false }
+      ]
+    }
+  }
+}
+//just so the attachables recognize this geo as the parent
+//this way we can manipulate it from the player in response to
+//variables that live on the player, without affecting the "hurt" geo
