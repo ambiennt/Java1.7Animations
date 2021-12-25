@@ -50,7 +50,7 @@ struct PS_Output
 
 float4 glintBlend(float4 dest, float4 source) {
 	// glBlendFuncSeparate(GL_SRC_COLOR, GL_ONE, GL_ONE, GL_ZERO)
-	return float4(source.rgb * source.rgb, source.a) + float4(dest.rgb, 0.0);
+	return float4(source.rgb * source.rgb, abs(source.a)) + float4(dest.rgb, 0.0);
 }
 
 ROOT_SIGNATURE
