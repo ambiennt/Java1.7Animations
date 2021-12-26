@@ -40,7 +40,7 @@
 					"position" : [ 0.0, "query.get_root_locator_offset('armor_offset.default_neck', 1)", 0.0 ],
 					"rotation" : [
 						"math.clamp(-29.0 * (query.cape_flap_amount * 4.0) - (math.sin(variable.modified_distance_moved * 50.0) * 3.1 * (1.0 - variable.swim_amount)) - 5.0, -180.0, -7.4)",
-						"variable.relative_cape_rotation = (query.is_in_ui ? 0 : variable.modified_move_speed * (math.sqrt(variable.modified_move_speed) - query.cape_flap_amount) * math.sin(query.body_y_rotation - query.head_y_rotation(0))); return variable.relative_cape_rotation * 75.0;",
+						"variable.relative_cape_rotation = (query.is_in_ui ? 0 : variable.modified_move_speed * (math.sqrt(variable.modified_move_speed) - query.cape_flap_amount) * math.sin(query.body_y_rotation - query.head_y_rotation(0))); return variable.relative_cape_rotation * 60.0;",
 						"variable.relative_cape_rotation * -40.0"
 					]
 				}
