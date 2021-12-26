@@ -1,3 +1,5 @@
+// THIS SHADER WAS MODIFIED BY ambient#2309. DO NOT REUSE OR REDISTRIBUTE PUBLICLY WITHOUT PERMISSION!
+
 #include "ShaderConstants.fxh"
 
 struct VS_Input {
