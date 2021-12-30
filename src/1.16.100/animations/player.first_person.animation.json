@@ -131,6 +131,17 @@
 					"scale" : [ 0.4, 0.4, 0.4 ]
 				}
 			}
-		}
+		},
+    "animation.player.first_person.base_pose": { // necessary for the player root to rotate properly when riding entities
+      "loop": true,
+      "bones": {
+        "body": {
+          "rotation": [ "query.target_x_rotation", "query.target_y_rotation", 0.0 ]
+        },
+        "head": {
+          "rotation": [ "query.target_x_rotation", "query.target_y_rotation + 180", 0.0 ]
+        }
+      }
+    }
   }
 }
