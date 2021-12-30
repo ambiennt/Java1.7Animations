@@ -190,6 +190,7 @@
         "bob": "animation.player.bob",
         "sleeping": "animation.player.sleeping",
         "look_at_target": "controller.animation.humanoid.look_at_target", // this seems to not require a definition?
+        "first_person_base_pose": "animation.player.first_person.base_pose", // also doesnt require a definition but adding it anyway for legibility's sake
         "first_person_map_controller": "controller.animation.player.first_person_map",
         "crossbow_controller": "controller.animation.player.crossbow",
         "first_person_empty_hand": "animation.player.first_person.empty_hand",
