@@ -7,6 +7,7 @@
       "bones": {
         "body_attachable": { "scale": 0 },
         "head_attachable": { "scale": 0 },
+        "hat_attachable": { "scale": 0 },
         "rightarm_custom_attachable": { "scale": 0 },
         "leftarm_custom_attachable": { "scale": 0 },
         "rightleg_attachable": { "scale": 0 },
