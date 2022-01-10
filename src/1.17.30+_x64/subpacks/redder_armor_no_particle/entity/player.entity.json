@@ -68,7 +68,7 @@
       },
       "geometry": {
         "default": "geometry.humanoid.custom",
-        "cape": "geometry.cape",
+        "cape": "geometry.cape_custom",
         "player_armor_custom": "geometry.player_armor_custom",
         "player_armor_custom_hurt": "geometry.player_armor_custom_hurt",
         "player_armor_leggings_custom": "geometry.player_armor_leggings_custom",
@@ -120,7 +120,7 @@
         "pre_animation": [
           //bug: scoping spyglass in 1st person makes the new limb animation freeze, idk how to fix
           "variable.delta_time = (variable.is_first_person ? query.delta_time : query.last_frame_time(0));",
-          "variable.yaw_fix = variable.yaw_fix + ((variable.is_first_person || (query.life_time <= 1) || query.is_riding || query.is_gliding || query.is_swimming || query.can_damage_nearby_mobs) - variable.yaw_fix) * (1 - math.pow((1 - 0.8), variable.delta_time / 0.2));",
+          "variable.yaw_fix = variable.yaw_fix + ((variable.is_first_person || (query.life_time <= 1) || query.is_sleeping || query.is_riding || query.is_gliding || query.is_swimming || query.can_damage_nearby_mobs) - variable.yaw_fix) * (1 - math.pow((1 - 0.8), variable.delta_time / 0.2));",
           "temp.normalized_vertical_speed = math.clamp(math.pow(math.abs(query.position_delta(1) + 0.0784), 0.225) * 1.175, 0, 0.785); variable.vertical_speed = variable.vertical_speed + (temp.normalized_vertical_speed - variable.vertical_speed) * (1 - math.pow((1 - 0.85), variable.delta_time / 0.15));",
           "variable.raw_move_speed = math.clamp(math.sqrt(query.position_delta(0) * query.position_delta(0) * (1 - variable.vertical_speed) + query.position_delta(2) * query.position_delta(2) * (1 - variable.vertical_speed)) * 1.1224341224, 0, 0.1532167643) * 6.5267009427;",
           "variable.modified_move_speed = variable.modified_move_speed + (variable.raw_move_speed - variable.modified_move_speed) * (1 - math.pow((1 - 0.8), variable.delta_time / 0.2));",
@@ -146,7 +146,7 @@
           "hurt_time",
           //"hurt_particle_controller",
           { "elytra_controller": "query.armor_texture_slot(1) == 5" },
-          { "interpolated_yaw": "variable.is_local_player && (query.time_stamp > 0) && !query.is_in_ui && !query.is_riding && !query.is_gliding && !query.is_swimming && !query.can_damage_nearby_mobs" },
+          { "interpolated_yaw": "variable.is_local_player && (query.time_stamp > 0) && !query.is_in_ui && !query.is_sleeping && !query.is_riding && !query.is_gliding && !query.is_swimming && !query.can_damage_nearby_mobs" },
           { "disable_attachables": "(variable.hurt_time > 0.0f) && !query.is_invisible && !query.is_emoting" }
         ]
       },
@@ -221,7 +221,7 @@
         { "controller.render.player.first_person": "variable.is_first_person" },
         { "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon" },
         { "controller.render.player.map": "variable.map_face_icon" },
-        { "controller.render.player.cape": "!variable.is_first_person && !variable.map_face_icon && variable.is_local_player" },
+        { "controller.render.player.cape_custom": "!variable.is_first_person && !variable.map_face_icon && variable.is_local_player && query.armor_texture_slot(1) != 5" },
         { "controller.render.player.fire": "!variable.is_first_person && !variable.map_face_icon && query.is_alive && query.is_on_fire" },
         { "controller.render.player.armor.attachable_bones": "query.equipment_count > 0" },
         { "controller.render.player.armor.attachable_bones_elytra": "query.armor_texture_slot(1) == 5" },
