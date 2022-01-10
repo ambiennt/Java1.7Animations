@@ -1,13 +1,10 @@
 {
   "format_version": "1.8.0",
   "render_controllers": {
-    "controller.render.player.cape": {
+    "controller.render.player.cape_custom": {
       "geometry": "geometry.cape",
       "materials": [ { "*": "material.default" } ],
       "textures": [ "texture.cape" ],
-      "part_visibility": [
-        { "cape": "query.armor_texture_slot(1) != 5 && !variable.map_face_icon && (!variable.is_first_person || variable.is_paperdoll)" }
-      ],
       "is_hurt_color":{},
       "on_fire_color":{}
     }
