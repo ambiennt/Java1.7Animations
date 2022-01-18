@@ -1,8 +1,8 @@
 {
   "format_version": "1.8.0",
   "render_controllers": {
-    "controller.render.player.fire": {
-      "geometry": "geometry.player_fire",
+    "controller.render.projectile.fire": {
+      "geometry": "geometry.fire",
       "materials": [ { "*": "material.ambient_uv" } ],
       "textures": [ "texture.fire" ],
       "uv_anim": {

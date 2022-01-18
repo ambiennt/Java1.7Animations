@@ -30,6 +30,46 @@
           ]
         }
       ]
+    },
+    {
+      "description": {
+        "identifier": "geometry.cape_custom_emote",
+        "texture_width": 64,
+        "texture_height": 32,
+        "visible_bounds_width": 2,
+        "visible_bounds_height": 1.5,
+        "visible_bounds_offset": [0, 0.25, 0]
+      },
+      "bones": [
+        {
+          "name": "root",
+          "pivot": [ 0.0, 0.0, 0.0 ]
+        },
+        {
+          "name": "waist",
+          "parent": "root",
+          "pivot": [ 0.0, 12.0, 0.0 ]
+        },
+        {
+          "name": "body",
+          "parent": "waist",
+          "pivot": [ 0.0, 24.0, 0.0 ]
+        },
+        {
+          "name": "cape",
+          "parent": "body",
+          "pivot": [ 0.0, 24.0, 2.0 ],
+          "bind_pose_rotation": [0.0, 180.0, 0.0],
+          "rotation": [0.0, 180.0, 0.0],
+          "cubes": [
+            {
+              "origin": [ -5.0, 8.0, 1.0 ],
+              "size": [ 10, 16, 1 ],
+              "uv": [ 0, 0 ]
+            }
+          ]
+        }
+      ]
     }
   ]
 }
