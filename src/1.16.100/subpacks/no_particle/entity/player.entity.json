@@ -69,6 +69,7 @@
       "geometry": {
         "default": "geometry.humanoid.custom",
         "cape": "geometry.cape_custom",
+        "cape_emote_fix": "geometry.cape_custom_emote",
         "player_armor_custom": "geometry.player_armor_custom",
         "player_armor_custom_hurt": "geometry.player_armor_custom_hurt",
         "player_armor_leggings_custom": "geometry.player_armor_leggings_custom",
