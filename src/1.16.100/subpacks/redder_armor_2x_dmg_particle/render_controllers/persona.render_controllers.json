@@ -75,7 +75,7 @@
         "r": 1.0,
         "g": "variable.hurt_time = query.life_time; return 0.0;",
         "b": 0.0,
-        "a": 0.5
+        "a": 0.6
       },
       "on_fire_color":{}
     },
@@ -102,7 +102,7 @@
         "r": 1.0,
         "g": "variable.hurt_time = query.life_time; return 0.0;",
         "b": 0.0,
-        "a": 0.5
+        "a": 0.6
       },
       "on_fire_color":{}
     },
@@ -129,7 +129,7 @@
         "r": 1.0,
         "g": "variable.hurt_time = query.life_time; return 0.0;",
         "b": 0.0,
-        "a": 0.5
+        "a": 0.6
       },
       "on_fire_color":{}
     },
@@ -152,7 +152,7 @@
         "r": 1.0,
         "g": "variable.hurt_time = query.life_time; return 0.0;",
         "b": 0.0,
-        "a": 0.5
+        "a": 0.6
       },
       "on_fire_color":{}
     }

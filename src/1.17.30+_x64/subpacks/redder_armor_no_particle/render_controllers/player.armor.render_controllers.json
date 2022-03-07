@@ -50,10 +50,10 @@
         "a": "query.armor_color_slot(0, 3)"
       },*/
       "is_hurt_color": {
-        "r": 0.75,
+        "r": 1.0,
         "g": 0.0,
         "b": 0.0,
-        "a": 0.6125
+        "a": 0.6
       },
       "on_fire_color": {}
       //"ignore_lighting": true
@@ -110,10 +110,10 @@
         "a": "query.armor_color_slot(1, 3)"
       },*/
       "is_hurt_color": {
-        "r": 0.75,
+        "r": 1.0,
         "g": 0.0,
         "b": 0.0,
-        "a": 0.6125
+        "a": 0.6
       },
       "on_fire_color": {}
       //"ignore_lighting": true
@@ -168,10 +168,10 @@
         "a": "query.armor_color_slot(2, 3)"
       },*/
       "is_hurt_color": {
-        "r": 0.75,
+        "r": 1.0,
         "g": 0.0,
         "b": 0.0,
-        "a": 0.6125
+        "a": 0.6
       },
       "on_fire_color": {}
       //"ignore_lighting": true
@@ -225,10 +225,10 @@
         "a": "query.armor_color_slot(3, 3)"
       },*/
       "is_hurt_color": {
-        "r": 0.75,
+        "r": 1.0,
         "g": 0.0,
         "b": 0.0,
-        "a": 0.6125
+        "a": 0.6
       },
       "on_fire_color": {}
       //"ignore_lighting": true
