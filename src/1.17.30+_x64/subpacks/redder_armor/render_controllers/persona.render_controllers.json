@@ -72,10 +72,10 @@
         { "belt": "variable.chest_layer_visible && variable.leg_layer_visible" }
       ],
       "is_hurt_color":{
-        "r": 1.0,
+        "r": 0.8,
         "g": "variable.hurt_time = query.life_time; return 0.0;",
         "b": 0.0,
-        "a": 0.6
+        "a": 0.625
       },
       "on_fire_color":{}
     },
@@ -99,10 +99,10 @@
         { "belt": "variable.chest_layer_visible && variable.leg_layer_visible" }
       ],
       "is_hurt_color":{
-        "r": 1.0,
+        "r": 0.8,
         "g": "variable.hurt_time = query.life_time; return 0.0;",
         "b": 0.0,
-        "a": 0.6
+        "a": 0.625
       },
       "on_fire_color":{}
     },
@@ -126,10 +126,10 @@
         { "belt": "variable.chest_layer_visible && variable.leg_layer_visible" }
       ],
       "is_hurt_color":{
-        "r": 1.0,
+        "r": 0.8,
         "g": "variable.hurt_time = query.life_time; return 0.0;",
         "b": 0.0,
-        "a": 0.6
+        "a": 0.625
       },
       "on_fire_color":{}
     },
@@ -149,10 +149,10 @@
         { "helmet": true }
       ],
       "is_hurt_color":{
-        "r": 1.0,
+        "r": 0.8,
         "g": "variable.hurt_time = query.life_time; return 0.0;",
         "b": 0.0,
-        "a": 0.6
+        "a": 0.625
       },
       "on_fire_color":{}
     }
