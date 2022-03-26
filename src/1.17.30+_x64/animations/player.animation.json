@@ -39,17 +39,17 @@
 				"ambient_cape" : {
 					"position" : [ 0.0, "query.get_root_locator_offset('armor_offset.default_neck', 1)", 0.0 ],
 					"rotation" : [
-						"temp.oscillation_amount = (query.is_sneaking ? 0 : math.sin(variable.modified_distance_moved * 55.0) * 3.0 * (1.0 - variable.swim_amount)); return query.is_sleeping ? 0 : math.clamp(-110.0 * query.cape_flap_amount - temp.oscillation_amount, -180.0, -6.0);",
-						"variable.relative_cape_rotation = ((query.is_in_ui || query.is_sleeping) ? 0 : variable.modified_move_speed * (math.sqrt(variable.modified_move_speed) - math.sqrt(query.cape_flap_amount)) * math.sin(query.body_y_rotation - query.head_y_rotation(0))); return variable.relative_cape_rotation * 60.0;",
-						"variable.relative_cape_rotation * -40.0"
+						"temp.oscillation_amount = (query.is_sneaking ? 0 : math.sin(variable.modified_distance_moved * 55.0) * 3.0 * (1.0 - variable.swim_amount) * variable.modified_move_speed); return ((query.time_stamp <= 0) ? -6.0 : (query.is_sleeping ? 0 : math.clamp((query.cape_flap_amount * -110.25) - temp.oscillation_amount - 0.75, -180.0, -1.5)));",
+						"variable.relative_cape_rotation = ((query.is_in_ui || query.is_sleeping) ? 0 : (variable.modified_move_speed * (math.sqrt(variable.modified_move_speed) - math.sqrt(query.cape_flap_amount)) * math.sin(query.body_y_rotation - query.head_y_rotation(0)))); return variable.relative_cape_rotation * 60.0;",
+						"variable.relative_cape_rotation * -45.0"
 					]
 				},
 				"cape" : {
 					"position" : [ 0.0, "query.get_root_locator_offset('armor_offset.default_neck', 1)", 0.0 ],
 					"rotation" : [
-						"temp.oscillation_amount = (query.is_sneaking ? 0 : math.sin(variable.modified_distance_moved * 55.0) * 3.0 * (1.0 - variable.swim_amount)); return query.is_sleeping ? 0 : math.clamp(-110.0 * query.cape_flap_amount - temp.oscillation_amount, -180.0, -6.0);",
-						"variable.relative_cape_rotation = ((query.is_in_ui || query.is_sleeping) ? 0 : variable.modified_move_speed * (math.sqrt(variable.modified_move_speed) - math.sqrt(query.cape_flap_amount)) * math.sin(query.body_y_rotation - query.head_y_rotation(0))); return variable.relative_cape_rotation * 60.0;",
-						"variable.relative_cape_rotation * -40.0"
+						"temp.oscillation_amount = (query.is_sneaking ? 0 : math.sin(variable.modified_distance_moved * 55.0) * 3.0 * (1.0 - variable.swim_amount) * variable.modified_move_speed); return ((query.time_stamp <= 0) ? -6.0 : (query.is_sleeping ? 0 : math.clamp((query.cape_flap_amount * -110.25) - temp.oscillation_amount - 0.75, -180.0, -1.5)));",
+						"variable.relative_cape_rotation * 60.0",
+						"variable.relative_cape_rotation * -45.0"
 					]
 				}
 			}
