@@ -51,7 +51,7 @@
         "a": "query.armor_color_slot(0, 3)"
       },*/
       "is_hurt_color": {
-        "r": "(query.armor_material_slot(0) == 1 || query.armor_material_slot(0) == 3) ? 0.525 : 0.5",
+        "r": "(query.armor_material_slot(0) == 1 || query.armor_material_slot(0) == 3) ? 0.55 : 0.525",
         "g": 0.0,
         "b": "(query.armor_material_slot(0) == 1 || query.armor_material_slot(0) == 3) ? math.sin(query.life_time * 540.0) * 0.05 + 0.175 : 0.0",
         "a": 0.6
@@ -112,7 +112,7 @@
         "a": "query.armor_color_slot(1, 3)"
       },*/
       "is_hurt_color": {
-        "r": "(query.armor_material_slot(1) == 1 || query.armor_material_slot(1) == 3) ? 0.525 : 0.5",
+        "r": "(query.armor_material_slot(1) == 1 || query.armor_material_slot(1) == 3) ? 0.55 : 0.525",
         "g": 0.0,
         "b": "(query.armor_material_slot(1) == 1 || query.armor_material_slot(1) == 3) ? math.sin(query.life_time * 540.0) * 0.05 + 0.175 : 0.0",
         "a": 0.6
@@ -171,7 +171,7 @@
         "a": "query.armor_color_slot(2, 3)"
       },*/
       "is_hurt_color": {
-        "r": "(query.armor_material_slot(2) == 1 || query.armor_material_slot(2) == 3) ? 0.525 : 0.5",
+        "r": "(query.armor_material_slot(2) == 1 || query.armor_material_slot(2) == 3) ? 0.55 : 0.525",
         "g": 0.0,
         "b": "(query.armor_material_slot(2) == 1 || query.armor_material_slot(2) == 3) ? math.sin(query.life_time * 540.0) * 0.05 + 0.175 : 0.0",
         "a": 0.6
@@ -229,7 +229,7 @@
         "a": "query.armor_color_slot(3, 3)"
       },*/
       "is_hurt_color": {
-        "r": "(query.armor_material_slot(3) == 1 || query.armor_material_slot(3) == 3) ? 0.525 : 0.5",
+        "r": "(query.armor_material_slot(3) == 1 || query.armor_material_slot(3) == 3) ? 0.55 : 0.525",
         "g": 0.0,
         "b": "(query.armor_material_slot(3) == 1 || query.armor_material_slot(3) == 3) ? math.sin(query.life_time * 540.0) * 0.05 + 0.175 : 0.0",
         "a": 0.6

@@ -1,0 +1,35 @@
+{
+  "format_version": "1.10.0",
+  "minecraft:client_entity": {
+    "description": {
+      "identifier": "minecraft:fishing_hook",
+      "materials": {
+        "default": "entity_alphatest"
+      },
+      "textures": {
+        "default": "textures/particle/particles"
+      },
+      "geometry": {
+        "default": "geometry.fishing_hook"
+      },
+      "animations": {
+        "flying": "animation.actor.billboard"
+        //"particle": "controller.animation.projectile_particle"
+      },
+      /*"particle_effects":{
+        "basic_crit": "minecraft:basic_crit_particle"
+      },*/
+      "scripts": {
+      	"scale": "2.0",
+        /*"initialize":[
+          "variable.life_time = 0.0;"
+        ],*/
+        "animate": [
+          "flying"
+          //{ "particle": "query.is_moving && (query.life_time > 0.05) && !query.is_on_ground && !query.is_sheared" } // for turtleuhc
+        ]
+      },
+      "render_controllers": [ "controller.render.fishing_hook" ]
+    }
+  }
+}
