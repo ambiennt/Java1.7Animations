@@ -170,11 +170,11 @@
         "elytra_sneaking": "animation.player_elytra_sneaking",
         "elytra_sleeping": "animation.player_elytra_sleeping",
         "elytra_swimming": "animation.player_elytra_swimming",
-        "attachable_elytra_default": "animation.attachable_elytra_default",
+        /*"attachable_elytra_default": "animation.attachable_elytra_default",
         "attachable_elytra_gliding": "animation.attachable_elytra_gliding",
         "attachable_elytra_sneaking": "animation.attachable_elytra_sneaking",
         "attachable_elytra_sleeping": "animation.attachable_elytra_sleeping",
-        "attachable_elytra_swimming": "animation.attachable_elytra_swimming",
+        "attachable_elytra_swimming": "animation.attachable_elytra_swimming",*/
         "swimming_controller": "controller.animation.player.swimming",
         "swimming_other": "animation.player.swim",
         "swimming_arms_easing": "animation.player.swim.arms_easing",

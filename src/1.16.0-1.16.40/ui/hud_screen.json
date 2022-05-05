@@ -10,17 +10,19 @@
       }
     ]
   },
-  //this is needed because we cannot rely on just "query.is_in_ui" to detect if the player is the local player.
-  //we must force a new dummy UI player in case end user has the paper doll turned off.
+
+  // this is needed because we cannot rely on just "query.is_in_ui" to detect if the player is the local player,
+  // we must force a new dummy UI player in case end user has the paper doll turned off
   "local_player": {
+    "type": "custom",
     "renderer": "live_player_renderer",
     "anchor_from": "center",
     "anchor_to": "center",
-    "layer": 2,
-    "type": "custom",
+    "layer": 100,
     "size": [ 0, 0 ],
     "offset": [ 0, 0 ]
   },
+
   "vignette_renderer": {
     "ignored": true
   },

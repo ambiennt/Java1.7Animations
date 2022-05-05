@@ -9,7 +9,7 @@
             // a side effect of including query.time_stamp <= 0 is that in the player list, the capes will show on all players
             // I decided that the benefits of local player detection working in the menus and pause screen outweighs this side effect
             // (for the sake of showing client-side capes)
-            { "is_local_player": "(query.is_in_ui || query.time_stamp <= 0 || variable.is_first_person) && !variable.map_face_icon" }
+            { "is_local_player": "(query.is_in_ui || (query.time_stamp <= 0) || variable.is_first_person) && !variable.map_face_icon" }
           ]
         },
         "is_local_player": {

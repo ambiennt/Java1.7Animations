@@ -72,7 +72,7 @@
         { "belt": "variable.chest_layer_visible && variable.leg_layer_visible" }
       ],
       "is_hurt_color":{
-        "r": 0.5,
+        "r": 0.525,
         "g": "variable.hurt_time = query.life_time; return 0.0;",
         "b": 0.0,
         "a": 0.6
@@ -99,7 +99,7 @@
         { "belt": "variable.chest_layer_visible && variable.leg_layer_visible" }
       ],
       "is_hurt_color":{
-        "r": 0.5,
+        "r": 0.525,
         "g": "variable.hurt_time = query.life_time; return 0.0;",
         "b": 0.0,
         "a": 0.6
@@ -126,7 +126,7 @@
         { "belt": "variable.chest_layer_visible && variable.leg_layer_visible" }
       ],
       "is_hurt_color":{
-        "r": 0.5,
+        "r": 0.525,
         "g": "variable.hurt_time = query.life_time; return 0.0;",
         "b": 0.0,
         "a": 0.6
@@ -149,7 +149,7 @@
         { "helmet": true }
       ],
       "is_hurt_color":{
-        "r": 0.5,
+        "r": 0.525,
         "g": "variable.hurt_time = query.life_time; return 0.0;",
         "b": 0.0,
         "a": 0.6
