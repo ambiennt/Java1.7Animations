@@ -3,6 +3,7 @@
   "minecraft:client_entity": {
     "description": {
       "identifier": "minecraft:player",
+      "min_engine_version": "1.8.0",
       "materials": {
         "default": "entity_alphatest",
         //"ambient_armor_leather": "armor_leather",
@@ -68,8 +69,7 @@
       },
       "geometry": {
         "default": "geometry.humanoid.custom",
-        "cape": "geometry.cape_custom",
-        "cape_emote_fix": "geometry.cape_custom_emote",
+        "cape": "geometry.cape",
         "player_armor_custom": "geometry.player_armor_custom",
         "player_armor_custom_hurt": "geometry.player_armor_custom_hurt",
         "player_armor_leggings_custom": "geometry.player_armor_leggings_custom",
@@ -222,7 +222,6 @@
         { "controller.render.player.first_person": "variable.is_first_person" },
         { "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon" },
         { "controller.render.player.map": "variable.map_face_icon" },
-        { "controller.render.player.cape_custom": "!variable.is_first_person && !variable.map_face_icon && variable.is_local_player && query.armor_texture_slot(1) != 5" },
         { "controller.render.player.fire": "!variable.is_first_person && !variable.map_face_icon && query.is_alive && query.is_on_fire" },
         { "controller.render.player.armor.attachable_bones": "query.equipment_count > 0" },
         { "controller.render.player.armor.attachable_bones_elytra": "query.armor_texture_slot(1) == 5" },
