@@ -46,7 +46,6 @@
           ],*/
           "animations":[
             "emit_hurt_particle"
-            //"hurt_limbs"
           ],
           "transitions": [
             { "default": "(query.life_time - variable.hurt_particle_time >= 0.5f) && query.is_alive" }

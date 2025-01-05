@@ -68,7 +68,8 @@
       },
       "geometry": {
         "default": "geometry.humanoid.custom",
-        "cape": "geometry.cape",
+        "cape": "geometry.cape_custom",
+        "cape_emote_fix": "geometry.cape_custom_emote",
 
         "player_armor_custom": "geometry.player_armor_custom",
         "player_armor_custom_hurt": "geometry.player_armor_custom_hurt",
@@ -100,7 +101,6 @@
           "variable.hurt_time = 0.0;",
           "variable.hurt_particle_time = 0.0;",
           "variable.previous_hurt_time = 0.0;",
-          "variable.relative_cape_rotation = 0.0;",
           "variable.delta_time = 0.0;",
           "variable.relative_head_yaw = 0.0;",
           "variable.new_relative_head_yaw = 0.0;",
@@ -118,15 +118,18 @@
           "v.is_local_player = 0.0;",
           "v.pos_delta_x = 0.0;",
           "v.pos_delta_y = 0.0;",
-          "v.pos_delta_z = 0.0;"
+          "v.pos_delta_z = 0.0;",
+          "v.relative_cape_rotation = 0.0;",
+          "v.is_in_menu = 0.0;"
         ],
         "pre_animation": [
           "v.has_entity_ctx = !q.is_in_ui && !v.is_paperdoll;",
           "v.is_local_player = v.has_entity_ctx && q.is_local_player;",
-          "v.pos_delta_x = v.has_entity_ctx ? query.position_delta(0) : 0.0;",
-          "v.pos_delta_y = v.has_entity_ctx ? query.position_delta(1) : 0.0;",
-          "v.pos_delta_z = v.has_entity_ctx ? query.position_delta(2) : 0.0;",
-          
+          "v.pos_delta_x = v.has_entity_ctx ? q.position_delta(0) : 0.0;",
+          "v.pos_delta_y = v.has_entity_ctx ? q.position_delta(1) : 0.0;",
+          "v.pos_delta_z = v.has_entity_ctx ? q.position_delta(2) : 0.0;",
+          "v.is_in_menu = (q.time_stamp <= 0);",
+
           //bug: scoping spyglass in 1st person makes the new limb animation freeze, idk how to fix
           "variable.delta_time = (variable.is_first_person ? query.delta_time : query.last_frame_time(0));",
           "variable.yaw_fix = variable.yaw_fix + ((variable.is_first_person || (query.life_time <= 1) || query.is_sleeping || query.is_riding || query.is_gliding || query.is_swimming || query.can_damage_nearby_mobs) - variable.yaw_fix) * (1 - math.pow((1 - 0.8), variable.delta_time / 0.2));",
@@ -138,6 +141,7 @@
           "temp.r = v.has_entity_ctx ? math.round(query.armor_color_slot(1, 0) * 255) : 0; temp.g = v.has_entity_ctx ? math.round(query.armor_color_slot(1, 1) * 255) : 0; variable.leather_armor_chestplate_color_index = ((temp.r == 160) ? 0 : ((temp.r == 176) ? 1 : (((temp.r == 249) && (temp.g == 128)) ? 2 : ((temp.r == 254) ? 3 : ((temp.r == 128) ? 4 : ((temp.r == 94) ? 5 : ((temp.r == 58) ? 6 : ((temp.r == 22) ? 7 : ((temp.r == 60) ? 8 : ((temp.r == 137) ? 9 : ((temp.r == 199) ? 10 : ((temp.r == 243) ? 11 : (((temp.r == 240) && (temp.g == 240)) ? 12 : ((temp.r == 157) ? 13 : ((temp.r == 71) ? 14 : ((temp.r == 29) ? 15 : ((temp.r == 131) ? 16 : 0)))))))))))))))));",
           "temp.r = v.has_entity_ctx ? math.round(query.armor_color_slot(2, 0) * 255) : 0; temp.g = v.has_entity_ctx ? math.round(query.armor_color_slot(2, 1) * 255) : 0; variable.leather_armor_leggings_color_index = ((temp.r == 160) ? 0 : ((temp.r == 176) ? 1 : (((temp.r == 249) && (temp.g == 128)) ? 2 : ((temp.r == 254) ? 3 : ((temp.r == 128) ? 4 : ((temp.r == 94) ? 5 : ((temp.r == 58) ? 6 : ((temp.r == 22) ? 7 : ((temp.r == 60) ? 8 : ((temp.r == 137) ? 9 : ((temp.r == 199) ? 10 : ((temp.r == 243) ? 11 : (((temp.r == 240) && (temp.g == 240)) ? 12 : ((temp.r == 157) ? 13 : ((temp.r == 71) ? 14 : ((temp.r == 29) ? 15 : ((temp.r == 131) ? 16 : 0)))))))))))))))));",
           "temp.r = v.has_entity_ctx ? math.round(query.armor_color_slot(3, 0) * 255) : 0; temp.g = v.has_entity_ctx ? math.round(query.armor_color_slot(3, 1) * 255) : 0; variable.leather_armor_boots_color_index = ((temp.r == 160) ? 0 : ((temp.r == 176) ? 1 : (((temp.r == 249) && (temp.g == 128)) ? 2 : ((temp.r == 254) ? 3 : ((temp.r == 128) ? 4 : ((temp.r == 94) ? 5 : ((temp.r == 58) ? 6 : ((temp.r == 22) ? 7 : ((temp.r == 60) ? 8 : ((temp.r == 137) ? 9 : ((temp.r == 199) ? 10 : ((temp.r == 243) ? 11 : (((temp.r == 240) && (temp.g == 240)) ? 12 : ((temp.r == 157) ? 13 : ((temp.r == 71) ? 14 : ((temp.r == 29) ? 15 : ((temp.r == 131) ? 16 : 0)))))))))))))))));",
+          "v.relative_cape_rotation = ((v.is_paperdoll || q.is_sleeping) ? 0 : (v.modified_move_speed * (math.sqrt(v.modified_move_speed) - math.sqrt(q.cape_flap_amount)) * math.sin(q.body_y_rotation - q.head_y_rotation(0))));",
 
           "variable.tcos0 = (math.cos((v.is_local_player ? variable.modified_distance_moved : query.modified_distance_moved) * 38.1971863421) * (v.is_local_player ? variable.modified_move_speed : query.modified_move_speed) / variable.gliding_speed_value) * 57.2957795131;",
           "variable.attack_body_rot_y = math.sin(math.sqrt(variable.attack_time) * 360) * 11.4591559026;",
@@ -158,7 +162,7 @@
         ]
       },
       "particle_effects":{
-      	"hurt": "ambient:hurt"
+        "hurt": "ambient:hurt"
       },
       "animations": {
         "disable_attachables": "animation.player.disable_attachables",
@@ -251,6 +255,8 @@
         { "controller.render.player.first_person": "variable.is_first_person" },
         { "controller.render.player.third_person": "!variable.is_first_person && !variable.map_face_icon" },
         { "controller.render.player.map": "variable.map_face_icon" },
+
+        { "controller.render.player.cape_custom": "!v.is_first_person && !v.map_face_icon" },
         { "controller.render.player.fire": "!variable.is_first_person && !variable.map_face_icon && query.is_alive && query.is_on_fire" },
         { "controller.render.player.armor.attachable_bones": "query.equipment_count > 0" },
         { "controller.render.player.armor.attachable_bones_elytra": "query.armor_texture_slot(1) == 5" },

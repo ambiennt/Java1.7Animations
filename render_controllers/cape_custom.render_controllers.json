@@ -1,0 +1,17 @@
+{
+  "format_version": "1.8.0",
+  "render_controllers": {
+    "controller.render.player.cape_custom": {
+      // because emotes have hardcoded animations so we need to parent to the body bone to inherit animations
+      "geometry": "q.is_emoting ? geometry.cape_emote_fix : geometry.cape",
+      "materials": [ { "*": "material.default" } ],
+      "textures": [ "texture.cape" ],
+      "part_visibility": [
+        { "cape": "q.is_emoting && (q.armor_texture_slot(1) != 5) && (!v.is_first_person || v.is_paperdoll) && !v.map_face_icon && !q.is_spectator" },
+        { "cape_custom": "!q.is_emoting && (q.armor_texture_slot(1) != 5) && (!v.is_first_person || v.is_paperdoll) && !v.map_face_icon && !q.is_spectator" }
+      ],
+      "is_hurt_color":{},
+      "on_fire_color":{}
+    }
+  }
+}
