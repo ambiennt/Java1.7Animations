@@ -7,6 +7,13 @@
         "where": {
           "binding_name": "#item_pickup_time"
         }
+      },
+      {
+        "array_name": "bindings",
+        "operation": "remove",
+        "where": {
+          "binding_name": "#fade_in_icon_time_seconds"
+        }
       }
     ]
   },
