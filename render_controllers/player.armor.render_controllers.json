@@ -5,7 +5,7 @@
       "arrays": {
         "textures": {
           "array.armor_texture": [
-            "texture.leather_default", // pad array
+            "texture.leather",
             "texture.chain",
             "texture.iron",
             "texture.diamond",
@@ -13,56 +13,36 @@
             "texture.elytra", // pad array
             "texture.turtle",
             "texture.netherite"
-          ],
-          "array.leather_armor_color_index": [
-            "texture.leather_default",
-            "texture.leather_red",
-            "texture.leather_orange",
-            "texture.leather_yellow",
-            "texture.leather_lime",
-            "texture.leather_green",
-            "texture.leather_light_blue",
-            "texture.leather_cyan",
-            "texture.leather_blue",
-            "texture.leather_purple",
-            "texture.leather_magenta",
-            "texture.leather_pink",
-            "texture.leather_white",
-            "texture.leather_light_gray",
-            "texture.leather_gray",
-            "texture.leather_black",
-            "texture.leather_brown"
           ]
         }
       },
       "geometry": "geometry.player_armor_custom_hurt",
-      "materials": [ {"*": "material.default" } ],
-      "textures": [ "(query.armor_texture_slot(0) == 0) ? array.leather_armor_color_index[variable.leather_armor_helmet_color_index] : array.armor_texture[query.armor_texture_slot(0)]" ],
+      "materials": [ {"*": "(q.armor_texture_slot(0) == 0) ? material.ambient_armor_leather : material.ambient_armor" } ],
+      "textures": [ "array.armor_texture[q.armor_texture_slot(0)]" ],
       "part_visibility": [
         { "*": false },
-        { "head": "query.has_armor_slot(0)" },
-        { "hat": "query.has_armor_slot(0)" }
+        { "head": "q.has_armor_slot(0)" },
+        { "hat": "q.has_armor_slot(0)" }
       ],
-      /*"color": {
-        "r": "query.armor_color_slot(0, 0)",
-        "g": "query.armor_color_slot(0, 1)",
-        "b": "query.armor_color_slot(0, 2)",
-        "a": "query.armor_color_slot(0, 3)"
-      },*/
+      "color": {
+        "r": "q.armor_color_slot(0, 0)",
+        "g": "q.armor_color_slot(0, 1)",
+        "b": "q.armor_color_slot(0, 2)",
+        "a": "q.armor_color_slot(0, 3)"
+      },
       "is_hurt_color": {
-        "r": "(query.armor_material_slot(0) == 1 || query.armor_material_slot(0) == 3) ? 0.55 : 0.525",
+        "r": "(q.armor_material_slot(0) == 1 || q.armor_material_slot(0) == 3) ? 0.55 : 0.525",
         "g": 0.0,
-        "b": "(query.armor_material_slot(0) == 1 || query.armor_material_slot(0) == 3) ? math.sin(query.life_time * 540.0) * 0.05 + 0.175 : 0.0",
+        "b": "(q.armor_material_slot(0) == 1 || q.armor_material_slot(0) == 3) ? math.sin(q.life_time * 540.0) * 0.05 + 0.175 : 0.0",
         "a": 0.6
       },
       "on_fire_color": {}
-      //"ignore_lighting": true
     },
     "controller.render.player.armor.chestplate": {
       "arrays": {
         "textures": {
           "array.armor_texture": [
-            "texture.leather_default",
+            "texture.leather",
             "texture.chain",
             "texture.iron",
             "texture.diamond",
@@ -70,117 +50,77 @@
             "texture.elytra",
             "texture.turtle", // pad array
             "texture.netherite"
-          ],
-          "array.leather_armor_color_index": [
-            "texture.leather_default",
-            "texture.leather_red",
-            "texture.leather_orange",
-            "texture.leather_yellow",
-            "texture.leather_lime",
-            "texture.leather_green",
-            "texture.leather_light_blue",
-            "texture.leather_cyan",
-            "texture.leather_blue",
-            "texture.leather_purple",
-            "texture.leather_magenta",
-            "texture.leather_pink",
-            "texture.leather_white",
-            "texture.leather_light_gray",
-            "texture.leather_gray",
-            "texture.leather_black",
-            "texture.leather_brown"
           ]
         }
       },
-      "geometry": "(query.armor_texture_slot(1) == 5) ? geometry.player_elytra_custom_hurt : geometry.player_armor_custom_hurt",
-      "materials": [ {"*": "material.default" } ],
-      "textures": [ "(query.armor_texture_slot(1) == 0) ? array.leather_armor_color_index[variable.leather_armor_chestplate_color_index] : array.armor_texture[query.armor_texture_slot(1)]" ],
+      "geometry": "(q.armor_texture_slot(1) == 5) ? geometry.player_elytra_custom_hurt : geometry.player_armor_custom_hurt",
+      "materials": [ {"*": "(q.armor_texture_slot(1) == 0) ? material.ambient_armor_leather : material.ambient_armor" } ],
+      "textures": [ "array.armor_texture[q.armor_texture_slot(1)]" ],
       "part_visibility": [
         { "*": false },
-        { "body": "query.has_armor_slot(1)" },
-        { "leftarm_custom": "query.has_armor_slot(1) && (query.armor_texture_slot(1) != 5)" },
-        { "rightarm_custom": "query.has_armor_slot(1) && (query.armor_texture_slot(1) != 5)" },
-        { "left_wing_custom": "query.armor_texture_slot(1) == 5" },
-        { "right_wing_custom": "query.armor_texture_slot(1) == 5" }
+        { "body": "q.has_armor_slot(1)" },
+        { "leftarm_custom": "q.has_armor_slot(1) && (q.armor_texture_slot(1) != 5)" },
+        { "rightarm_custom": "q.has_armor_slot(1) && (q.armor_texture_slot(1) != 5)" },
+        { "left_wing_custom": "q.armor_texture_slot(1) == 5" },
+        { "right_wing_custom": "q.armor_texture_slot(1) == 5" }
       ],
-      /*"color": {
-        "r": "query.armor_color_slot(1, 0)",
-        "g": "query.armor_color_slot(1, 1)",
-        "b": "query.armor_color_slot(1, 2)",
-        "a": "query.armor_color_slot(1, 3)"
-      },*/
+      "color": {
+        "r": "q.armor_color_slot(1, 0)",
+        "g": "q.armor_color_slot(1, 1)",
+        "b": "q.armor_color_slot(1, 2)",
+        "a": "q.armor_color_slot(1, 3)"
+      },
       "is_hurt_color": {
-        "r": "(query.armor_material_slot(1) == 1 || query.armor_material_slot(1) == 3) ? 0.55 : 0.525",
+        "r": "(q.armor_material_slot(1) == 1 || q.armor_material_slot(1) == 3) ? 0.55 : 0.525",
         "g": 0.0,
-        "b": "(query.armor_material_slot(1) == 1 || query.armor_material_slot(1) == 3) ? math.sin(query.life_time * 540.0) * 0.05 + 0.175 : 0.0",
+        "b": "(q.armor_material_slot(1) == 1 || q.armor_material_slot(1) == 3) ? math.sin(q.life_time * 540.0) * 0.05 + 0.175 : 0.0",
         "a": 0.6
       },
       "on_fire_color": {}
-      //"ignore_lighting": true
     },
     "controller.render.player.armor.leggings": {
       "arrays": {
         "textures": {
           "array.armor_texture": [
-            "texture.leather_leggings_default",
+            "texture.leather_leggings",
             "texture.chain_leggings",
             "texture.iron_leggings",
             "texture.diamond_leggings",
             "texture.gold_leggings",
-            "texture.elytra",
-            "texture.turtle",
+            "texture.elytra", // pad array
+            "texture.turtle", // pad array
             "texture.netherite_leggings"
-          ],
-          "array.leather_armor_color_index": [
-            "texture.leather_leggings_default",
-            "texture.leather_leggings_red",
-            "texture.leather_leggings_orange",
-            "texture.leather_leggings_yellow",
-            "texture.leather_leggings_lime",
-            "texture.leather_leggings_green",
-            "texture.leather_leggings_light_blue",
-            "texture.leather_leggings_cyan",
-            "texture.leather_leggings_blue",
-            "texture.leather_leggings_purple",
-            "texture.leather_leggings_magenta",
-            "texture.leather_leggings_pink",
-            "texture.leather_leggings_white",
-            "texture.leather_leggings_light_gray",
-            "texture.leather_leggings_gray",
-            "texture.leather_leggings_black",
-            "texture.leather_leggings_brown"
           ]
         }
       },
       "geometry": "geometry.player_armor_leggings_custom_hurt",
-      "materials": [ {"*": "material.default" } ],
-      "textures": [ "(query.armor_texture_slot(2) == 0) ? array.leather_armor_color_index[variable.leather_armor_leggings_color_index] : array.armor_texture[query.armor_texture_slot(2)]" ],
+      "materials": [ {"*": "(q.armor_texture_slot(2) == 0) ? material.ambient_armor_leather : material.ambient_armor" } ],
+      "textures": [ "array.armor_texture[q.armor_texture_slot(2)]" ],
       "part_visibility": [
         { "*": false },
-        { "body": "query.has_armor_slot(2)" },
-        { "leftleg": "query.has_armor_slot(2)" },
-        { "rightleg": "query.has_armor_slot(2)" }
+        { "body": "q.has_armor_slot(2)" },
+        { "leftleg": "q.has_armor_slot(2)" },
+        { "rightleg": "q.has_armor_slot(2)" }
       ],
-      /*"color": {
-        "r": "query.armor_color_slot(2, 0)",
-        "g": "query.armor_color_slot(2, 1)",
-        "b": "query.armor_color_slot(2, 2)",
-        "a": "query.armor_color_slot(2, 3)"
-      },*/
+      "color": {
+        "r": "q.armor_color_slot(2, 0)",
+        "g": "q.armor_color_slot(2, 1)",
+        "b": "q.armor_color_slot(2, 2)",
+        "a": "q.armor_color_slot(2, 3)"
+      },
       "is_hurt_color": {
-        "r": "(query.armor_material_slot(2) == 1 || query.armor_material_slot(2) == 3) ? 0.55 : 0.525",
+        "r": "(q.armor_material_slot(2) == 1 || q.armor_material_slot(2) == 3) ? 0.55 : 0.525",
         "g": 0.0,
-        "b": "(query.armor_material_slot(2) == 1 || query.armor_material_slot(2) == 3) ? math.sin(query.life_time * 540.0) * 0.05 + 0.175 : 0.0",
+        "b": "(q.armor_material_slot(2) == 1 || q.armor_material_slot(2) == 3) ? math.sin(q.life_time * 540.0) * 0.05 + 0.175 : 0.0",
         "a": 0.6
       },
       "on_fire_color": {}
-      //"ignore_lighting": true
     },
     "controller.render.player.armor.boots": {
       "arrays": {
         "textures": {
           "array.armor_texture": [
-            "texture.leather_default",
+            "texture.leather",
             "texture.chain",
             "texture.iron",
             "texture.diamond",
@@ -188,78 +128,30 @@
             "texture.elytra",
             "texture.turtle",
             "texture.netherite"
-          ],
-          "array.leather_armor_color_index": [
-            "texture.leather_default",
-            "texture.leather_red",
-            "texture.leather_orange",
-            "texture.leather_yellow",
-            "texture.leather_lime",
-            "texture.leather_green",
-            "texture.leather_light_blue",
-            "texture.leather_cyan",
-            "texture.leather_blue",
-            "texture.leather_purple",
-            "texture.leather_magenta",
-            "texture.leather_pink",
-            "texture.leather_white",
-            "texture.leather_light_gray",
-            "texture.leather_gray",
-            "texture.leather_black",
-            "texture.leather_brown"
           ]
         }
       },
       "geometry": "geometry.player_armor_custom_hurt",
-      "materials": [ {"*": "material.default" } ],
-      "textures": [ "(query.armor_texture_slot(3) == 0) ? array.leather_armor_color_index[variable.leather_armor_boots_color_index] : array.armor_texture[query.armor_texture_slot(3)]" ],
+      "materials": [ {"*": "(q.armor_texture_slot(3) == 0) ? material.ambient_armor_leather : material.ambient_armor" } ],
+      "textures": [ "array.armor_texture[q.armor_texture_slot(3)]" ],
       "part_visibility": [
         { "*": false },
-        { "leftleg": "query.has_armor_slot(3)" },
-        { "rightleg": "query.has_armor_slot(3)" }
+        { "leftleg": "q.has_armor_slot(3)" },
+        { "rightleg": "q.has_armor_slot(3)" }
       ],
-      /*"color": {
-        "r": "query.armor_color_slot(3, 0)",
-        "g": "query.armor_color_slot(3, 1)",
-        "b": "query.armor_color_slot(3, 2)",
-        "a": "query.armor_color_slot(3, 3)"
-      },*/
+      "color": {
+        "r": "q.armor_color_slot(3, 0)",
+        "g": "q.armor_color_slot(3, 1)",
+        "b": "q.armor_color_slot(3, 2)",
+        "a": "q.armor_color_slot(3, 3)"
+      },
       "is_hurt_color": {
-        "r": "(query.armor_material_slot(3) == 1 || query.armor_material_slot(3) == 3) ? 0.55 : 0.525",
+        "r": "(q.armor_material_slot(3) == 1 || q.armor_material_slot(3) == 3) ? 0.55 : 0.525",
         "g": 0.0,
-        "b": "(query.armor_material_slot(3) == 1 || query.armor_material_slot(3) == 3) ? math.sin(query.life_time * 540.0) * 0.05 + 0.175 : 0.0",
+        "b": "(q.armor_material_slot(3) == 1 || q.armor_material_slot(3) == 3) ? math.sin(q.life_time * 540.0) * 0.05 + 0.175 : 0.0",
         "a": 0.6
       },
       "on_fire_color": {}
-      //"ignore_lighting": true
     }
   }
 }
-
-
-// LEATHER ARMOR RGBA VALUES:
-
-// default: 10511680 (A06540) (160, 101, 64)
-// red: 11546150 (B02E26) (176, 46, 38)
-// orange: 16351261 (F9801D) (249, 128, 29)
-// yellow: 16701501 (FED83D) (254, 216, 61)
-// lime: 8439583 (80C71F) (128, 199, 31)
-// green: 6192150 (5E7C16) (94, 124, 22)
-// light_blue: 3847130 (3AB3DA) (58, 179, 218)
-// cyan: 1481884 (169C9C) (22, 156, 156)
-// blue: 3949738 (3C44AA) (60, 68, 170)
-// purple: 8991416 (8932B8) (137, 50, 184)
-// magenta: 13061821 (C74EBD) (199, 78, 189)
-// pink: 15961002 (F38BAA) (243, 139, 170)
-// white (JAVA): 16383998 (F9FFFE) (249, 255, 254)
-// white (BEDROCK): 15790320 (F0F0F0) (240, 240, 240)
-// light_gray: 10329495 (9D9D97) (157, 157, 151)
-// gray: 4673362 (474F52) (71, 79, 82)
-// black: 1908001 (1D1D21) (29, 29, 33)
-// brown: 8606770 (835432) (131, 84, 50)
-
-// https://www.digminecraft.com/lists/dyed_armor_color_list_pc.php
-// colors must be added to white template texture in multiply mode
-// also add the brown layer on undyed parts in each texture
-
-// made by ambient#2309 - do not reuse publicly without permission!

@@ -15,7 +15,10 @@
       //to prevent flickering in paper doll
       //the cause of this problem has something to do with paper doll framerate being locked
       "is_hurt_color":{
-        "a": "variable.hurt_time = query.life_time; return 0.0;"
+        "r": "v.hurt_time = q.life_time; return 0.0;",
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
       },
       "on_fire_color":{}
     },
@@ -23,16 +26,9 @@
       "geometry": "geometry.default",
       "materials": [ { "*": "material.default" } ],
       "textures": [ "texture.default" ],
-      "is_hurt_color":{
-        "r": 0.525,
-        "g": "variable.hurt_time = query.life_time; return 0.0;",
-        "b": 0.0,
-        "a": 0.6
-      },
-      "on_fire_color":{},
       "part_visibility": [
         { "*": true },
-        { "helmet": "variable.helmet_layer_visible" },
+        { "helmet": "variable.helmet_layer_visible && !query.has_head_gear" },
         { "leftLegging": "variable.leg_layer_visible" },
         { "rightLegging": "variable.leg_layer_visible" },
         { "leftBoot": "variable.boot_layer_visible" },
@@ -43,21 +39,67 @@
         { "leftArmArmor": "variable.chest_layer_visible && !query.has_cape" },
         { "rightArmArmor": "variable.chest_layer_visible && !query.has_cape" },
         { "belt": "variable.chest_layer_visible && variable.leg_layer_visible" }
-      ]
+      ],
+      "is_hurt_color":{
+        "r": "v.hurt_time = q.life_time; return 0.525;",
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.6
+      },
+      "on_fire_color":{}
     },
-    "controller.render.player.map": {
-      "geometry": "geometry.default",
-      "materials": [ { "*": "material.default" } ],
-      "textures": [ "texture.default" ],
+    "controller.render.player.first_person_spectator": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ],
+      "part_visibility": [
+        { "*": false }
+      ],
+      "is_hurt_color":{
+        "r": "v.hurt_time = q.life_time; return 0.0;",
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "on_fire_color":{}
+    },
+    "controller.render.player.third_person_spectator": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.spectator" } ],
+      "textures": [ "Texture.default" ],
       "part_visibility": [
         { "*": false },
         { "head": true },
         { "hat": true },
-        { "helmet": true }
+        { "helmet": "variable.helmet_layer_visible && !query.has_head_gear" }
       ],
       "is_hurt_color":{
-        "r": 0.525,
-        "g": "variable.hurt_time = query.life_time; return 0.0;",
+        "r": "v.hurt_time = q.life_time; return 0.0;",
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "on_fire_color":{},
+      "color": {
+        "r": "1.0f",
+        "g": "1.0f",
+        "b": "1.0f",
+        "a": "0.3f"
+      }
+    },
+    "controller.render.player.map": {
+      "geometry": "Geometry.default",
+      "materials": [ { "*": "Material.default" } ],
+      "textures": [ "Texture.default" ],
+      "part_visibility": [
+        { "*": false },
+        { "head": true },
+        { "hat": true },
+        { "helmet": "!query.has_head_gear" }
+      ],
+      "is_hurt_color":{
+        "r": "v.hurt_time = q.life_time; return 0.525;",
+        "g": 0.0,
         "b": 0.0,
         "a": 0.6
       },

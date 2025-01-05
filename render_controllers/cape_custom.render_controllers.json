@@ -7,8 +7,8 @@
       "materials": [ { "*": "material.default" } ],
       "textures": [ "texture.cape" ],
       "part_visibility": [
-        { "cape": "q.is_emoting && (q.armor_texture_slot(1) != 5) && (!v.is_first_person || v.is_paperdoll) && !v.map_face_icon && !q.is_spectator" },
-        { "cape_custom": "!q.is_emoting && (q.armor_texture_slot(1) != 5) && (!v.is_first_person || v.is_paperdoll) && !v.map_face_icon && !q.is_spectator" }
+        { "cape": "q.is_emoting && (q.armor_texture_slot(1) != 5)" },
+        { "ambient_cape": "!q.is_emoting && (q.armor_texture_slot(1) != 5)" }
       ],
       "is_hurt_color":{},
       "on_fire_color":{}
