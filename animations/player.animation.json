@@ -5,7 +5,6 @@
 			"loop" : true,
 			"bones" : {
 				"body" : {
-					//"rotation" : [ 0.0, "variable.attack_body_rot_y", "(query.is_sneaking && !variable.sword_equipped) ? variable.attack_body_rot_y * -0.4 : 0" ]
 					"rotation" : [ 0.0, "variable.attack_body_rot_y", "query.is_sneaking ? variable.attack_body_rot_y * -0.4 : 0" ]
 				},
 				"leftarm" : {
