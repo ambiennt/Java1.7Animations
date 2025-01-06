@@ -41,10 +41,10 @@
         { "belt": "variable.chest_layer_visible && variable.leg_layer_visible" }
       ],
       "is_hurt_color":{
-        "r": "v.hurt_time = q.life_time; return 0.525;",
+        "r": "v.hurt_time = q.life_time; return 1.0;",
         "g": 0.0,
         "b": 0.0,
-        "a": 0.6
+        "a": 0.35
       },
       "on_fire_color":{}
     },
@@ -98,10 +98,10 @@
         { "helmet": "!query.has_head_gear" }
       ],
       "is_hurt_color":{
-        "r": "v.hurt_time = q.life_time; return 0.525;",
+        "r": "v.hurt_time = q.life_time; return 1.0;",
         "g": 0.0,
         "b": 0.0,
-        "a": 0.6
+        "a": 0.35
       },
       "on_fire_color":{}
     }

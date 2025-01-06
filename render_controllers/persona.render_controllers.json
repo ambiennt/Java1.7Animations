@@ -107,10 +107,10 @@
         "a": "0.3f"
       },
       "is_hurt_color":{
-        "r": "v.hurt_time = q.life_time; return 0.525;",
+        "r": "v.hurt_time = q.life_time; return 1.0;",
         "g": 0.0,
         "b": 0.0,
-        "a": 0.6
+        "a": 0.35
       },
       "on_fire_color":{}
     },
@@ -148,10 +148,10 @@
         "a": "0.3f"
       },
       "is_hurt_color":{
-        "r": "v.hurt_time = q.life_time; return 0.525;",
+        "r": "v.hurt_time = q.life_time; return 1.0;",
         "g": 0.0,
         "b": 0.0,
-        "a": 0.6
+        "a": 0.35
       },
       "on_fire_color":{}
     },
@@ -189,10 +189,10 @@
         "a": "0.3f"
       },
       "is_hurt_color":{
-        "r": "v.hurt_time = q.life_time; return 0.525;",
+        "r": "v.hurt_time = q.life_time; return 1.0;",
         "g": 0.0,
         "b": 0.0,
-        "a": 0.6
+        "a": 0.35
       },
       "on_fire_color":{}
     },
@@ -216,10 +216,10 @@
         "scale": [ 1.0, 1.0 ]
       },
       "is_hurt_color":{
-        "r": "v.hurt_time = q.life_time; return 0.525;",
+        "r": "v.hurt_time = q.life_time; return 1.0;",
         "g": 0.0,
         "b": 0.0,
-        "a": 0.6
+        "a": 0.35
       },
       "on_fire_color":{}
     }
