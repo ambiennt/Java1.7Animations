@@ -1,0 +1,34 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.humanoid.base_pose": {
+      "loop": true,
+      "bones": {
+        "leftarm": {
+          "relative_to": {
+            "rotation": "entity"
+          }
+        },
+        "rightarm": {
+          "relative_to": {
+            "rotation": "entity"
+          }
+        },
+        "waist": {
+          "rotation": [ 0.0, 0.0, "variable.is_upside_down = 0.0;" ]
+        },
+
+        "leftarm_custom": {
+          "relative_to": {
+            "rotation": "entity"
+          }
+        },
+        "rightarm_custom": {
+          "relative_to": {
+            "rotation": "entity"
+          }
+        }
+      }
+    }
+  }
+}

@@ -22,10 +22,10 @@
       "loop" : true,
       "bones" : {
         "rightarm" : {
-          "rotation" : [ "(q.target_x_rotation * 0.8) - 110 - this", "(q.target_y_rotation * 0.8) - 15 - this", "-this" ]
+          "rotation" : [ "(q.target_x_rotation * 0.8) - 110 - (this * 0.5)", "(q.target_y_rotation * 0.8) - 15", 0.0 ]
         },
         "rightarm_custom" : {
-          "rotation" : [ "(q.target_x_rotation * 0.8) - 110 - this", "(q.target_y_rotation * 0.8) - 15 - this", "-this" ]
+          "rotation" : [ "(q.target_x_rotation * 0.8) - 110 - (this * 0.5)", "(q.target_y_rotation * 0.8) - 15", 0.0 ]
         }
       }
     },

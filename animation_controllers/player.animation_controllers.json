@@ -101,10 +101,10 @@
         },
         "third_person": {
           "animations": [
-            // do we need these?
             "humanoid_base_pose",
             { "damage_nearby_mobs" : "v.damage_nearby_mobs" },
-            { "brandish_spear" : "v.is_brandishing_spear" },
+            //{ "brandish_spear" : "v.is_brandishing_spear" },
+            //{ "holding_spyglass": "v.is_holding_spyglass" },
 
             { "look_at_target": "!q.is_sleeping && !q.is_emoting" },
             { "move.arms": "!(q.get_equipped_item_name == 'bow' && v.item_use_normalized > 0.0f) && (!(q.get_equipped_item_name == 'crossbow' && (q.item_is_charged || v.item_use_normalized > 0.0f)) || (q.get_equipped_item_name == 'crossbow' && q.item_is_charged && v.attack_time > 0.0f))" },
