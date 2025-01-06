@@ -3,8 +3,8 @@
   "render_controllers": {
     "controller.render.armor.helmet": {
       "geometry": "geometry.default_custom",
-      "materials": [ { "*": "variable.is_enchanted ? material.enchanted : material.default" } ],
-      "textures": [ "texture.default", "texture.enchanted" ],
+      "materials": [ { "*": "v.is_enchanted ? material.enchanted : material.default" } ],
+      "textures": [ "v.has_trim ? v.trim_path : texture.default", "texture.enchanted" ],
       "part_visibility": [
         { "*": false },
         { "head_attachable": true },
@@ -16,8 +16,8 @@
     //skins can have the same positioning when wearing armor (also for the sake of java parity)
     "controller.render.armor.chestplate": {
       "geometry": "geometry.default_custom",
-      "materials": [ { "*": "variable.is_enchanted ? material.enchanted : material.default" } ],
-      "textures": [ "texture.default", "texture.enchanted" ],
+      "materials": [ { "*": "v.is_enchanted ? material.enchanted : material.default" } ],
+      "textures": [ "v.has_trim ? v.trim_path : texture.default", "texture.enchanted" ],
       "part_visibility": [
         { "*": false },
         { "body_attachable": true },
@@ -27,8 +27,8 @@
     },
     "controller.render.armor.elytra": {
       "geometry": "geometry.default", // geometry.default_custom (use geometry.default to prevent random log errors)
-      "materials": [ { "*": "variable.is_enchanted ? material.enchanted : material.default" } ],
-      "textures": [ "texture.default", "texture.enchanted" ],
+      "materials": [ { "*": "v.is_enchanted ? material.enchanted : material.default" } ],
+      "textures": [ "v.has_trim ? v.trim_path : texture.default", "texture.enchanted" ],
       "part_visibility": [
         { "*": false },
         { "left_wing": true },
@@ -37,8 +37,8 @@
     },
     "controller.render.armor.leggings": {
       "geometry": "geometry.default_custom",
-      "materials": [ { "*": "variable.is_enchanted ? material.enchanted : material.default" } ],
-      "textures": [ "texture.default", "texture.enchanted" ],
+      "materials": [ { "*": "v.is_enchanted ? material.enchanted : material.default" } ],
+      "textures": [ "v.has_trim ? v.trim_path : texture.default", "texture.enchanted" ],
       "part_visibility": [
         { "*": false },
         { "body_attachable": true },
@@ -48,8 +48,8 @@
     },
     "controller.render.armor.boots": {
       "geometry": "geometry.default_custom",
-      "materials": [ { "*": "variable.is_enchanted ? material.enchanted : material.default" } ],
-      "textures": [ "texture.default", "texture.enchanted" ],
+      "materials": [ { "*": "v.is_enchanted ? material.enchanted : material.default" } ],
+      "textures": [ "v.has_trim ? v.trim_path : texture.default", "texture.enchanted" ],
       "part_visibility": [
         { "*": false },
         { "leftleg_attachable": true },
