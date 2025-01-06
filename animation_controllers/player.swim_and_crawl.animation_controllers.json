@@ -1,0 +1,55 @@
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.player.compute_modified_swim_speed": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "is_fully_swimming_or_crawling": "v.swim_amount >= 1.0" }
+          ]
+        },
+        "is_fully_swimming_or_crawling": {
+          "on_entry": [
+            "v.full_swim_distance_start = v.modified_distance_moved;"
+          ],
+          "transitions": [
+            { "default": "v.full_swim_distance = v.modified_distance_moved - v.full_swim_distance_start; return (v.swim_amount < 1.0);" }
+          ],
+          "on_exit": [
+            "v.full_swim_distance = 0.0;"
+          ]
+        }
+      }
+    },
+    "controller.animation.player.swim_and_crawl": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "swim_or_crawl_easing": "(v.swim_amount > 0.0) && (v.swim_amount < 1.0)" }
+          ]
+        },
+        "swim_or_crawl_easing": {
+          "animations":[
+            "swimming_other",
+            "swimming_arms_easing"
+          ],
+          "transitions": [
+            { "default": "v.swim_amount <= 0.0" },
+            { "set_fully_swimming_or_crawling": "v.swim_amount >= 1.0" }
+          ]
+        },
+        "set_fully_swimming_or_crawling": {
+          "animations": [
+            "swimming_other",
+            "swimming_arms_full"
+          ],
+          "transitions": [
+            { "swim_or_crawl_easing": "v.swim_amount < 1.0" }
+          ]
+        }
+      }
+    }
+  }
+}

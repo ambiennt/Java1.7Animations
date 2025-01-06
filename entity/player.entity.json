@@ -82,7 +82,9 @@
           "v.modified_move_speed = 0.0;",
           "v.yaw_fix = 0.0;",
           "v.relative_cape_rotation = 0.0;",
-          "v.is_in_menu = 0.0;"
+          "v.is_in_menu = 0.0;",
+          "v.full_swim_distance_start = 0.0;",
+          "v.full_swim_distance = 0.0;"
         ],
         "pre_animation": [
           "v.is_in_menu = (q.time_stamp <= 0);",
@@ -112,7 +114,8 @@
           "hurt_particle_controller",
           { "elytra_controller": "q.armor_texture_slot(1) == 5" },
           { "interpolated_yaw": "q.is_local_player && !q.is_in_ui && !v.is_paperdoll && !q.is_sleeping && !q.is_riding && !q.is_gliding && !q.is_swimming && !q.can_damage_nearby_mobs" },
-          { "disable_attachables": "(v.hurt_time > 0.0) && !q.is_invisible && !q.is_emoting" }
+          { "disable_attachables": "(v.hurt_time > 0.0) && !q.is_invisible && !q.is_emoting" },
+          "compute_modified_swim_speed"
         ]
       },
       "particle_effects":{
@@ -132,7 +135,7 @@
         "elytra_sneaking": "animation.player_elytra_sneaking",
         "elytra_sleeping": "animation.player_elytra_sleeping",
         "elytra_swimming": "animation.player_elytra_swimming",
-        "swimming_controller": "controller.animation.player.swimming",
+        "swim_and_crawl_controller": "controller.animation.player.swim_and_crawl",
         "swimming_other": "animation.player.swim",
         "swimming_arms_easing": "animation.player.swim.arms_easing",
         "swimming_arms_full": "animation.player.swim.arms_full",
@@ -143,7 +146,9 @@
         "charging_trident": "animation.player.charging_trident",
         "first_person_attack_rotation_trident": "animation.player.first_person.attack_rotation_trident",
         "first_person_attack_rotation_crossbow": "animation.player.first_person.attack_rotation_crossbow",
+        "compute_modified_swim_speed": "controller.animation.player.compute_modified_swim_speed",
 
+        // keep all animations included in the vanilla player.entity.json, regardless of whether we use them
         "root": "controller.animation.player.root",
         "base_controller": "controller.animation.player.base",
         "hudplayer": "controller.animation.player.hudplayer",

@@ -5,21 +5,23 @@
       "loop" : true,
       "bones" : {
         "leftleg" : {
-          "rotation" : [ "math.lerp(0.0, math.cos(query.life_time * 390.0 + 180.0) * 17.2, variable.swim_amount)", 0.0, 0.0 ]
+          "rotation" : [ "math.lerp(0.0, math.cos((v.modified_distance_moved * 26.0) + 180.0) * 17.1887338539, v.swim_amount)", 0.0, 0.0 ]
         },
         "rightleg" : {
-          "rotation" : [ "math.lerp(0.0, math.cos(query.life_time * 390.0) * 17.2, variable.swim_amount)", 0.0, 0.0 ]
+          "rotation" : [
+            "math.lerp(0.0, math.cos(v.modified_distance_moved * 26.0) * 17.1887338539, v.swim_amount)", 0.0, 0.0
+          ]
         },
         "root" : {
-          "position" : [ 0.0, "(math.sin(query.target_x_rotation) * 24.0 + 3.0) * variable.swim_amount", "(math.cos(query.target_x_rotation) * 24.0 + 9.0) * variable.swim_amount" ],
-          "rotation" : [ "(query.target_x_rotation + 90.0) * variable.swim_amount", 0.0, 0.0 ]
+          "position" : [ 0.0, "(math.sin(q.target_x_rotation) * 24.0 + 3.0) * v.swim_amount", "(math.cos(q.target_x_rotation) * 24.0 + 9.0) * v.swim_amount" ],
+          "rotation" : [ "(q.target_x_rotation + 90.0) * v.swim_amount", 0.0, 0.0 ]
         }
       }
     },
     "animation.player.swim.arms_easing": {
       "loop": true,
       "animation_length": 1.0,
-      "anim_time_update": "variable.swim_amount",
+      "anim_time_update": "v.swim_amount",
       "bones": {
         "leftarm": {
           "rotation": {
@@ -51,6 +53,7 @@
     "animation.player.swim.arms_full": {
       "loop": true,
       "animation_length": 1.6,
+      "anim_time_update": "v.full_swim_distance * 0.05",
       "bones": {
         "leftarm": {
           "rotation": {
