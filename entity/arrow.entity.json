@@ -5,7 +5,7 @@
       "identifier": "minecraft:arrow",
       "materials": {
         "default": "arrow",
-        "ambient_uv": "conduit_wind"
+        "ambient_uv": "ambient_uv"
       },
       "textures": {
         "default": "textures/entity/arrows",

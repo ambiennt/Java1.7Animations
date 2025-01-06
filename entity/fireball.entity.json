@@ -5,7 +5,7 @@
       "identifier": "minecraft:fireball",
       "materials": {
         "default": "fireball",
-        "ambient_uv": "conduit_wind"
+        "ambient_uv": "ambient_uv"
       },
       "textures": {
         "default": "textures/items/fireball",

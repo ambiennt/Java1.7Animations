@@ -10,7 +10,7 @@
         "animated": "player_animated",
         "spectator": "player_spectator",
 
-        "ambient_uv": "conduit_wind",
+        "ambient_uv": "ambient_uv",
         "ambient_armor": "armor",
         "ambient_armor_leather": "armor_leather"
       },
