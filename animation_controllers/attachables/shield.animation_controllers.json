@@ -9,8 +9,8 @@
             { "wield_main_hand_first_person": "c.item_slot == 'main_hand'" },
             { "wield_off_hand_first_person": "c.item_slot == 'off_hand'" },
             // when equipped with 2 shields, bedrock uses the offhand one instead of the mainhand one, unlike java
-            { "wield_main_hand_first_person_block": "q.is_sneaking && q.get_equipped_item_name(1) != 'shield' && c.item_slot == 'main_hand'" },
-            { "wield_off_hand_first_person_block": "q.is_sneaking && q.get_equipped_item_name(1) == 'shield' && c.item_slot == 'off_hand'" }
+            { "wield_main_hand_first_person_block": "q.blocking && q.get_equipped_item_name(1) != 'shield' && c.item_slot == 'main_hand'" },
+            { "wield_off_hand_first_person_block": "q.blocking && q.get_equipped_item_name(1) == 'shield' && c.item_slot == 'off_hand'" }
           ],
           "transitions": [
             { "third_person": "!c.is_first_person" }
@@ -29,7 +29,7 @@
       "states": {
         "default": {
           "transitions": [
-            { "start_block_time": "q.is_sneaking" }
+            { "start_block_time": "q.blocking" }
           ]
         },
         "start_block_time": {
@@ -37,7 +37,7 @@
             "v.block_time_start = q.life_time;"
           ],
           "transitions": [
-            { "default": "v.block_time = q.life_time - v.block_time_start; return !q.is_sneaking;" }
+            { "default": "v.block_time = q.life_time - v.block_time_start; return !q.blocking;" }
           ],
           "on_exit": [
             "v.block_time = 0.0;"
