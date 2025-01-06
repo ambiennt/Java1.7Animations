@@ -6,7 +6,7 @@
       "states": {
         "default": {
           "on_entry":[
-          	"variable.life_time = query.life_time;"
+            "variable.life_time = query.life_time;"
           ],
           "transitions": [
              // math.mod(query.life_time, 0.05) <= 0.0

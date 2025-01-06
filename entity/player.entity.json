@@ -56,7 +56,7 @@
         "initialize": [
           "v.short_arm_offset_left = 0.0;",
           "v.short_arm_offset_right = 0.0;",
-          
+
           "v.is_holding_right = 0.0;",
           "v.is_holding_left = 0.0;",
           "v.is_blinking = 0.0;",
@@ -91,7 +91,7 @@
 
           //bug: scoping spyglass in 1st person makes the new limb animation freeze, idk how to fix
           "v.delta_time = (v.is_first_person ? q.delta_time : q.last_frame_time(0));",
-          
+
           "v.yaw_fix = v.yaw_fix + ((v.is_first_person || (q.life_time <= 1) || q.is_sleeping || q.is_riding || q.is_gliding || q.is_swimming || q.can_damage_nearby_mobs) - v.yaw_fix) * (1 - math.pow((1 - 0.8), v.delta_time / 0.2));",
           "t.normalized_vertical_speed = math.clamp(math.pow(math.abs(q.position_delta(1) + 0.0784), 0.225) * 1.175, 0, 0.785); v.vertical_speed = v.vertical_speed + (t.normalized_vertical_speed - v.vertical_speed) * (1 - math.pow((1 - 0.85), v.delta_time / 0.15));",
           "v.raw_move_speed = math.clamp(math.sqrt(q.position_delta(0) * q.position_delta(0) * (1 - v.vertical_speed) + q.position_delta(2) * q.position_delta(2) * (1 - v.vertical_speed)) * 1.1224341224, 0, 0.1532167643) * 6.5267009427;",
@@ -148,7 +148,7 @@
         "first_person_attack_rotation_crossbow": "animation.player.first_person.attack_rotation_crossbow",
         "compute_modified_swim_speed": "controller.animation.player.compute_modified_swim_speed",
         "menu_pose": "animation.player.menu_pose",
-        
+
         // keep all animations included in the vanilla player.entity.json, regardless of whether we use them
         "root": "controller.animation.player.root",
         "base_controller": "controller.animation.player.base",

@@ -20,7 +20,7 @@
         "basic_crit": "minecraft:basic_crit_particle"
       },
       "scripts": {
-      	"scale": "2.0",
+        "scale": "2.0",
         "initialize":[
           "variable.life_time = 0.0;"
         ],

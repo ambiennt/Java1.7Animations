@@ -18,7 +18,7 @@
     }
   }
 }
-//prevent z fighting when overlaying red armor model. 
+//prevent z fighting when overlaying red armor model.
 //the only way (without using experimental) to communicate a player variable to an attachable
 //is to do some weird bone manipulation. even setting the depth bias on the hurt armor via a custom
 //material still causes problems, particularly with render dragon.
