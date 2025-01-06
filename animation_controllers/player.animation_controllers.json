@@ -113,7 +113,7 @@
             { "riding.arms": "q.is_riding && !(q.get_equipped_item_name == 'bow' && v.item_use_normalized > 0.0f) && (!(q.get_equipped_item_name == 'crossbow' && (q.item_is_charged || v.item_use_normalized > 0.0f)) || (q.get_equipped_item_name == 'crossbow' && q.item_is_charged && v.attack_time > 0.0f))" },
             { "riding.legs": "q.is_riding" },
             "holding",
-            { "bob": "!v.is_holding_spyglass && !v.is_tooting_goat_horn && !v.is_using_brush && (v.swim_amount <= 0.0)" },     
+            { "bob": "!v.is_in_menu && !v.is_holding_spyglass && !v.is_tooting_goat_horn && !v.is_using_brush && (v.swim_amount <= 0.0)" },
             { "sneaking": "q.is_sneaking && !q.is_sleeping" },
             { "sleeping": "q.is_sleeping && q.is_alive" },
             "swim_and_crawl_controller",
@@ -125,6 +125,7 @@
             { "fire": "q.is_alive && q.is_on_fire" },
             { "scoping_spyglass": "q.get_equipped_item_name == 'spyglass' && v.item_use_normalized > 0.0f" },
             { "charging_trident": "q.get_equipped_item_name == 'trident' && v.item_use_normalized > 0.0f" },
+            { "menu_pose": "v.is_in_menu" },
             { "tooting_goat_horn": "v.is_tooting_goat_horn" },
             { "holding_brush": "q.get_equipped_item_name == 'brush'" },
             { "brushing": "v.is_using_brush" }

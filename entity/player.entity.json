@@ -147,7 +147,8 @@
         "first_person_attack_rotation_trident": "animation.player.first_person.attack_rotation_trident",
         "first_person_attack_rotation_crossbow": "animation.player.first_person.attack_rotation_crossbow",
         "compute_modified_swim_speed": "controller.animation.player.compute_modified_swim_speed",
-
+        "menu_pose": "animation.player.menu_pose",
+        
         // keep all animations included in the vanilla player.entity.json, regardless of whether we use them
         "root": "controller.animation.player.root",
         "base_controller": "controller.animation.player.base",

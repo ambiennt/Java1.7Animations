@@ -1,0 +1,18 @@
+{
+  "format_version": "1.8.0",
+  "animations": {
+    "animation.player.menu_pose": {
+      "loop": true,
+      "bones": {
+        "leftarm": {
+          "rotation": [ 0, 0, -6 ]
+        },
+        "rightarm": {
+          "rotation": [ 0, 0, 6 ]
+        }
+
+        // no leftarm_custom/rightarm_custom transformations needed, since those bones are irrelevant in the menu
+      }
+    }
+  }
+}
