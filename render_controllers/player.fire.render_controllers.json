@@ -6,6 +6,7 @@
       "materials": [ { "*": "material.ambient_uv" } ],
       "textures": [ "texture.fire" ],
       "uv_anim": {
+        // BUG: texture packs that overwrite textures/blocks/fire_0 and make the texture more than 32 "flipbooks" will flicker
         "offset": [ 0.0, "math.mod(math.floor(query.life_time * 20), 32) / 32" ], // show first 20 frames in 1 second
         "scale": [ 1.0, 1.0 ]
       },

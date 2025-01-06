@@ -126,7 +126,6 @@
         "hurt_time": "controller.animation.player.hurt_time",
         "hurt_particle_controller": "controller.animation.player.hurt_particle",
         "emit_hurt_particle": "animation.player.emit_hurt_particle",
-        "emit_fire_particle": "animation.player.emit_fire_particle",
         "interpolated_yaw": "animation.player.interpolated_yaw",
         "fire": "animation.player.fire",
         "elytra_controller": "controller.animation.player.elytra_controller",
