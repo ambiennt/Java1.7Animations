@@ -62,6 +62,9 @@
           "v.is_blinking = 0.0;",
           "v.last_blink_time = 0.0;",
           "v.hand_bob = 0.0;",
+          "v.damage_nearby_mobs = 0.0;",
+          "v.is_tooting_goat_horn = 0.0;",
+          "v.is_using_brush = 0.0;",
           "v.swim_amount = 0.0;",
           "v.map_angle = 0.0;",
           "v.item_use_normalized = 0.0;",
@@ -92,12 +95,12 @@
           //bug: scoping spyglass in 1st person makes the new limb animation freeze, idk how to fix
           "v.delta_time = (v.is_first_person ? q.delta_time : q.last_frame_time(0));",
 
-          "v.yaw_fix = v.yaw_fix + ((v.is_first_person || (q.life_time <= 1) || q.is_sleeping || q.is_riding || q.is_gliding || q.is_swimming || q.can_damage_nearby_mobs) - v.yaw_fix) * (1 - math.pow((1 - 0.8), v.delta_time / 0.2));",
+          "v.yaw_fix = v.yaw_fix + ((v.is_first_person || (q.life_time <= 1) || q.is_sleeping || q.is_riding || q.is_gliding || q.is_swimming || v.damage_nearby_mobs) - v.yaw_fix) * (1 - math.pow((1 - 0.8), v.delta_time / 0.2));",
           "t.normalized_vertical_speed = math.clamp(math.pow(math.abs(q.position_delta(1) + 0.0784), 0.225) * 1.175, 0, 0.785); v.vertical_speed = v.vertical_speed + (t.normalized_vertical_speed - v.vertical_speed) * (1 - math.pow((1 - 0.85), v.delta_time / 0.15));",
           "v.raw_move_speed = math.clamp(math.sqrt(q.position_delta(0) * q.position_delta(0) * (1 - v.vertical_speed) + q.position_delta(2) * q.position_delta(2) * (1 - v.vertical_speed)) * 1.1224341224, 0, 0.1532167643) * 6.5267009427;",
           "v.modified_move_speed = v.modified_move_speed + (v.raw_move_speed - v.modified_move_speed) * (1 - math.pow((1 - 0.8), v.delta_time / 0.2));",
           "v.modified_distance_moved = v.modified_distance_moved + v.modified_move_speed * v.delta_time * 20;",
-          "v.relative_cape_rotation = ((v.is_paperdoll || q.is_sleeping) ? 0 : (v.modified_move_speed * (math.sqrt(v.modified_move_speed) - math.sqrt(q.cape_flap_amount)) * math.sin(q.body_y_rotation - q.head_y_rotation(0))));",
+          "t.rot_y_delta = q.body_y_rotation - q.head_y_rotation(0); v.relative_cape_rotation = (q.is_sleeping || q.is_in_ui) ? 0 : (v.modified_move_speed * (math.sqrt(v.modified_move_speed) - math.sqrt(q.cape_flap_amount)) * math.sin(t.rot_y_delta));",
 
           "v.tcos0 = (math.cos((q.is_local_player ? v.modified_distance_moved : q.modified_distance_moved) * 38.1971863421) * (q.is_local_player ? v.modified_move_speed : q.modified_move_speed) / v.gliding_speed_value) * 57.2957795131;",
           "v.attack_body_rot_y = math.sin(math.sqrt(v.attack_time) * 360) * 11.4591559026;",
@@ -113,7 +116,7 @@
           "hurt_time",
           "hurt_particle_controller",
           { "elytra_controller": "q.armor_texture_slot(1) == 5" },
-          { "interpolated_yaw": "q.is_local_player && !q.is_in_ui && !v.is_paperdoll && !q.is_sleeping && !q.is_riding && !q.is_gliding && !q.is_swimming && !q.can_damage_nearby_mobs" },
+          { "interpolated_yaw": "q.is_local_player && !q.is_in_ui && !v.is_paperdoll && !q.is_sleeping && !q.is_riding && !q.is_gliding && !q.is_swimming && !v.damage_nearby_mobs" },
           { "disable_attachables": "(v.hurt_time > 0.0) && !q.is_invisible && !q.is_emoting" },
           "compute_modified_swim_speed"
         ]

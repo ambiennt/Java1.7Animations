@@ -26,7 +26,7 @@
         ],
         "animate": [
           "flying",
-          { "particle": "query.is_moving && (query.life_time > 0.05) && !query.is_on_ground" }
+          { "particle": "query.is_moving && !query.is_on_ground" } // query.modified_move_speed >= 0.01
         ]
       },
       "render_controllers": [ "controller.render.fishing_hook" ]

@@ -10,7 +10,10 @@
     },
     "components": {
       "minecraft:emitter_rate_instant": {
-        "num_particles": "variable.from_projectile = (variable.speed_modifier == 1); return variable.from_projectile ? 1.0 : 2.0;"
+        // as of 1.21.51, minecraft:breaking_item_icon is only used in 2 circumstances
+        // a projectile hitting the ground (such as a splash potion), or eating food
+        // hacky way to differentiate between the two, maybe v.num_particles could help but it doesn't exist in 1.21.0
+        "num_particles": "v.from_projectile = (v.speed_modifier == 1.0); return v.from_projectile ? 1 : 2;"
       },
       "minecraft:emitter_lifetime_once": {
         "active_time": 0
@@ -19,17 +22,17 @@
         "offset": [
           // v.emitter_radius is 0.25 in vanilla
           // but I dont know what servers do with this so best to leave it as a variable
-          "math.random(-variable.emitter_radius, variable.emitter_radius)",
-          "variable.from_projectile ? math.random(-variable.emitter_radius, variable.emitter_radius) : math.random(-0.5, 0.0)",
-          "math.random(-variable.emitter_radius, variable.emitter_radius)"
+          "math.random(-v.emitter_radius, v.emitter_radius)",
+          "v.from_projectile ? math.random(-v.emitter_radius, v.emitter_radius) : math.random(-0.5, 0.0)",
+          "math.random(-v.emitter_radius, v.emitter_radius)"
         ],
         "direction": [
           "math.random(-1.0, 1.0)",
-          "variable.from_projectile ? math.random(0.0, 1.0) : math.random(0.0, 0.5)", // so the particles are less in-your-face
+          "v.from_projectile ? math.random(0.0, 1.0) : math.random(0.0, 0.5)", // so the particles are less in-your-face
           "math.random(-1.0, 1.0)"
         ]
       },
-      "minecraft:particle_initial_speed": "math.random(1, 4) * variable.speed_modifier",
+      "minecraft:particle_initial_speed": "math.random(1, 4) * v.speed_modifier",
       "minecraft:particle_lifetime_expression": {
         "max_lifetime": "0.2f / (math.random(0.0, 1.0) * 0.9f + 0.1f)"
       },
@@ -46,20 +49,20 @@
         "size": [
           // v.size_modifier is 2/3 in vanilla, but again,
           // I dont know what servers do with this so best to leave it as a variable
-          "temp.size_multiplier = (variable.from_projectile ? 0.05 : 0.1); temp.constant = (variable.from_projectile ? 0.04 : 0.05); return (variable.particle_random_1 * temp.size_multiplier + temp.constant) * variable.size_modifier;",
-          "temp.size_multiplier = (variable.from_projectile ? 0.05 : 0.1); temp.constant = (variable.from_projectile ? 0.04 : 0.05); return (variable.particle_random_1 * temp.size_multiplier + temp.constant) * variable.size_modifier;"
+          "t.size_multiplier = (v.from_projectile ? 0.05 : 0.1); t.size_base = (v.from_projectile ? 0.04 : 0.05); return (v.particle_random_1 * t.size_multiplier + t.size_base) * v.size_modifier;",
+          "t.size_multiplier = (v.from_projectile ? 0.05 : 0.1); t.size_base = (v.from_projectile ? 0.04 : 0.05); return (v.particle_random_1 * t.size_multiplier + t.size_base) * v.size_modifier;"
         ],
         "facing_camera_mode": "rotate_xyz", // lookat_xyz
         "uv": {
           "texture_width": 1,
           "texture_height": 1,
           "uv": [
-            "variable.EmitterTextureCoord.u + (variable.EmitterTextureSize.u / 4) * (variable.particle_random_1 * 3)",
-            "variable.EmitterTextureCoord.v + (variable.EmitterTextureSize.v / 4) * (variable.particle_random_2 * 3)"
+            "v.EmitterTextureCoord.u + (v.EmitterTextureSize.u / 4) * (v.particle_random_1 * 3)",
+            "v.EmitterTextureCoord.v + (v.EmitterTextureSize.v / 4) * (v.particle_random_2 * 3)"
           ],
           "uv_size": [
-            "variable.EmitterTextureSize.u / 4",
-            "variable.EmitterTextureSize.v / 4"
+            "v.EmitterTextureSize.u / 4",
+            "v.EmitterTextureSize.v / 4"
           ]
         }
       },
