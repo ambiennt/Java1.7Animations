@@ -33,7 +33,7 @@
         "shield": {
           "position": [ -12.5, "-4.65 + (c.owning_entity->v.short_arm_offset_left)", 3.0 ],
           "rotation": [ 0.0, 180.0, -4.0 ],
-          "scale": "(q.get_equipped_item_name == 'bow' || q.get_equipped_item_name == 'crossbow') ? q.main_hand_item_use_duration <= 0.0f && !q.item_is_charged : 1.0"
+          "scale": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow', 'minecraft:crossbow') ? q.main_hand_item_use_duration <= 0.0f && !q.item_is_charged : 1.0"
         }
       }
     },
@@ -59,9 +59,9 @@
       "loop": true,
       "bones": {
         "shield": {
-          "position": [ -1.0, 9.25, "c.item_slot == 'main_hand' ? 8.5 : -16.5" ],
+          "position": [ -1.0, 9.25, "(c.item_slot == 'main_hand') ? 8.5 : -16.5" ],
           "rotation": [ -90.0, 0.0, 90.0 ],
-          "scale": [ 1.0, "c.item_slot == 'main_hand' ? -1.0 : 1.0", "c.item_slot == 'main_hand' ? -1.0 : 1.0" ]
+          "scale": [ 1.0, "(c.item_slot == 'main_hand') ? -1.0 : 1.0", "(c.item_slot == 'main_hand') ? -1.0 : 1.0" ]
         }
       }
     }

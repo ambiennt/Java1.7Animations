@@ -9,9 +9,15 @@
         },
         "rightarm": {
           "rotation": [ 0, 0, 6 ]
+        },
+        
+        // these transformations probably aren't needed, since those bones are irrelevant in the menu. but best to have them to be safe
+        "leftarm_custom": {
+          "rotation": [ 0, 0, -6 ]
+        },
+        "rightarm_custom": {
+          "rotation": [ 0, 0, 6 ]
         }
-
-        // no leftarm_custom/rightarm_custom transformations needed, since those bones are irrelevant in the menu
       }
     }
   }

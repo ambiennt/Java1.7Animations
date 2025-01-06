@@ -7,10 +7,10 @@
       "textures": [ "texture.default" ],
       "part_visibility": [
         { "*": false },
-        { "rightArm": "query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'filled_map'" },
-        { "rightSleeve": "query.get_equipped_item_name(0, 1) == '' || query.get_equipped_item_name(0, 1) == 'filled_map'" },
-        { "leftArm": "((query.get_equipped_item_name(0, 1) == 'filled_map' && query.get_equipped_item_name(1) != 'shield') || query.get_equipped_item_name(1) == 'filled_map') && (query.get_equipped_item_name == 'bow' || query.get_equipped_item_name == 'crossbow' ? variable.item_use_normalized <= 0.0f && !query.item_is_charged : 1.0)" },
-        { "leftSleeve": "((query.get_equipped_item_name(0, 1) == 'filled_map' && query.get_equipped_item_name(1) != 'shield') || query.get_equipped_item_name(1) == 'filled_map') && (query.get_equipped_item_name == 'bow' || query.get_equipped_item_name == 'crossbow' ? variable.item_use_normalized <= 0.0f && !query.item_is_charged : 1.0)" }
+        { "rightArm": "!q.is_item_equipped(0) || q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map')" },
+        { "rightSleeve": "!q.is_item_equipped(0) || q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map')" },
+        { "leftArm": "((q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map') && !q.is_item_name_any('slot.weapon.offhand', 'minecraft:shield')) || q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map')) && q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow', 'minecraft:crossbow') ? (v.item_use_normalized <= 0.0) && !q.item_is_charged : 1" },
+        { "leftSleeve": "((q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map') && !q.is_item_name_any('slot.weapon.offhand', 'minecraft:shield')) || q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map')) && q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow', 'minecraft:crossbow') ? (v.item_use_normalized <= 0.0) && !q.item_is_charged : 1" }
       ],
       //to prevent flickering in paper doll
       //the cause of this problem has something to do with paper doll framerate being locked
@@ -28,17 +28,17 @@
       "textures": [ "texture.default" ],
       "part_visibility": [
         { "*": true },
-        { "helmet": "variable.helmet_layer_visible && !query.has_head_gear" },
-        { "leftLegging": "variable.leg_layer_visible" },
-        { "rightLegging": "variable.leg_layer_visible" },
-        { "leftBoot": "variable.boot_layer_visible" },
-        { "rightBoot": "variable.boot_layer_visible" },
-        { "leftSock": "variable.boot_layer_visible && variable.leg_layer_visible" },
-        { "rightSock": "variable.boot_layer_visible && variable.leg_layer_visible" },
-        { "bodyArmor": "variable.chest_layer_visible && !query.has_cape" },
-        { "leftArmArmor": "variable.chest_layer_visible && !query.has_cape" },
-        { "rightArmArmor": "variable.chest_layer_visible && !query.has_cape" },
-        { "belt": "variable.chest_layer_visible && variable.leg_layer_visible" }
+        { "helmet": "v.helmet_layer_visible && !q.has_head_gear" },
+        { "leftLegging": "v.leg_layer_visible" },
+        { "rightLegging": "v.leg_layer_visible" },
+        { "leftBoot": "v.boot_layer_visible" },
+        { "rightBoot": "v.boot_layer_visible" },
+        { "leftSock": "v.boot_layer_visible && v.leg_layer_visible" },
+        { "rightSock": "v.boot_layer_visible && v.leg_layer_visible" },
+        { "bodyArmor": "v.chest_layer_visible && !q.has_cape" },
+        { "leftArmArmor": "v.chest_layer_visible && !q.has_cape" },
+        { "rightArmArmor": "v.chest_layer_visible && !q.has_cape" },
+        { "belt": "v.chest_layer_visible && v.leg_layer_visible" }
       ],
       "is_hurt_color":{
         "r": "v.hurt_time = q.life_time; return 0.7;",
@@ -71,7 +71,7 @@
         { "*": false },
         { "head": true },
         { "hat": true },
-        { "helmet": "variable.helmet_layer_visible && !query.has_head_gear" }
+        { "helmet": "v.helmet_layer_visible && !q.has_head_gear" }
       ],
       "is_hurt_color":{
         "r": "v.hurt_time = q.life_time; return 0.0;",
@@ -95,7 +95,7 @@
         { "*": false },
         { "head": true },
         { "hat": true },
-        { "helmet": "!query.has_head_gear" }
+        { "helmet": "!q.has_head_gear" }
       ],
       "is_hurt_color":{
         "r": "v.hurt_time = q.life_time; return 0.7;",

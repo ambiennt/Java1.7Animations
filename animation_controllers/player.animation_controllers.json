@@ -6,12 +6,12 @@
       "states": {
         "default": {
           "animations": [
-            { "first_person_attack_rotation": "!q.is_item_equipped" },
-            { "first_person_attack_rotation_bow": "q.get_equipped_item_name == 'bow'" },
-            { "first_person_attack_rotation_spyglass": "q.get_equipped_item_name == 'spyglass'" },
-            { "first_person_attack_rotation_shield": "q.get_equipped_item_name == 'shield'" },
-            { "first_person_attack_rotation_trident": "q.get_equipped_item_name == 'trident'" }, // && v.item_use_normalized <= 0.0f - it looks better the other way imo
-            { "first_person_attack_rotation_crossbow": "q.get_equipped_item_name == 'crossbow'" } // && v.item_use_normalized <= 0.0f
+            { "first_person_attack_rotation": "!q.is_item_equipped(0)" },
+            { "first_person_attack_rotation_bow": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow')" },
+            { "first_person_attack_rotation_spyglass": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:spyglass')" },
+            { "first_person_attack_rotation_shield": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:shield')" },
+            { "first_person_attack_rotation_trident": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:trident')" }, // && v.item_use_normalized <= 0.0 - it looks better the other way imo
+            { "first_person_attack_rotation_crossbow": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow')" } // && v.item_use_normalized <= 0.0
           ]
         }
       }
@@ -22,7 +22,7 @@
         "default": {
           "transitions": [
             { "hold": "q.item_is_charged" },
-            { "charge": "v.item_use_normalized > 0.0f" }
+            { "charge": "v.item_use_normalized > 0.0" }
           ]
         },
         "charge": {
@@ -30,17 +30,17 @@
             "third_person_crossbow_equipped"
           ],
           "transitions": [
-            { "default": "q.get_equipped_item_name != 'crossbow' || (v.item_use_normalized <= 0.0f && !q.item_is_charged)" },
+            { "default": "!q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow') || ((v.item_use_normalized <= 0.0) && !q.item_is_charged)" },
             { "hold": "q.item_is_charged" }
           ]
         },
         "hold": {
           "animations": [
-            { "crossbow_hold": "!q.is_swimming && v.attack_time <= 0.0f" }
+            { "crossbow_hold": "!q.is_swimming && (v.attack_time <= 0.0)" }
           ],
           "transitions": [
-            { "default": "q.get_equipped_item_name != 'crossbow' || (v.item_use_normalized <= 0.0f && !q.item_is_charged)" },
-            { "charge": "v.item_use_normalized > 0.0f" }
+            { "default": "!q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow') || ((v.item_use_normalized <= 0.0) && !q.item_is_charged)" },
+            { "charge": "(v.item_use_normalized > 0.0)" }
           ]
         }
       }
@@ -50,18 +50,18 @@
       "states" : {
         "default" : {
           "transitions" : [
-            { "one_hand": "q.get_equipped_item_name(1) == 'filled_map' || q.get_equipped_item_name(1) == 'shield'" },
-            { "two_hand": "q.get_equipped_item_name(1) != 'filled_map' && q.get_equipped_item_name(1) != 'shield'" }
+            { "one_hand": "q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map', 'minecraft:shield')" },
+            { "two_hand": "!q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map', 'minecraft:shield')" }
           ]
         },
         "one_hand": {
           "animations": [
-            { "first_person_map_hold_main_hand" : "q.get_equipped_item_name(0, 1) == 'filled_map'" },
-            { "first_person_map_hold_off_hand" : "q.get_equipped_item_name(1) == 'filled_map' && (q.get_equipped_item_name == 'bow' || q.get_equipped_item_name == 'crossbow' ? v.item_use_normalized <= 0.0f && !q.item_is_charged : 1.0)" }
+            { "first_person_map_hold_main_hand" : "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map')" },
+            { "first_person_map_hold_off_hand" : "q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map') && (q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow', 'minecraft:crossbow') ? (v.item_use_normalized <= 0.0) && !q.item_is_charged : 1)" }
           ],
           "transitions": [
-            { "default": "q.get_equipped_item_name(0, 1) != 'filled_map' && q.get_equipped_item_name(1) != 'filled_map'" },
-            { "two_hand": "q.get_equipped_item_name(1) != 'filled_map' && q.get_equipped_item_name(1) != 'shield'" }
+            { "default": "!q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map') && !q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map')" },
+            { "two_hand": "!q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map', 'minecraft:shield')" }
           ]
         },
         "two_hand": {
@@ -70,8 +70,8 @@
             "first_person_map_hold_attack"
           ],
           "transitions": [
-            { "default": "q.get_equipped_item_name(0, 1) != 'filled_map' && q.get_equipped_item_name(1) != 'filled_map'" },
-            { "one_hand": "q.get_equipped_item_name(1) == 'filled_map' || q.get_equipped_item_name(1) == 'shield'" }
+            { "default": "!q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map') && !q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map')" },
+            { "one_hand": "q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map', 'minecraft:shield')" }
           ]
         }
       }
@@ -83,10 +83,9 @@
           "animations": [
             "first_person_base_pose",
             "first_person_swap_item",
-            { "first_person_attack_controller": "v.attack_time > 0.0f && q.get_equipped_item_name != 'filled_map'" },
+            { "first_person_attack_controller": "(v.attack_time > 0.0) && !q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map')" },
             { "first_person_empty_hand": "!v.is_holding_right" },
-            { "first_person_map_controller": "q.get_equipped_item_name == 'filled_map' || q.get_equipped_item_name(1) == 'filled_map'" }
-            //{ "first_person_crossbow_equipped": "q.get_equipped_item_name == 'crossbow' && (v.item_use_normalized > 0.0f && v.item_use_normalized < 1.0f)" }
+            { "first_person_map_controller": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map') || q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map')" }
           ],
           "transitions": [
             { "map_player": "v.map_face_icon" },
@@ -107,10 +106,10 @@
             //{ "holding_spyglass": "v.is_holding_spyglass" },
 
             { "look_at_target": "!q.is_sleeping && !q.is_emoting" },
-            { "move.arms": "!(q.get_equipped_item_name == 'bow' && v.item_use_normalized > 0.0f) && (!(q.get_equipped_item_name == 'crossbow' && (q.item_is_charged || v.item_use_normalized > 0.0f)) || (q.get_equipped_item_name == 'crossbow' && q.item_is_charged && v.attack_time > 0.0f))" },
+            { "move.arms": "!(q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow') && (v.item_use_normalized > 0.0)) && (!(q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow') && (q.item_is_charged || (v.item_use_normalized > 0.0))) || (q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow') && q.item_is_charged && (v.attack_time > 0.0)))" },
             "move.legs",
             "cape",
-            { "riding.arms": "q.is_riding && !(q.get_equipped_item_name == 'bow' && v.item_use_normalized > 0.0f) && (!(q.get_equipped_item_name == 'crossbow' && (q.item_is_charged || v.item_use_normalized > 0.0f)) || (q.get_equipped_item_name == 'crossbow' && q.item_is_charged && v.attack_time > 0.0f))" },
+            { "riding.arms": "q.is_riding && !(q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow') && (v.item_use_normalized > 0.0)) && (!(q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow') && (q.item_is_charged || (v.item_use_normalized > 0.0))) || (q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow') && q.item_is_charged && (v.attack_time > 0.0)))" },
             { "riding.legs": "q.is_riding" },
             "holding",
             { "bob": "!v.is_in_menu && !v.is_holding_spyglass && !v.is_tooting_goat_horn && !v.is_using_brush && (v.swim_amount <= 0.0)" },
@@ -118,16 +117,16 @@
             { "sleeping": "q.is_sleeping && q.is_alive" },
             "swim_and_crawl_controller",
             { "attack.rotations": "v.attack_time > 0.0" },
-            { "shield_block_main_hand": "q.blocking && q.get_equipped_item_name(1) != 'shield' && q.get_equipped_item_name == 'shield'" },
-            { "shield_block_off_hand": "q.blocking && q.get_equipped_item_name(1) == 'shield' && v.item_use_normalized <= 0.0f && !q.item_is_charged" },
-            { "crossbow_controller": "q.get_equipped_item_name == 'crossbow'" },
-            { "third_person_bow_equipped": "q.get_equipped_item_name == 'bow'" },
+            { "shield_block_main_hand": "q.blocking && !q.is_item_name_any('slot.weapon.offhand', 'minecraft:shield') && q.is_item_name_any('slot.weapon.mainhand', 'minecraft:shield')" },
+            { "shield_block_off_hand": "q.blocking && q.is_item_name_any('slot.weapon.offhand', 'minecraft:shield') && (v.item_use_normalized <= 0.0) && !q.item_is_charged" },
+            { "crossbow_controller": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow')" },
+            { "third_person_bow_equipped": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow')" },
             { "fire": "q.is_alive && q.is_on_fire" },
-            { "scoping_spyglass": "q.get_equipped_item_name == 'spyglass' && v.item_use_normalized > 0.0f" },
-            { "charging_trident": "q.get_equipped_item_name == 'trident' && v.item_use_normalized > 0.0f" },
+            { "scoping_spyglass": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:spyglass') && (v.item_use_normalized > 0.0)" },
+            { "charging_trident": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:trident') && (v.item_use_normalized > 0.0)" },
             { "menu_pose": "v.is_in_menu" },
             { "tooting_goat_horn": "v.is_tooting_goat_horn" },
-            { "holding_brush": "q.get_equipped_item_name == 'brush'" },
+            { "holding_brush": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:brush')" },
             { "brushing": "v.is_using_brush" }
           ],
           "transitions": [

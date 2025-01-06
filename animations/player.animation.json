@@ -5,29 +5,29 @@
       "loop" : true,
       "bones" : {
         "body" : {
-          "rotation" : [ 0.0, "variable.attack_body_rot_y", "query.is_sneaking ? variable.attack_body_rot_y * -0.4 : 0" ]
+          "rotation" : [ 0.0, "v.attack_body_rot_y", "q.is_sneaking ? v.attack_body_rot_y * -0.4 : 0" ]
         },
         "leftarm" : {
-          "rotation" : [ "variable.attack_body_rot_y", 0.0, 0.0 ]
+          "rotation" : [ "v.attack_body_rot_y", 0.0, 0.0 ]
         },
         "rightarm" : {
-          //exact implementation from java edition doesnt look the same in bedrock because variable.attack_time updates differently...
-          //variable.attack_time -> math.pow(variable.attack_time, 0.85)
+          //exact implementation from java edition doesnt look the same in bedrock because v.attack_time updates differently...
+          //v.attack_time -> math.pow(v.attack_time, 0.85)
           "rotation" : [
-            "math.sin(1 - (math.pow(1 - math.pow(variable.attack_time, 0.85), 3)) * 180) * 68.7549354157 + math.sin(math.pow(variable.attack_time, 0.85) * 180) * (query.head_x_rotation(0) - 40.1070456592) * 0.75",
             //"t.f1 = math.sin(1 - (math.pow(1 - v.attack_time, 3)) * 180); t.f2 = math.sin(v.attack_time * 180) * (q.head_x_rotation(0) - 40.1070456592) * 0.75; return t.f1 * 68.7549354157 + t.f2;",
-            "variable.attack_body_rot_y * 2.0",
-            "math.sin(variable.attack_time * 180) * -22.9183118052"
+            "math.sin(1 - (math.pow(1 - math.pow(v.attack_time, 0.85), 3)) * 180) * 68.7549354157 + math.sin(math.pow(v.attack_time, 0.85) * 180) * (q.head_x_rotation(0) - 40.1070456592) * 0.75",
+            "v.attack_body_rot_y * 2.0",
+            "math.sin(v.attack_time * 180) * -22.9183118052"
           ]
         },
         "leftarm_custom" : {
-          "rotation" : [ "variable.attack_body_rot_y", 0.0, 0.0 ]
+          "rotation" : [ "v.attack_body_rot_y", 0.0, 0.0 ]
         },
         "rightarm_custom" : {
           "rotation" : [
-            "math.sin(1 - (math.pow(1 - math.pow(variable.attack_time, 0.85), 3)) * 180) * 68.7549354157 + math.sin(math.pow(variable.attack_time, 0.85) * 180) * (query.head_x_rotation(0) - 40.1070456592) * 0.75",
-            "variable.attack_body_rot_y * 2.0",
-            "math.sin(variable.attack_time * 180) * -22.9183118052"
+            "math.sin(1 - (math.pow(1 - math.pow(v.attack_time, 0.85), 3)) * 180) * 68.7549354157 + math.sin(math.pow(v.attack_time, 0.85) * 180) * (q.head_x_rotation(0) - 40.1070456592) * 0.75",
+            "v.attack_body_rot_y * 2.0",
+            "math.sin(v.attack_time * 180) * -22.9183118052"
           ]
         }
       }
@@ -96,16 +96,16 @@
       "loop" : true,
       "bones" : {
         "leftarm" : {
-          "rotation" : [ "math.sin(query.life_time * 76.7763445475) * 2.86478897565", 0.0, "-((math.cos(query.life_time * 103.132403124) * 2.86478897565) + 2.86478897565)" ]
+          "rotation" : [ "math.sin(q.life_time * 76.7763445475) * 2.86478897565", 0.0, "-((math.cos(q.life_time * 103.132403124) * 2.86478897565) + 2.86478897565)" ]
         },
         "rightarm" : {
-          "rotation" : [ "-math.sin(query.life_time * 76.7763445475) * 2.86478897565", 0.0, "(math.cos(query.life_time * 103.132403124) * 2.86478897565) + 2.86478897565" ]
+          "rotation" : [ "-math.sin(q.life_time * 76.7763445475) * 2.86478897565", 0.0, "(math.cos(q.life_time * 103.132403124) * 2.86478897565) + 2.86478897565" ]
         },
         "leftarm_custom" : {
-          "rotation" : [ "math.sin(query.life_time * 76.7763445475) * 2.86478897565", 0.0, "-((math.cos(query.life_time * 103.132403124) * 2.86478897565) + 2.86478897565)" ]
+          "rotation" : [ "math.sin(q.life_time * 76.7763445475) * 2.86478897565", 0.0, "-((math.cos(q.life_time * 103.132403124) * 2.86478897565) + 2.86478897565)" ]
         },
         "rightarm_custom" : {
-          "rotation" : [ "-math.sin(query.life_time * 76.7763445475) * 2.86478897565", 0.0, "(math.cos(query.life_time * 103.132403124) * 2.86478897565) + 2.86478897565" ]
+          "rotation" : [ "-math.sin(q.life_time * 76.7763445475) * 2.86478897565", 0.0, "(math.cos(q.life_time * 103.132403124) * 2.86478897565) + 2.86478897565" ]
         }
       }
     },
@@ -113,16 +113,16 @@
       "loop" : true,
       "bones" : {
         "leftarm" : {
-          "rotation" : [ "(variable.is_holding_left && (query.get_equipped_item_name == 'crossbow' || query.get_equipped_item_name == 'bow' ? !query.item_is_charged && variable.item_use_normalized <= 0.0f : 1.0) || (query.item_is_charged && variable.attack_time > 0.0f)) ? (-this * 0.5 - 18.0) : 0.0", 0.0, 0.0 ]
+          "rotation" : [ "(v.is_holding_left && (q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow', 'minecraft:crossbow') ? !q.item_is_charged && (v.item_use_normalized <= 0.0) : 1.0) || (q.item_is_charged && (v.attack_time > 0.0))) ? (-this * 0.5 - 18.0) : 0.0", 0.0, 0.0 ]
         },
         "rightarm" : {
-          "rotation" : [ "variable.is_holding_right ? (-this * 0.5 - 18.0) : 0.0", 0.0, 0.0 ]
+          "rotation" : [ "v.is_holding_right ? (-this * 0.5 - 18.0) : 0.0", 0.0, 0.0 ]
         },
         "leftarm_custom" : {
-          "rotation" : [ "(variable.is_holding_left && (query.get_equipped_item_name == 'crossbow' || query.get_equipped_item_name == 'bow' ? !query.item_is_charged && variable.item_use_normalized <= 0.0f : 1.0) || (query.item_is_charged && variable.attack_time > 0.0f)) ? (-this * 0.5 - 18.0) : 0.0", 0.0, 0.0 ]
+          "rotation" : [ "(v.is_holding_left && (q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow', 'minecraft:crossbow') ? !q.item_is_charged && (v.item_use_normalized <= 0.0) : 1.0) || (q.item_is_charged && (v.attack_time > 0.0))) ? (-this * 0.5 - 18.0) : 0.0", 0.0, 0.0 ]
         },
         "rightarm_custom" : {
-          "rotation" : [ "variable.is_holding_right ? (-this * 0.5 - 18.0) : 0.0", 0.0, 0.0 ]
+          "rotation" : [ "v.is_holding_right ? (-this * 0.5 - 18.0) : 0.0", 0.0, 0.0 ]
         }
       }
     },
@@ -130,16 +130,16 @@
       "loop" : true,
       "bones" : {
         "leftarm" : {
-          "rotation" : [ "variable.tcos0 * (1.0 - v.swim_amount)", 0.0, 0.0 ]
+          "rotation" : [ "v.tcos0 * (1.0 - v.swim_amount)", 0.0, 0.0 ]
         },
         "rightarm" : {
-          "rotation" : [ "-variable.tcos0 * (1.0 - v.swim_amount)", 0.0, 0.0 ]
+          "rotation" : [ "-v.tcos0 * (1.0 - v.swim_amount)", 0.0, 0.0 ]
         },
         "leftarm_custom" : {
-          "rotation" : [ "variable.tcos0 * (1.0 - v.swim_amount)", 0.0, 0.0 ]
+          "rotation" : [ "v.tcos0 * (1.0 - v.swim_amount)", 0.0, 0.0 ]
         },
         "rightarm_custom" : {
-          "rotation" : [ "-variable.tcos0 * (1.0 - v.swim_amount)", 0.0, 0.0 ]
+          "rotation" : [ "-v.tcos0 * (1.0 - v.swim_amount)", 0.0, 0.0 ]
         }
       }
     },
@@ -147,10 +147,10 @@
       "loop" : true,
       "bones" : {
         "leftleg" : {
-          "rotation" : [ "variable.tcos0 * -1.4 * (1.0 - v.swim_amount)", 0.0, 0.0 ]
+          "rotation" : [ "v.tcos0 * -1.4 * (1.0 - v.swim_amount)", 0.0, 0.0 ]
         },
         "rightleg" : {
-          "rotation" : [ "variable.tcos0 * 1.4 * (1.0 - v.swim_amount)", 0.0, 0.0 ]
+          "rotation" : [ "v.tcos0 * 1.4 * (1.0 - v.swim_amount)", 0.0, 0.0 ]
         }
       }
     },
@@ -186,16 +186,16 @@
       "loop" : true,
       "bones" : {
         "leftarm" : {
-          "rotation": [ "variable.item_use_normalized > 0.0f ? -90.0 + query.target_x_rotation - (query.is_sneaking * 20.0) : 0.0", "variable.item_use_normalized > 0.0f ? 27.5 + query.target_y_rotation : 0.0", 0.0 ]
+          "rotation": [ "v.item_use_normalized > 0.0f ? -90.0 + q.target_x_rotation - (q.is_sneaking * 20.0) : 0.0", "v.item_use_normalized > 0.0f ? 27.5 + q.target_y_rotation : 0.0", 0.0 ]
         },
         "rightarm" : { // - 90.0 + 18.0
-          "rotation": [ "variable.item_use_normalized > 0.0f ? -72.0 + query.target_x_rotation - (query.is_sneaking * 20.0) : 0.0", "variable.item_use_normalized > 0.0f ? -5.0 + query.target_y_rotation : 0.0", 0.0 ]
+          "rotation": [ "v.item_use_normalized > 0.0f ? -72.0 + q.target_x_rotation - (q.is_sneaking * 20.0) : 0.0", "v.item_use_normalized > 0.0f ? -5.0 + q.target_y_rotation : 0.0", 0.0 ]
         },
         "leftarm_custom" : {
-          "rotation": [ "variable.item_use_normalized > 0.0f ? -90.0 + query.target_x_rotation - (query.is_sneaking * 20.0) : 0.0", "variable.item_use_normalized > 0.0f ? 27.5 + query.target_y_rotation : 0.0", 0.0 ]
+          "rotation": [ "v.item_use_normalized > 0.0f ? -90.0 + q.target_x_rotation - (q.is_sneaking * 20.0) : 0.0", "v.item_use_normalized > 0.0f ? 27.5 + q.target_y_rotation : 0.0", 0.0 ]
         },
         "rightarm_custom" : {
-          "rotation": [ "variable.item_use_normalized > 0.0f ? -72.0 + query.target_x_rotation - (query.is_sneaking * 20.0) : 0.0", "variable.item_use_normalized > 0.0f ? -5.0 + query.target_y_rotation : 0.0", 0.0 ]
+          "rotation": [ "v.item_use_normalized > 0.0f ? -72.0 + q.target_x_rotation - (q.is_sneaking * 20.0) : 0.0", "v.item_use_normalized > 0.0f ? -5.0 + q.target_y_rotation : 0.0", 0.0 ]
         }
       }
     },
@@ -204,9 +204,9 @@
       "bones" : {
         "leftarm" : {
           "rotation" : [
-            "-60.0 - (1.0 - variable.item_use_normalized) * 25.0",
-            "15.0 + (1.0 - variable.item_use_normalized) * 35.0",
-            "-5.0 + (1.0 - variable.item_use_normalized) * 10.0"
+            "-60.0 - (1.0 - v.item_use_normalized) * 25.0",
+            "15.0 + (1.0 - v.item_use_normalized) * 35.0",
+            "-5.0 + (1.0 - v.item_use_normalized) * 10.0"
           ]
         },
         "rightarm" : {
@@ -214,9 +214,9 @@
         },
         "leftarm_custom" : {
           "rotation" : [
-            "-60.0 - (1.0 - variable.item_use_normalized) * 25.0",
-            "15.0 + (1.0 - variable.item_use_normalized) * 35.0",
-            "-5.0 + (1.0 - variable.item_use_normalized) * 10.0"
+            "-60.0 - (1.0 - v.item_use_normalized) * 25.0",
+            "15.0 + (1.0 - v.item_use_normalized) * 35.0",
+            "-5.0 + (1.0 - v.item_use_normalized) * 10.0"
           ]
         },
         "rightarm_custom" : {
@@ -229,29 +229,29 @@
       "bones" : {
         "leftarm" : {
           "rotation" : [
-            "-85.0 + query.target_x_rotation",
-            "32.5 + math.clamp(query.target_y_rotation, -50.0, 50.0)",
+            "-85.0 + q.target_x_rotation",
+            "32.5 + math.clamp(q.target_y_rotation, -50.0, 50.0)",
             0.0
           ]
         },
         "rightarm" : {
           "rotation" : [
-            "-85.0 + query.target_x_rotation + 18",
-            "math.clamp(query.target_y_rotation, -50.0, 50.0) - 17.5",
+            "-85.0 + q.target_x_rotation + 18",
+            "math.clamp(q.target_y_rotation, -50.0, 50.0) - 17.5",
             0.0
           ]
         },
         "leftarm_custom" : {
           "rotation" : [
-            "-85.0 + query.target_x_rotation",
-            "32.5 + math.clamp(query.target_y_rotation, -50.0, 50.0)",
+            "-85.0 + q.target_x_rotation",
+            "32.5 + math.clamp(q.target_y_rotation, -50.0, 50.0)",
             0.0
           ]
         },
         "rightarm_custom" : {
           "rotation" : [
-            "-85.0 + query.target_x_rotation",
-            "math.clamp(query.target_y_rotation, -50.0, 50.0) - 17.5",
+            "-85.0 + q.target_x_rotation",
+            "math.clamp(q.target_y_rotation, -50.0, 50.0) - 17.5",
             0.0
           ]
         }
