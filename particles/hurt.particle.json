@@ -28,7 +28,9 @@
       "minecraft:emitter_shape_point": {
         "offset": [
           0,
-          "(query.is_gliding || query.is_swimming || query.can_damage_nearby_mobs) ? -1.2 : -0.4",
+          // wouldn't it be nice to access the entity aabb dimensions here?
+          // center vertically along hitbox
+          "(q.is_gliding || q.is_swimming || q.is_crawling || q.can_damage_nearby_mobs) ? ((0.6 / 2) - 1.620001) : ((1.8 / 2) - 1.620001)",
           0
         ],
         "direction": [
@@ -39,16 +41,16 @@
       },
       "minecraft:particle_motion_dynamic": {
         "linear_acceleration": [
-          "query.movement_direction(0) * 24.0", //inherit a proportion of the entity motion
+          "q.movement_direction(0) * 24.0", // inherit a proportion of the entity motion
           -4.0,
-          "query.movement_direction(2) * 24.0"
+          "q.movement_direction(2) * 24.0"
         ],
-        "linear_drag_coefficient": "12.0f - (query.modified_move_speed * 3.0f)" // less drag as player moves faster
+        "linear_drag_coefficient": "12.0f - (q.modified_move_speed * 3.0)" // less drag as player moves faster
       },
       "minecraft:particle_appearance_billboard": {
         "size": [
-          "(0.08 + variable.particle_random_1 * 0.02)",
-          "(0.08 + variable.particle_random_1 * 0.02)"
+          "(0.08 + v.particle_random_1 * 0.02)",
+          "(0.08 + v.particle_random_1 * 0.02)"
         ],
         "facing_camera_mode": "rotate_xyz", // lookat_xyz
         "uv": {
@@ -61,9 +63,9 @@
       "minecraft:particle_appearance_lighting": {},
       "minecraft:particle_appearance_tinting": {
         "color": [
-          0,
-          "math.lerp(0.65, 0.425, math.pow(variable.particle_age / variable.particle_lifetime, 2.0))",
-          "math.lerp(0.65, 0.3, math.pow(variable.particle_age / variable.particle_lifetime, 2.0))",
+          "t.basic_crit_r = (v.particle_random_1 * 0.3) + 0.6; return t.basic_crit_r * 0.3;",
+          "t.basic_crit_g = (v.particle_random_1 * 0.3) + 0.6; t.age_progress = v.particle_age / v.particle_lifetime; return math.lerp(t.basic_crit_g * 0.8, 0.425, math.pow(t.age_progress, 1.6));",
+          "t.basic_crit_b = (v.particle_random_1 * 0.3) + 0.6; t.age_progress = v.particle_age / v.particle_lifetime; return math.lerp(t.basic_crit_b, 0.3, math.pow(t.age_progress, 1.6));",
           1
         ]
       }
