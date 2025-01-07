@@ -3,25 +3,25 @@
   "minecraft:attachable": {
     "description": {
       "identifier": "minecraft:diamond_leggings.player",
-      "item": { "minecraft:diamond_leggings": "query.owner_identifier == 'minecraft:player'" },
+      "item": { "minecraft:diamond_leggings": "q.is_owner_identifier_any('minecraft:player')" },
       "materials": {
         "default": "armor",
         "enchanted": "armor_enchanted"
       },
       "textures": {
         "default": "textures/models/armor/diamond_2",
-        "enchanted": "textures/misc/enchanted_item_glint"
+        "enchanted": "textures/misc/enchanted_actor_glint"
       },
       "geometry": {
         "default": "geometry.player.armor.leggings",
         "default_custom": "geometry.player_armor_leggings_custom"
       },
       "scripts": {
-        "parent_setup": "variable.leg_layer_visible = 0.0;"
+        "parent_setup": "v.leg_layer_visible = 0.0;"
       },
       "render_controllers": [
-        { "controller.render.armor": "query.is_emoting" },
-        { "controller.render.armor.leggings": "!query.is_emoting" }
+        { "controller.render.armor": "q.is_emoting" },
+        { "controller.render.armor.leggings": "!q.is_emoting" }
       ]
     }
   }

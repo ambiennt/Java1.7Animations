@@ -3,25 +3,25 @@
   "minecraft:attachable": {
     "description": {
       "identifier": "minecraft:diamond_chestplate.player",
-      "item": { "minecraft:diamond_chestplate": "query.owner_identifier == 'minecraft:player'" },
+      "item": { "minecraft:diamond_chestplate": "q.is_owner_identifier_any('minecraft:player')" },
       "materials": {
         "default": "armor",
         "enchanted": "armor_enchanted"
       },
       "textures": {
         "default": "textures/models/armor/diamond_1",
-        "enchanted": "textures/misc/enchanted_item_glint"
+        "enchanted": "textures/misc/enchanted_actor_glint"
       },
       "geometry": {
         "default": "geometry.player.armor.chestplate",
         "default_custom": "geometry.player_armor_custom"
       },
       "scripts": {
-        "parent_setup": "variable.chest_layer_visible = 0.0;"
+        "parent_setup": "v.chest_layer_visible = 0.0;"
       },
       "render_controllers": [
-        { "controller.render.armor": "query.is_emoting" },
-        { "controller.render.armor.chestplate": "!query.is_emoting" }
+        { "controller.render.armor": "q.is_emoting" },
+        { "controller.render.armor.chestplate": "!q.is_emoting" }
       ]
     }
   }
