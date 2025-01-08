@@ -1,6 +1,6 @@
 // This file was modified by ambient (ambiennt on discord). Do not use or redistribute this file or its contents without explicit permission from the author.
 {
-  "format_version" : "1.8.0",
+  "format_version" : "1.10.0",
   "animations": {
     "animation.player.first_person.attack_rotation" : {
       "loop" : true,
