@@ -13,10 +13,32 @@
         "enchanted": "textures/misc/enchanted_actor_glint"
       },
       "geometry": {
-        "default": "geometry.player_elytra_custom" // default_custom
+        "default": "geometry.player_elytra_custom" // "default_custom", the elytra has some weird hardcoded behavior where the friendly name must be called "default"
+      },
+      "animations": {
+        "default_controller": "controller.animation.elytra.default",
+        "default": "animation.elytra.default",
+        "gliding": "animation.elytra.gliding",
+        "sneaking": "animation.elytra.sneaking"
       },
       "scripts": {
-        "parent_setup": "v.chest_layer_visible = 0.0;"
+        "parent_setup": "v.chest_layer_visible = 0.0;",
+        "initialize": [
+          "v.delta_time = 0.0;",
+          "v.elytra_tilt_ratio = 0.0;",
+          "v.elytra_glide_amount = 0.0;",
+          "v.elytra_sneak_amount = 0.0;"
+        ],
+        "pre_animation": [
+          "v.delta_time = q.delta_time;",
+          "v.elytra_tilt_ratio = (q.position_delta(1) < 0) ? 1 - math.pow(-q.movement_direction(1), 1.5) : 1;",
+          "t.lerp_pct = 0.8; t.lerp_time = 0.2; v.elytra_glide_amount = v.elytra_glide_amount + (q.is_gliding - v.elytra_glide_amount) * (1 - math.pow((1 - temp.lerp_pct), v.delta_time / t.lerp_time));",
+          "t.lerp_pct = 0.8; t.lerp_time = 0.2; t.is_only_sneaking = q.is_sneaking && !q.is_gliding && !q.is_swimming; v.elytra_sneak_amount = v.elytra_sneak_amount + (t.is_only_sneaking - v.elytra_sneak_amount) * (1 - math.pow((1 - temp.lerp_pct), v.delta_time / t.lerp_time));"
+        ],
+        "animate": [
+          // it seems like this animation controller is hardcoded to animate, and all of the animations it references in the vanilla file are also attached to the client attachable entity file by default?
+          "default_controller"
+        ]
       },
       "render_controllers": [
         "controller.render.armor.elytra"

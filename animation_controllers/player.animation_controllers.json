@@ -114,7 +114,7 @@
             { "riding.legs": "q.is_riding" },
             "holding",
             { "bob": "!v.is_in_menu && !v.is_holding_spyglass && !v.is_tooting_goat_horn && !v.is_using_brush && (v.swim_amount <= 0.0)" },
-            { "sneaking": "q.is_sneaking && !q.is_sleeping" },
+            { "sneaking": "q.is_sneaking && !q.is_sleeping && !q.is_swimming" },
             { "sleeping": "q.is_sleeping && q.is_alive" },
             "swim_and_crawl_controller",
             { "attack.rotations": "v.attack_time > 0.0" },

@@ -2,14 +2,14 @@
 {
   "format_version" : "1.10.0",
   "animation_controllers": {
-    "controller.animation.player.elytra": {
+    "controller.animation.elytra.default": {
       "initial_state": "default",
       "states": {
         "default": {
           "animations": [
-            "elytra_default",
-            "elytra_gliding",
-            "elytra_sneaking"
+            "default",
+            "gliding",
+            "sneaking"
           ]
         }
       }

@@ -2,42 +2,42 @@
 {
   "format_version": "1.8.0",
   "animations": {
-    "animation.player.elytra.default": {
+    "animation.elytra.default": {
       "loop": true,
       "bones": {
-        "left_wing_custom": {
+        "left_wing": {
           "position": [ 5.0, 5.0, 0 ],
           "rotation": [ 15, 0, -15 ],
           "scale": [ "1 * 1.125", "1 * 1.125", "2 * 1.125" ]
         },
-        "right_wing_custom": {
+        "right_wing": {
           "position": [ -5.0, 5.0, 0 ],
           "rotation": [ 15, 0, 15 ],
           "scale": [ "1 * 1.125", "1 * 1.125", "2 * 1.125" ]
         }
       }
     },
-    "animation.player.elytra.gliding": {
+    "animation.elytra.gliding": {
       "loop": true,
       "bones": {
-        "left_wing_custom": {
+        "left_wing": {
           "position": [ 0, 0, 0 ],
           "rotation": [ "v.elytra_glide_amount * math.lerp(0, 5, v.elytra_tilt_ratio)", 0, "v.elytra_glide_amount * math.lerp(0, -75, v.elytra_tilt_ratio)" ]
         },
-        "right_wing_custom": {
+        "right_wing": {
           "position": [ 0, 0, 0 ],
           "rotation": [ "v.elytra_glide_amount * math.lerp(0, 5, v.elytra_tilt_ratio)", 0, "v.elytra_glide_amount * math.lerp(0, 75, v.elytra_tilt_ratio)" ]
         }
       }
     },
-    "animation.player.elytra.sneaking": {
+    "animation.elytra.sneaking": {
       "loop": true,
       "bones": {
-        "left_wing_custom": {
+        "left_wing": {
           "position": [ 0, 0, 0 ],
           "rotation": [ "v.elytra_sneak_amount * 5", 0, "v.elytra_sneak_amount * -30" ]
         },
-        "right_wing_custom": {
+        "right_wing": {
           "position": [ 0, 0, 0 ],
           "rotation": [ "v.elytra_sneak_amount * 5", 0, "v.elytra_sneak_amount * 30" ]
         }
