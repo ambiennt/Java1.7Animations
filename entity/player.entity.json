@@ -126,7 +126,7 @@
           "hurt_particle_controller",
           "compute_modified_swim_speed",
           { "elytra_controller": "(v.hurt_time > 0.0) && (q.armor_texture_slot(1) == 5)" },
-          { "disable_attachables": "(v.hurt_time > 0.0) && !q.is_invisible && !q.is_emoting" },
+          { "disable_attachables": "(v.hurt_time > 0.0) && !q.is_invisible && (!q.is_emoting || (q.armor_texture_slot(1) == 5))" },
           { "interpolated_yaw": "q.is_local_player && !q.is_in_ui && !v.is_paperdoll && !q.is_sleeping && !q.is_riding && !q.is_gliding && !q.is_swimming && !v.damage_nearby_mobs" }
         ]
       },
@@ -233,7 +233,7 @@
         { "controller.render.player.armor.attachable_bones_elytra": "(q.armor_texture_slot(1) == 5) && !q.is_spectator" },
         { "controller.render.player.armor.attachable_bones_leggings": "q.has_armor_slot(2) && !q.is_spectator" },
         { "controller.render.player.armor.helmet": "!v.is_first_person && !v.map_face_icon && (v.hurt_time > 0.0) && !q.is_invisible && !q.is_emoting && q.has_armor_slot(0) && !q.is_spectator" },
-        { "controller.render.player.armor.chestplate": "!v.is_first_person && !v.map_face_icon && (v.hurt_time > 0.0) && !q.is_invisible && !q.is_emoting && q.has_armor_slot(1) && !q.is_spectator" },
+        { "controller.render.player.armor.chestplate": "!v.is_first_person && !v.map_face_icon && (v.hurt_time > 0.0) && !q.is_invisible && (!q.is_emoting || (q.armor_texture_slot(1) == 5)) && q.has_armor_slot(1) && !q.is_spectator" },
         { "controller.render.player.armor.leggings": "!v.is_first_person && !v.map_face_icon && (v.hurt_time > 0.0) && !q.is_invisible && !q.is_emoting && q.has_armor_slot(2) && !q.is_spectator" },
         { "controller.render.player.armor.boots": "!v.is_first_person && !v.map_face_icon && (v.hurt_time > 0.0) && !q.is_invisible && !q.is_emoting && q.has_armor_slot(3) && !q.is_spectator" }
       ],
