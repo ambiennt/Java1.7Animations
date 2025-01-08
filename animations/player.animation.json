@@ -44,7 +44,7 @@
             "v.relative_cape_rotation * -45.0"
           ]
         },
-        "ambient_cape" : {
+        "cape_custom" : {
           "position" : [ 0.0, "q.get_root_locator_offset('armor_offset.default_neck', 1)", 0.0 ],
           "rotation" : [
             "t.oscillation_amount = (q.is_sneaking ? 0 : math.sin(v.modified_distance_moved * 55.0) * 3.0 * (1.0 - v.swim_amount) * v.modified_move_speed); return (v.is_in_menu ? -6.0 : (q.is_sleeping ? 0 : math.clamp((q.cape_flap_amount * -110.25) - t.oscillation_amount - 0.75, -180.0, -1.5)));",
@@ -63,7 +63,7 @@
         "cape" : {
           "position" : [ 0.0, -2.2, 0.8 ]
         },
-        "ambient_cape" : {
+        "cape_custom" : {
           "position" : [ 0.0, -2.2, 0.8 ]
         },
         "head" : {

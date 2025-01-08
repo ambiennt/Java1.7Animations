@@ -17,7 +17,7 @@
           "pivot": [ 0.0, 0.0, 0.0 ]
         },
         {
-          "name": "ambient_cape",
+          "name": "cape_custom",
           "parent": "root",
           "pivot": [ 0.0, 24.0, 2.0 ],
           "bind_pose_rotation": [0.0, 180.0, 0.0],

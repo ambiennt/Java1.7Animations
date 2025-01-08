@@ -9,7 +9,7 @@
       "textures": [ "texture.cape" ],
       "part_visibility": [
         { "cape": "q.is_emoting && (q.armor_texture_slot(1) != 5)" },
-        { "ambient_cape": "!q.is_emoting && (q.armor_texture_slot(1) != 5)" }
+        { "cape_custom": "!q.is_emoting && (q.armor_texture_slot(1) != 5)" }
       ],
       "is_hurt_color":{},
       "on_fire_color":{}
