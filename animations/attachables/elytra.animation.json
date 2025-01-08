@@ -21,11 +21,9 @@
       "loop": true,
       "bones": {
         "left_wing": {
-          "position": [ 0, 0, 0 ],
           "rotation": [ "v.elytra_glide_amount * math.lerp(0, 5, v.elytra_tilt_ratio)", 0, "v.elytra_glide_amount * math.lerp(0, -75, v.elytra_tilt_ratio)" ]
         },
         "right_wing": {
-          "position": [ 0, 0, 0 ],
           "rotation": [ "v.elytra_glide_amount * math.lerp(0, 5, v.elytra_tilt_ratio)", 0, "v.elytra_glide_amount * math.lerp(0, 75, v.elytra_tilt_ratio)" ]
         }
       }
@@ -34,11 +32,9 @@
       "loop": true,
       "bones": {
         "left_wing": {
-          "position": [ 0, 0, 0 ],
           "rotation": [ "v.elytra_sneak_amount * 5", 0, "v.elytra_sneak_amount * -30" ]
         },
         "right_wing": {
-          "position": [ 0, 0, 0 ],
           "rotation": [ "v.elytra_sneak_amount * 5", 0, "v.elytra_sneak_amount * 30" ]
         }
       }

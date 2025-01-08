@@ -30,7 +30,7 @@
           0,
           // wouldn't it be nice to access the entity aabb dimensions here?
           // center vertically along hitbox
-          "(q.is_gliding || q.is_swimming || q.is_crawling || q.can_damage_nearby_mobs) ? ((0.6 / 2) - 1.620001) : ((1.8 / 2) - 1.620001)",
+          "t.player_eye_height = 1.620001; return (q.is_gliding || q.is_swimming || q.is_crawling || q.can_damage_nearby_mobs) ? ((0.6 / 2) - t.player_eye_height) : ((1.8 / 2) - t.player_eye_height);",
           0
         ],
         "direction": [

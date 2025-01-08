@@ -21,8 +21,8 @@
       },
       "scripts": {
         "animate": [
-          { "holding": "q.main_hand_item_use_duration <= 0.0f" },
-          { "scoping": "q.main_hand_item_use_duration > 0.0f && !c.is_first_person" }
+          { "holding": "q.main_hand_item_use_duration <= 0.0" },
+          { "scoping": "(q.main_hand_item_use_duration > 0.0) && !c.is_first_person" }
         ]
       },
       "render_controllers": [ "controller.render.item_default" ]
