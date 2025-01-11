@@ -13,4 +13,4 @@ This repository only exists for educational purposes, to aggregate bug reports, 
 - Modify this pack and distribute it publicly
 - Distribute an unmodified version of this pack publicly (that means NO reuploading on 3rd party sites)
 - Directly use the code of this pack in your own content without explicit permission from me
-- Showcase this pack in a video without the proper criteria aligned [above](#you-are-allowed-to-)
+- Showcase this pack in a video without the proper criteria aligned [above](#you-are-allowed-to)
