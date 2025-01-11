@@ -44,14 +44,14 @@
             // identical to v.use_item_interval_progress
             //"t.use_dur = (q.main_hand_item_use_duration > 0.0) ? (q.main_hand_item_use_duration - q.frame_alpha + 1) : 0; t.remaining_use_ticks = q.main_hand_item_max_duration - t.use_dur; t.move_to_mouth_ticks = q.main_hand_item_max_duration - 24; t.delta = t.move_to_mouth_ticks - t.remaining_use_ticks; return (!q.is_item_equipped(0) || (t.delta >= 0)) ? 0 : math.mod(-t.delta, 4) * 0.25;"
 
-            "t.progress = math.clamp((q.main_hand_item_max_duration - (q.main_hand_item_use_duration - q.frame_alpha + 1)) * 0.3, 0, 1); t.ticks_alive = q.life_time * 20; return (t.progress * -80.2140913183) + ((t.progress > 0.8) ? (math.cos(t.ticks_alive * 97.4028251722) * 4.58366236105) * (1 - v.attack_time) : 0) + 18.0;",
+            "t.progress = math.clamp((q.main_hand_item_max_duration - (q.main_hand_item_use_duration - q.frame_alpha + 1)) * 0.3, 0, 1); t.ticks_alive = q.life_time * 20; return (t.progress * -80.2140913183) + ((t.progress > 0.8) ? (math.cos(t.ticks_alive * 97.4028251722) * 4.58366236105) * (1 - v.attack_time) : 0) + (t.progress * 18.0);",
             "t.progress = math.clamp((q.main_hand_item_max_duration - (q.main_hand_item_use_duration - q.frame_alpha + 1)) * 0.3, 0, 1); return t.progress * -25.7831007809;",
             0
           ]
         },
         "rightarm_custom" : {
           "rotation" : [
-            "t.progress = math.clamp((q.main_hand_item_max_duration - (q.main_hand_item_use_duration - q.frame_alpha + 1)) * 0.3, 0, 1); t.ticks_alive = q.life_time * 20; return (t.progress * -80.2140913183) + ((t.progress > 0.8) ? (math.cos(t.ticks_alive * 97.4028251722) * 4.58366236105) * (1 - v.attack_time) : 0) + 18.0;",
+            "t.progress = math.clamp((q.main_hand_item_max_duration - (q.main_hand_item_use_duration - q.frame_alpha + 1)) * 0.3, 0, 1); t.ticks_alive = q.life_time * 20; return (t.progress * -80.2140913183) + ((t.progress > 0.8) ? (math.cos(t.ticks_alive * 97.4028251722) * 4.58366236105) * (1 - v.attack_time) : 0) + (t.progress * 18.0);",
             "t.progress = math.clamp((q.main_hand_item_max_duration - (q.main_hand_item_use_duration - q.frame_alpha + 1)) * 0.3, 0, 1); return t.progress * -25.7831007809;",
             0
           ]
