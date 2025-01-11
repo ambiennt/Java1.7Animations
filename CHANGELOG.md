@@ -1,9 +1,10 @@
 ### v2.5.0
 
 - Fix most major bugs introduced since Minecraft Bedrock Edition v1.19.0, *within the capacity that resource packs allow*
+    - **Minecraft Bedrock v1.21.0 to v1.21.51 are officially supported**, but future versions can't be guaranteed
 - **Proper cape/persona support!** (thanks to [Rainvay_ZCYF](https://mcpedl.com/user/zouchenyunfei/) for sharing a workaround!)
     - The cape overlay pack is now deprecated for this reason
-- Revamp subpack configurations
+- Revamped subpack configurations
 - Proper leather armor color support while armor hurt overlay is active (only applies to subpacks which have this feature)
     - This means that leather armor textures are no longer overwritten
 - Improved shield animations
