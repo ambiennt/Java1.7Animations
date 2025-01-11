@@ -1,0 +1,71 @@
+// This file was modified by ambient (ambiennt on discord). Do not use or redistribute this file or its contents without explicit permission from the author.
+{
+  "format_version": 2,
+  "header": {
+    "name": "§aJava 1.7 Animations §dv2.5§r",
+    "description": "Made by §3ambient§r (v1.21.0+)",
+    "uuid": "39518321-e2af-4839-bdec-522ad09e2afe",
+    "version": [ 2, 5, 0 ],
+    "min_engine_version": [ 1, 21, 0 ]
+  },
+  "modules": [
+    {
+      "description": "Made by §ambient§r (v1.21.0+)",
+      "type": "resources",
+      "uuid": "e623c91f-89a3-4f99-af77-6333613a7e28",
+      "version": [ 2, 5, 0 ]
+    }
+  ],
+  "subpacks": [
+    {
+      "folder_name": "narmor_nparticle_eat",
+      "name": "§gNo Armor Overlay§r + §bNo Damage/Projectile Particles§r + §aConsole Edition Eat Animation§r",
+      "memory_tier": 0
+    },
+    {
+      "folder_name": "red_nparticle_eat",
+      "name": "§cRedder Hurt Color Overlay§r + §bNo Damage/Projectile Particles§r + §aConsole Edition Eat Animation§r",
+      "memory_tier": 0
+    },
+    {
+      "folder_name": "narmor_nparticle",
+      "name": "§gNo Armor Overlay§r + §bNo Damage/Projectile Particles§r",
+      "memory_tier": 0
+    },
+    {
+      "folder_name": "red_nparticle",
+      "name": "§cRedder Hurt Color Overlay§r + §bNo Damage/Projectile Particles§r",
+      "memory_tier": 0
+    },
+    {
+      "folder_name": "red_eat",
+      "name": "§cRedder Hurt Color Overlay§r + §aConsole Edition Eat Animation§r",
+      "memory_tier": 0
+    },
+    {
+      "folder_name": "narmor",
+      "name": "§gNo Armor Overlay§r",
+      "memory_tier": 0
+    },
+    {
+      "folder_name": "nparticle",
+      "name": "§bNo Damage/Projectile Particles§r",
+      "memory_tier": 0
+    },
+    {
+      "folder_name": "eat",
+      "name": "§aConsole Edition Eat Animation§r",
+      "memory_tier": 0
+    },
+    {
+      "folder_name": "red",
+      "name": "§cRedder Hurt Color Overlay§r",
+      "memory_tier": 0
+    },
+    {
+      "folder_name": "default",
+      "name": "Default",
+      "memory_tier": 0
+    }
+  ]
+}
