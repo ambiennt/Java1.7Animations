@@ -16,7 +16,7 @@
           }
         },
         "waist": {
-          "rotation": [ 0.0, 0.0, "variable.is_upside_down = 0.0;" ]
+          "rotation": [ 0.0, 0.0, "v.is_upside_down = 0.0;" ]
         },
 
         "leftarm_custom": {

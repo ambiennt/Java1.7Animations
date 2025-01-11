@@ -68,6 +68,8 @@
           "v.is_holding_spyglass = 0.0;",
           "v.is_tooting_goat_horn = 0.0;",
           "v.is_using_brush = 0.0;",
+          "v.use_item_startup_progress = 0.0;",
+          "v.use_item_interval_progress = 0.0;",
           "v.swim_amount = 0.0;",
           "v.map_angle = 0.0;",
           "v.item_use_normalized = 0.0;",

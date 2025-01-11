@@ -1,0 +1,228 @@
+// This file was modified by ambient (ambiennt on discord). Do not use or redistribute this file or its contents without explicit permission from the author.
+{
+  "format_version": "1.10.0",
+  "render_controllers": {
+    "controller.render.persona_animated_face.first_person": {
+      "rebuild_animation_matrices": true,
+      "geometry": "geometry.animated_face",
+      "materials": [ { "*": "material.animated" } ],
+      "textures": [ "texture.animated_face" ],
+      "part_visibility": [
+        { "*": false },
+        { "rightArm": "!q.is_item_equipped(0) || q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map')" },
+        { "rightSleeve": "!q.is_item_equipped(0) || q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map')" },
+        { "leftArm": "((q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map') && !q.is_item_name_any('slot.weapon.offhand', 'minecraft:shield')) || q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map')) && q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow', 'minecraft:crossbow') ? (v.item_use_normalized <= 0.0) && !q.item_is_charged : 1" },
+        { "leftSleeve": "((q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map') && !q.is_item_name_any('slot.weapon.offhand', 'minecraft:shield')) || q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map')) && q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow', 'minecraft:crossbow') ? (v.item_use_normalized <= 0.0) && !q.item_is_charged : 1" }
+      ],
+      "uv_anim": {
+        "offset": [ 0.0, "v.use_blinking_animation ? v.is_blinking * 0.5 : Math.mod(Math.floor(q.life_time * 7),v.animation_frames_face)/v.animation_frames_face" ],
+        "scale": [ 1.0, 1.0 ]
+      },
+      "is_hurt_color":{
+        "r": "v.hurt_time = q.life_time; return 0.0;",
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "on_fire_color":{}
+    },
+    "controller.render.persona_animated_32x32.first_person": {
+      "rebuild_animation_matrices": true,
+      "geometry": "geometry.animated_32x32",
+      "materials": [ { "*": "material.animated" } ],
+      "textures": [ "texture.animated_32x32" ],
+      "part_visibility": [
+        { "*": false },
+        { "rightArm": "!q.is_item_equipped(0) || q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map')" },
+        { "rightSleeve": "!q.is_item_equipped(0) || q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map')" },
+        { "leftArm": "((q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map') && !q.is_item_name_any('slot.weapon.offhand', 'minecraft:shield')) || q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map')) && q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow', 'minecraft:crossbow') ? (v.item_use_normalized <= 0.0) && !q.item_is_charged : 1" },
+        { "leftSleeve": "((q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map') && !q.is_item_name_any('slot.weapon.offhand', 'minecraft:shield')) || q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map')) && q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow', 'minecraft:crossbow') ? (v.item_use_normalized <= 0.0) && !q.item_is_charged : 1" }
+      ],
+      "uv_anim": {
+        "offset": [ 0.0, "Math.mod(Math.floor(q.life_time * 7),v.animation_frames_32x32)/v.animation_frames_32x32" ],
+        "scale": [ 1.0, 1.0 ]
+      },
+      "is_hurt_color":{
+        "r": "v.hurt_time = q.life_time; return 0.0;",
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "on_fire_color":{}
+    },
+    "controller.render.persona_animated_128x128.first_person": {
+      "rebuild_animation_matrices": true,
+      "geometry": "geometry.animated_128x128",
+      "materials": [ { "*": "material.animated" } ],
+      "textures": [ "texture.animated_128x128" ],
+      "part_visibility": [
+        { "*": false },
+        { "rightArm": "!q.is_item_equipped(0) || q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map')" },
+        { "rightSleeve": "!q.is_item_equipped(0) || q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map')" },
+        { "leftArm": "((q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map') && !q.is_item_name_any('slot.weapon.offhand', 'minecraft:shield')) || q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map')) && q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow', 'minecraft:crossbow') ? (v.item_use_normalized <= 0.0) && !q.item_is_charged : 1" },
+        { "leftSleeve": "((q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map') && !q.is_item_name_any('slot.weapon.offhand', 'minecraft:shield')) || q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map')) && q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow', 'minecraft:crossbow') ? (v.item_use_normalized <= 0.0) && !q.item_is_charged : 1" }
+      ],
+      "uv_anim": {
+        "offset": [ 0.0, "Math.mod(Math.floor(q.life_time * 7),v.animation_frames_128x128)/v.animation_frames_128x128" ],
+        "scale": [ 1.0, 1.0 ]
+      },
+      "is_hurt_color":{
+        "r": "v.hurt_time = q.life_time; return 0.0;",
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.0
+      },
+      "on_fire_color":{}
+    },
+    "controller.render.persona_animated_face.third_person": {
+      "rebuild_animation_matrices": true,
+      "geometry": "geometry.animated_face",
+      "materials": [ { "*": "q.is_spectator ? Material.spectator : Material.animated" } ],
+      "textures": [ "texture.animated_face" ],
+      "part_visibility": [
+        { "*": "!q.is_spectator" },
+        { "head": true },
+        { "hat": "!q.has_head_gear" },
+        { "helmet": "v.helmet_layer_visible && !q.has_head_gear" },
+        { "leftLegging": "v.leg_layer_visible && !q.is_spectator" },
+        { "rightLegging": "v.leg_layer_visible && !q.is_spectator" },
+        { "leftBoot": "v.boot_layer_visible && !q.is_spectator" },
+        { "rightBoot": "v.boot_layer_visible && !q.is_spectator" },
+        { "leftSock": "v.boot_layer_visible && v.leg_layer_visible && !q.is_spectator" },
+        { "rightSock": "v.boot_layer_visible && v.leg_layer_visible && !q.is_spectator" },
+        { "bodyArmor": "v.chest_layer_visible && !q.is_spectator" },
+        { "leftArmArmor": "v.chest_layer_visible && !q.is_spectator" },
+        { "rightArmArmor": "v.chest_layer_visible && !q.is_spectator" },
+        { "belt": "v.chest_layer_visible && v.leg_layer_visible && !q.is_spectator" },
+        { "cape": "q.has_cape && !q.is_spectator" },
+        { "cape_custom": "q.has_cape && !q.is_spectator" }
+      ],
+      "uv_anim": {
+        "offset": [ 0.0, "v.use_blinking_animation ? v.is_blinking * 0.5 : Math.mod(Math.floor(q.life_time * 7),v.animation_frames_face)/v.animation_frames_face" ],
+        "scale": [ 1.0, 1.0 ]
+      },
+      "color": {
+        "r": "1.0f",
+        "g": "1.0f",
+        "b": "1.0f",
+        "a": "0.3f"
+      },
+      "is_hurt_color":{
+        "r": "v.hurt_time = q.life_time; return 1.0;",
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.6
+      },
+      "on_fire_color":{}
+    },
+    "controller.render.persona_animated_32x32.third_person": {
+      "rebuild_animation_matrices": true,
+      "geometry": "geometry.animated_32x32",
+      "materials": [ { "*": "q.is_spectator ? Material.spectator : Material.animated" } ],
+      "textures": [ "texture.animated_32x32" ],
+      "part_visibility": [
+        { "*": "!q.is_spectator" },
+        { "head": true },
+        { "hat": "!q.has_head_gear" },
+        { "helmet": "v.helmet_layer_visible && !q.has_head_gear" },
+        { "leftLegging": "v.leg_layer_visible && !q.is_spectator" },
+        { "rightLegging": "v.leg_layer_visible && !q.is_spectator" },
+        { "leftBoot": "v.boot_layer_visible && !q.is_spectator" },
+        { "rightBoot": "v.boot_layer_visible && !q.is_spectator" },
+        { "leftSock": "v.boot_layer_visible && v.leg_layer_visible && !q.is_spectator" },
+        { "rightSock": "v.boot_layer_visible && v.leg_layer_visible && !q.is_spectator" },
+        { "bodyArmor": "v.chest_layer_visible && !q.is_spectator" },
+        { "leftArmArmor": "v.chest_layer_visible && !q.is_spectator" },
+        { "rightArmArmor": "v.chest_layer_visible && !q.is_spectator" },
+        { "belt": "v.chest_layer_visible && v.leg_layer_visible && !q.is_spectator" },
+        { "cape": "q.has_cape && !q.is_spectator" },
+        { "cape_custom": "q.has_cape && !q.is_spectator" }
+      ],
+      "uv_anim": {
+        "offset": [ 0.0, "Math.mod(Math.floor(q.life_time * 7),v.animation_frames_32x32)/v.animation_frames_32x32" ],
+        "scale": [ 1.0, 1.0 ]
+      },
+      "color": {
+        "r": "1.0f",
+        "g": "1.0f",
+        "b": "1.0f",
+        "a": "0.3f"
+      },
+      "is_hurt_color":{
+        "r": "v.hurt_time = q.life_time; return 1.0;",
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.6
+      },
+      "on_fire_color":{}
+    },
+    "controller.render.persona_animated_128x128.third_person": {
+      "rebuild_animation_matrices": true,
+      "geometry": "geometry.animated_128x128",
+      "materials": [ { "*": "q.is_spectator ? Material.spectator : Material.animated" } ],
+      "textures": [ "texture.animated_128x128" ],
+      "part_visibility": [
+        { "*": "!q.is_spectator" },
+        { "head": true },
+        { "hat": "!q.has_head_gear" },
+        { "helmet": "v.helmet_layer_visible && !q.has_head_gear" },
+        { "leftLegging": "v.leg_layer_visible && !q.is_spectator" },
+        { "rightLegging": "v.leg_layer_visible && !q.is_spectator" },
+        { "leftBoot": "v.boot_layer_visible && !q.is_spectator" },
+        { "rightBoot": "v.boot_layer_visible && !q.is_spectator" },
+        { "leftSock": "v.boot_layer_visible && v.leg_layer_visible && !q.is_spectator" },
+        { "rightSock": "v.boot_layer_visible && v.leg_layer_visible && !q.is_spectator" },
+        { "bodyArmor": "v.chest_layer_visible && !q.is_spectator" },
+        { "leftArmArmor": "v.chest_layer_visible && !q.is_spectator" },
+        { "rightArmArmor": "v.chest_layer_visible && !q.is_spectator" },
+        { "belt": "v.chest_layer_visible && v.leg_layer_visible && !q.is_spectator" },
+        { "cape": "q.has_cape && !q.is_spectator" },
+        { "cape_custom": "q.has_cape && !q.is_spectator" }
+      ],
+      "uv_anim": {
+        "offset": [ 0.0, "Math.mod(Math.floor(q.life_time * 7),v.animation_frames_128x128)/v.animation_frames_128x128" ],
+        "scale": [ 1.0, 1.0 ]
+      },
+      "color": {
+        "r": "1.0f",
+        "g": "1.0f",
+        "b": "1.0f",
+        "a": "0.3f"
+      },
+      "is_hurt_color":{
+        "r": "v.hurt_time = q.life_time; return 1.0;",
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.6
+      },
+      "on_fire_color":{}
+    },
+    "controller.render.player.map.persona": {
+      "arrays": {
+        "geometries": {
+          "Array.geos": [ "geometry.default", "geometry.animated_face" ]
+        }
+      },
+      "geometry": "Array.geos[q.is_persona_or_premium_skin]",
+      "materials": [ { "*": "Material.animated" } ],
+      "textures": [ "texture.animated_face" ],
+      "part_visibility": [
+        { "*": false },
+        { "head": true },
+        { "hat": "!q.has_head_gear" },
+        { "helmet": "!q.has_head_gear" }
+      ],
+      "uv_anim": {
+        "offset": [ 0.0, "v.is_blinking * 0.5" ],
+        "scale": [ 1.0, 1.0 ]
+      },
+      "is_hurt_color":{
+        "r": "v.hurt_time = q.life_time; return 1.0;",
+        "g": 0.0,
+        "b": 0.0,
+        "a": 0.6
+      },
+      "on_fire_color":{}
+    }
+  }
+}

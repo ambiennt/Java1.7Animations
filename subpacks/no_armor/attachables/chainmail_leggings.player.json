@@ -1,0 +1,30 @@
+// This file was modified by ambient (ambiennt on discord). Do not use or redistribute this file or its contents without explicit permission from the author.
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "minecraft:chainmail_leggings.player",
+      "item": { "minecraft:chainmail_leggings": "q.is_owner_identifier_any('minecraft:player')" },
+      "materials": {
+        "default": "armor",
+        "enchanted": "armor_enchanted"
+      },
+      "textures": {
+        "default": "textures/models/armor/chain_2",
+        "enchanted": "textures/misc/enchanted_actor_glint"
+      },
+      "geometry": {
+        "default": "geometry.player.armor.leggings",
+        "default_custom": "geometry.player_armor_leggings_custom"
+      },
+      "scripts": {
+        "parent_setup": "v.leg_layer_visible = 0.0;"
+      },
+      "render_controllers": [
+        //{ "controller.render.armor": "q.is_emoting" },
+        //{ "controller.render.armor.leggings": "!q.is_emoting" }
+        "controller.render.armor"
+      ]
+    }
+  }
+}
