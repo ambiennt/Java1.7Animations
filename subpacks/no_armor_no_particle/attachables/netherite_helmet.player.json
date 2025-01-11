@@ -1,0 +1,30 @@
+// This file was modified by ambient (ambiennt on discord). Do not use or redistribute this file or its contents without explicit permission from the author.
+{
+  "format_version": "1.10.0",
+  "minecraft:attachable": {
+    "description": {
+      "identifier": "minecraft:netherite_helmet.player",
+      "item": { "minecraft:netherite_helmet": "q.is_owner_identifier_any('minecraft:player')" },
+      "materials": {
+        "default": "armor",
+        "enchanted": "armor_enchanted"
+      },
+      "textures": {
+        "default": "textures/models/armor/netherite_1",
+        "enchanted": "textures/misc/enchanted_actor_glint"
+      },
+      "geometry": {
+        "default": "geometry.player.armor.helmet",
+        "default_custom": "geometry.player_armor_custom"
+      },
+      "scripts": {
+        "parent_setup": "v.helmet_layer_visible = 0.0;"
+      },
+      "render_controllers": [
+        //{ "controller.render.armor": "q.is_emoting" },
+        //{ "controller.render.armor.helmet": "!q.is_emoting" }
+        "controller.render.armor"
+      ]
+    }
+  }
+}

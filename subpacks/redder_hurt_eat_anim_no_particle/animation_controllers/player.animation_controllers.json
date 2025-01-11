@@ -1,0 +1,143 @@
+// This file was modified by ambient (ambiennt on discord). Do not use or redistribute this file or its contents without explicit permission from the author.
+{
+  "format_version": "1.10.0",
+  "animation_controllers": {
+    "controller.animation.player.first_person_attack": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "animations": [
+            { "first_person_attack_rotation": "!q.is_item_equipped(0)" },
+            { "first_person_attack_rotation_bow": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow')" },
+            { "first_person_attack_rotation_spyglass": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:spyglass')" },
+            { "first_person_attack_rotation_shield": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:shield')" },
+            { "first_person_attack_rotation_trident": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:trident')" }, // && v.item_use_normalized <= 0.0 - it looks better the other way imo
+            { "first_person_attack_rotation_crossbow": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow')" } // && v.item_use_normalized <= 0.0
+          ]
+        }
+      }
+    },
+    "controller.animation.player.crossbow": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "hold": "q.item_is_charged" },
+            { "charge": "v.item_use_normalized > 0.0" }
+          ]
+        },
+        "charge": {
+          "animations": [
+            "third_person_crossbow_equipped"
+          ],
+          "transitions": [
+            { "default": "!q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow') || ((v.item_use_normalized <= 0.0) && !q.item_is_charged)" },
+            { "hold": "q.item_is_charged" }
+          ]
+        },
+        "hold": {
+          "animations": [
+            { "crossbow_hold": "!q.is_swimming && (v.attack_time <= 0.0)" }
+          ],
+          "transitions": [
+            { "default": "!q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow') || ((v.item_use_normalized <= 0.0) && !q.item_is_charged)" },
+            { "charge": "(v.item_use_normalized > 0.0)" }
+          ]
+        }
+      }
+    },
+    "controller.animation.player.first_person_map" : {
+      "initial_state" : "default",
+      "states" : {
+        "default" : {
+          "transitions" : [
+            { "one_hand": "q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map', 'minecraft:shield')" },
+            { "two_hand": "!q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map', 'minecraft:shield')" }
+          ]
+        },
+        "one_hand": {
+          "animations": [
+            { "first_person_map_hold_main_hand" : "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map')" },
+            { "first_person_map_hold_off_hand" : "q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map') && (q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow', 'minecraft:crossbow') ? (v.item_use_normalized <= 0.0) && !q.item_is_charged : 1)" }
+          ],
+          "transitions": [
+            { "default": "!q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map') && !q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map')" },
+            { "two_hand": "!q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map', 'minecraft:shield')" }
+          ]
+        },
+        "two_hand": {
+          "animations": [
+            "first_person_map_hold",
+            "first_person_map_hold_attack"
+          ],
+          "transitions": [
+            { "default": "!q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map') && !q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map')" },
+            { "one_hand": "q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map', 'minecraft:shield')" }
+          ]
+        }
+      }
+    },
+    "controller.animation.player.root": {
+      "initial_state": "first_person",
+      "states": {
+        "first_person": {
+          "animations": [
+            "first_person_base_pose",
+            "first_person_swap_item",
+            { "first_person_attack_controller": "(v.attack_time > 0.0) && !q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map')" },
+            { "first_person_empty_hand": "!v.is_holding_right" },
+            { "first_person_map_controller": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:filled_map') || q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map')" }
+          ],
+          "transitions": [
+            { "map_player": "v.map_face_icon" },
+            { "third_person": "!v.is_first_person" }
+          ]
+        },
+        "map_player": {
+          "transitions": [
+            { "first_person": "v.is_first_person" },
+            { "third_person": "!v.is_first_person && !v.map_face_icon" }
+          ]
+        },
+        "third_person": {
+          "animations": [
+            "humanoid_base_pose",
+            { "damage_nearby_mobs" : "v.damage_nearby_mobs" },
+            //{ "brandish_spear" : "v.is_brandishing_spear" },
+            //{ "holding_spyglass": "v.is_holding_spyglass" },
+
+            { "look_at_target": "!q.is_sleeping && !q.is_emoting" },
+            { "move.arms": "!(q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow') && (v.item_use_normalized > 0.0)) && (!(q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow') && (q.item_is_charged || (v.item_use_normalized > 0.0))) || (q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow') && q.item_is_charged && (v.attack_time > 0.0)))" },
+            "move.legs",
+            "cape",
+            { "riding.arms": "q.is_riding && !(q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow') && (v.item_use_normalized > 0.0)) && (!(q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow') && (q.item_is_charged || (v.item_use_normalized > 0.0))) || (q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow') && q.item_is_charged && (v.attack_time > 0.0)))" },
+            { "riding.legs": "q.is_riding" },
+            "holding",
+            { "bob": "!v.is_in_menu && !v.is_holding_spyglass && !v.is_tooting_goat_horn && !v.is_using_brush && (v.swim_amount <= 0.0)" },
+            { "sneaking": "q.is_sneaking && !q.is_sleeping && !q.is_swimming" },
+            { "sleeping": "q.is_sleeping && q.is_alive" },
+            "swim_and_crawl_controller",
+            { "attack.rotations": "v.attack_time > 0.0" },
+            { "shield_block_main_hand": "q.blocking && !q.is_item_name_any('slot.weapon.offhand', 'minecraft:shield') && q.is_item_name_any('slot.weapon.mainhand', 'minecraft:shield')" },
+            { "shield_block_off_hand": "q.blocking && q.is_item_name_any('slot.weapon.offhand', 'minecraft:shield') && (v.item_use_normalized <= 0.0) && !q.item_is_charged" },
+            { "crossbow_controller": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:crossbow')" },
+            { "third_person_bow_equipped": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow')" },
+            { "fire": "q.is_alive && q.is_on_fire" },
+            { "scoping_spyglass": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:spyglass') && (v.item_use_normalized > 0.0)" },
+            { "charging_trident": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:trident') && (v.item_use_normalized > 0.0)" },
+            { "menu_pose": "v.is_in_menu" },
+            { "tooting_goat_horn": "v.is_tooting_goat_horn" },
+            { "holding_brush": "q.is_item_name_any('slot.weapon.mainhand', 'minecraft:brush')" },
+            { "brushing": "v.is_using_brush" },
+
+            { "use_item_progress": "((v.use_item_interval_progress > 0.0) || (v.use_item_startup_progress > 0.0)) && !v.is_brandishing_spear && !v.is_holding_spyglass && !v.is_tooting_goat_horn && !v.is_using_brush && !q.is_item_name_any('slot.weapon.mainhand', 'minecraft:bow', 'minecraft:crossbow')" }
+          ],
+          "transitions": [
+            { "first_person": "v.is_first_person" },
+            { "map_player": "v.map_face_icon" }
+          ]
+        }
+      }
+    }
+  }
+}
