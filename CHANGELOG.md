@@ -22,4 +22,5 @@
 - Improved the eat animation to match Minecraft Console Edition (only applies to subpacks which have this feature)
 - Partially fixed armor trims not showing
     - Currently it isn't possible to show armor trims on the hurt armor overlay due to resource pack limitations
+- Banners now properly render on shields
 - The vanilla fire overlay now correctly shows on mobs
