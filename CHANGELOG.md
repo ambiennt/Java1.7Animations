@@ -8,7 +8,7 @@
 - Proper leather armor color support while armor hurt overlay is active (only applies to subpacks which have this feature)
     - This means that leather armor textures are no longer overwritten
 - Improved shield animations
-    - Uses the shield blocking flag intead of the player sneaking flag to determine whether a player should block with their shield
+    - Uses the shield blocking flag instead of the player sneaking flag to determine whether a player should block with their shield
 - Improved elytra animations and model scale
 - Tweaked spyglass animations/1st person positioning
 - Tweaked trident wielding animations
