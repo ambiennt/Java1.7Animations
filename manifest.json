@@ -2,15 +2,15 @@
 {
   "format_version": 2,
   "header": {
-    "name": "§aJava 1.7 Animations §dv2.5§r",
-    "description": "Made by §3ambient§r (v1.21.0+)",
+    "name": "\u00a7aJava 1.7 Animations \u00a7dv2.5\u00a7r",
+    "description": "Made by \u00a73ambient\u00a7r (v1.21.0+)",
     "uuid": "39518321-e2af-4839-bdec-522ad09e2afe",
     "version": [ 2, 5, 0 ],
     "min_engine_version": [ 1, 21, 0 ]
   },
   "modules": [
     {
-      "description": "Made by §ambient§r (v1.21.0+)",
+      "description": "Made by \u00a7ambient\u00a7r (v1.21.0+)",
       "type": "resources",
       "uuid": "e623c91f-89a3-4f99-af77-6333613a7e28",
       "version": [ 2, 5, 0 ]
@@ -19,47 +19,47 @@
   "subpacks": [
     {
       "folder_name": "narmor_nparticle_eat",
-      "name": "§gNo Armor Overlay§r + §bNo Damage/Projectile Particles§r + §aConsole Edition Eat Animation§r",
+      "name": "\u00a7gNo Armor Overlay\u00a7r + \u00a7bNo Damage/Projectile Particles\u00a7r + \u00a7aConsole Edition Eat Animation\u00a7r",
       "memory_tier": 0
     },
     {
       "folder_name": "red_nparticle_eat",
-      "name": "§cRedder Hurt Color Overlay§r + §bNo Damage/Projectile Particles§r + §aConsole Edition Eat Animation§r",
+      "name": "\u00a7cRedder Hurt Color Overlay\u00a7r + \u00a7bNo Damage/Projectile Particles\u00a7r + \u00a7aConsole Edition Eat Animation\u00a7r",
       "memory_tier": 0
     },
     {
       "folder_name": "narmor_nparticle",
-      "name": "§gNo Armor Overlay§r + §bNo Damage/Projectile Particles§r",
+      "name": "\u00a7gNo Armor Overlay\u00a7r + \u00a7bNo Damage/Projectile Particles\u00a7r",
       "memory_tier": 0
     },
     {
       "folder_name": "red_nparticle",
-      "name": "§cRedder Hurt Color Overlay§r + §bNo Damage/Projectile Particles§r",
+      "name": "\u00a7cRedder Hurt Color Overlay\u00a7r + \u00a7bNo Damage/Projectile Particles\u00a7r",
       "memory_tier": 0
     },
     {
       "folder_name": "red_eat",
-      "name": "§cRedder Hurt Color Overlay§r + §aConsole Edition Eat Animation§r",
+      "name": "\u00a7cRedder Hurt Color Overlay\u00a7r + \u00a7aConsole Edition Eat Animation\u00a7r",
       "memory_tier": 0
     },
     {
       "folder_name": "narmor",
-      "name": "§gNo Armor Overlay§r",
+      "name": "\u00a7gNo Armor Overlay\u00a7r",
       "memory_tier": 0
     },
     {
       "folder_name": "nparticle",
-      "name": "§bNo Damage/Projectile Particles§r",
+      "name": "\u00a7bNo Damage/Projectile Particles\u00a7r",
       "memory_tier": 0
     },
     {
       "folder_name": "eat",
-      "name": "§aConsole Edition Eat Animation§r",
+      "name": "\u00a7aConsole Edition Eat Animation\u00a7r",
       "memory_tier": 0
     },
     {
       "folder_name": "red",
-      "name": "§cRedder Hurt Color Overlay§r",
+      "name": "\u00a7cRedder Hurt Color Overlay\u00a7r",
       "memory_tier": 0
     },
     {
