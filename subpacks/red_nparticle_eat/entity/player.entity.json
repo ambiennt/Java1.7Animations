@@ -133,7 +133,7 @@
           "compute_arm_height",
           { "elytra_controller": "(v.hurt_time > 0.0) && (q.armor_texture_slot(1) == 5)" },
           { "disable_attachables": "(v.hurt_time > 0.0) && !q.is_invisible && (!q.is_emoting || (q.armor_texture_slot(1) == 5))" },
-          { "interpolated_yaw": "q.is_local_player && !q.is_in_ui && !v.is_paperdoll && !q.is_sleeping && !q.is_riding && !q.is_gliding && !q.is_swimming && !v.damage_nearby_mobs" }
+          { "interpolated_yaw": "q.is_local_player && !q.is_in_ui && !v.is_paperdoll && !q.is_sleeping && !q.is_riding && !q.is_gliding && !q.is_swimming && !q.is_crawling && !v.damage_nearby_mobs" }
         ]
       },
       "particle_effects":{
