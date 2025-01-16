@@ -1,3 +1,7 @@
+### v2.5.1
+- Added "No Armor Overlay + Console Edition Eat Animation" subpack
+- Tweaked the first person right arm height animation when transitioning from holding an item to holding nothing
+
 ### v2.5.0
 
 - Fixed most major bugs introduced since Minecraft Bedrock Edition v1.19.0, *within the capacity that resource packs allow*
@@ -7,6 +11,8 @@
 - Revamped subpack configurations
 - Proper leather armor color support while armor hurt overlay is active (only applies to subpacks which have this feature)
     - This means that leather armor textures are no longer overwritten
+- Tweaked armor hurt overlay color values
+    - "Redder Armor Overlay" subpacks now use the same RGBA values as vanilla Minecraft Bedrock Edition (r=1.0, g=0.0, b=0.0, a=0.6)
 - Improved shield animations
     - Uses the shield blocking flag instead of the player sneaking flag to determine whether a player should block with their shield
 - Improved elytra animations and model scale

@@ -5,7 +5,7 @@
     "name": "\u00a7aJava 1.7 Animations \u00a7dv2.5\u00a7r",
     "description": "Made by \u00a73ambient\u00a7r (v1.21.0+)",
     "uuid": "39518321-e2af-4839-bdec-522ad09e2afe",
-    "version": [ 2, 5, 2 ],
+    "version": [ 2, 5, 1 ],
     "min_engine_version": [ 1, 21, 0 ]
   },
   "modules": [
@@ -13,7 +13,7 @@
       "description": "Made by \u00a7ambient\u00a7r (v1.21.0+)",
       "type": "resources",
       "uuid": "e623c91f-89a3-4f99-af77-6333613a7e28",
-      "version": [ 2, 5, 2 ]
+      "version": [ 2, 5, 1 ]
     }
   ],
   "subpacks": [
