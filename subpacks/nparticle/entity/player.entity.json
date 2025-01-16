@@ -94,7 +94,10 @@
           "v.full_swim_distance = 0.0;",
           "v.elytra_tilt_ratio = 0.0;",
           "v.elytra_glide_amount = 0.0;",
-          "v.elytra_sneak_amount = 0.0;"
+          "v.elytra_sneak_amount = 0.0;",
+          "v.player_arm_height_custom = 0.0;",
+          "v.player_arm_height_custom_old = 0.0;",
+          "v.was_item_equipped = 0.0;"
         ],
         "pre_animation": [
           // bug: scoping spyglass in 1st person makes the new limb animation freeze, idk how to fix
@@ -127,6 +130,7 @@
           "hurt_time",
           //"hurt_particle_controller",
           "compute_modified_swim_speed",
+          "compute_arm_height",
           { "elytra_controller": "(v.hurt_time > 0.0) && (q.armor_texture_slot(1) == 5)" },
           { "disable_attachables": "(v.hurt_time > 0.0) && !q.is_invisible && (!q.is_emoting || (q.armor_texture_slot(1) == 5))" },
           { "interpolated_yaw": "q.is_local_player && !q.is_in_ui && !v.is_paperdoll && !q.is_sleeping && !q.is_riding && !q.is_gliding && !q.is_swimming && !v.damage_nearby_mobs" }
@@ -159,6 +163,7 @@
         "first_person_attack_rotation_crossbow": "animation.player.first_person.attack_rotation_crossbow",
         "compute_modified_swim_speed": "controller.animation.player.compute_modified_swim_speed",
         "menu_pose": "animation.player.menu_pose",
+        "compute_arm_height": "controller.animation.player.arm_height",
 
         // keep all animations included in the vanilla player.entity.json, regardless of whether we use them
         "root": "controller.animation.player.root",
