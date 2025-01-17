@@ -23,10 +23,10 @@
       "loop" : true,
       "bones" : {
         "rightarm" : {
-          "rotation" : [ "math.lerprotate(0, -162.0, math.pow(1.0 - v.swim_amount, 2))", 0.0, 0.0 ] // 180 - 18
+          "rotation" : [ "((v.swim_amount > 0.0) && q.is_crawling) ? -162.0 : math.lerprotate(0, -162.0, math.pow(1.0 - v.swim_amount, 2))", 0.0, 0.0 ] // 180 - 18
         },
         "rightarm_custom" : {
-          "rotation" : [ "math.lerprotate(0, -162.0, math.pow(1.0 - v.swim_amount, 2))", 0.0, 0.0 ] // 180 - 18
+          "rotation" : [ "((v.swim_amount > 0.0) && q.is_crawling) ? -162.0 : math.lerprotate(0, -162.0, math.pow(1.0 - v.swim_amount, 2))", 0.0, 0.0 ] // 180 - 18
         }
       }
     },

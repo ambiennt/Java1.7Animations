@@ -44,7 +44,7 @@
         "set_fully_swimming_or_crawling": {
           "animations": [
             "swimming_other",
-            "swimming_arms_full"
+            { "swimming_arms_full": "t.is_charging_trident = q.is_item_name_any('slot.weapon.mainhand', 'minecraft:trident') && (v.item_use_normalized > 0.0); return !t.is_charging_trident;" }
           ],
           "transitions": [
             { "swim_or_crawl_easing": "v.swim_amount < 1.0" }
