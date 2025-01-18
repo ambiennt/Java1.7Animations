@@ -38,14 +38,14 @@
         "leftarm": {
           "position": [
             0.0,
-            "t.height_factor = c.player_offhand_arm_height; return q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map', 'minecraft:shield') ? 0.0 : (1.0 - t.height_factor) * -10.0;",
+            "q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map', 'minecraft:shield') ? 0.0 : (1.0 - c.player_offhand_arm_height) * -10.0",
             0.0
           ]
         },
         "rightarm": {
           "position": [
             0.0,
-            "t.height_factor = (q.equipped_item_is_attachable(0) ? v.player_arm_height : v.player_arm_height_custom); return (1.0 - t.height_factor) * -10.0;",
+            "(1.0 - v.player_arm_height) * -10.0",
             0.0
           ]
         }
