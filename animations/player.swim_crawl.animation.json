@@ -14,8 +14,16 @@
           ]
         },
         "root" : {
-          "position" : [ 0.0, "(math.sin(q.target_x_rotation) * 24.0 + 3.0) * v.swim_amount", "(math.cos(q.target_x_rotation) * 24.0 + 9.0) * v.swim_amount" ],
-          "rotation" : [ "(q.target_x_rotation + 90.0) * v.swim_amount", 0.0, 0.0 ]
+          "position" : [
+            0.0,
+            "t.rot_offset = (v.swim_amount_exclusive > 0.0) ? q.target_x_rotation : 0.0; return ((math.sin(t.rot_offset) * 24.0) + 3.0) * v.swim_amount;",
+            "t.rot_offset = (v.swim_amount_exclusive > 0.0) ? q.target_x_rotation : 0.0; return ((math.cos(t.rot_offset) * 24.0) + 9.0) * v.swim_amount;"
+          ],
+          "rotation" : [
+            "t.rot_offset = (v.swim_amount_exclusive > 0.0) ? q.target_x_rotation : 0.0; return (t.rot_offset + 90.0) * v.swim_amount;",
+            0.0,
+            0.0
+          ]
         }
       }
     },

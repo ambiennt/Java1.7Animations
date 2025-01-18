@@ -2,6 +2,33 @@
 {
   "format_version": "1.10.0",
   "animation_controllers": {
+    "controller.animation.player.compute_swim_and_crawl_amount_exclusive": {
+      "initial_state": "default",
+      "states": {
+        "default": {
+          "transitions": [
+            { "swimming": "t.exclusively_swimming = q.is_swimming && !q.is_crawling; return t.exclusively_swimming && (v.swim_amount > 0.0);" },
+            { "crawling": "t.exclusively_crawling = !q.is_swimming && q.is_crawling; return t.exclusively_crawling && (v.swim_amount > 0.0);" }
+          ]
+        },
+        "swimming": {
+          "transitions": [
+            { "default": "v.swim_amount_exclusive = v.swim_amount; t.exclusively_swimming = q.is_swimming && !q.is_crawling; return (v.swim_amount <= 0.0) || !t.exclusively_swimming;" }
+          ],
+          "on_exit": [
+            "v.swim_amount_exclusive = 0.0;"
+          ]
+        },
+        "crawling": {
+          "transitions": [
+            { "default": "v.crawl_amount_exclusive = v.swim_amount; t.exclusively_crawling = !q.is_swimming && q.is_crawling; return (v.swim_amount <= 0.0) || !t.exclusively_crawling;" }
+          ],
+          "on_exit": [
+            "v.crawl_amount_exclusive = 0.0;"
+          ]
+        }
+      }
+    },
     "controller.animation.player.compute_modified_swim_speed": {
       "initial_state": "default",
       "states": {
