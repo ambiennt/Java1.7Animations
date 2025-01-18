@@ -1,6 +1,8 @@
 ### v2.5.1
-- Added "No Armor Overlay + Console Edition Eat Animation" subpack
-- Tweaked the first person right arm height animation when transitioning from holding an item to holding nothing
+- Added `No Armor Overlay + Console Edition Eat Animation` subpack
+- The trident charge animation now properly plays when the player is crawling
+- The crawl animation no longer transforms the player root based on head pitch
+- Minor bug fixes
 
 ### v2.5.0
 
