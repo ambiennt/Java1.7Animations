@@ -116,7 +116,7 @@
             { "bob": "t.is_charging_trident = q.is_item_name_any('slot.weapon.mainhand', 'minecraft:trident') && (v.item_use_normalized > 0.0); return !v.is_in_menu && !v.is_holding_spyglass && !v.is_tooting_goat_horn && !v.is_using_brush && ((v.swim_amount <= 0.0) || t.is_charging_trident);" },
             { "sneaking": "q.is_sneaking && !q.is_sleeping && !q.is_swimming" },
             { "sleeping": "q.is_sleeping && q.is_alive" },
-            "swim_and_crawl_controller",
+            "swim_crawl_controller",
             { "attack.rotations": "v.attack_time > 0.0" },
             { "shield_block_main_hand": "q.blocking && !q.is_item_name_any('slot.weapon.offhand', 'minecraft:shield') && q.is_item_name_any('slot.weapon.mainhand', 'minecraft:shield')" },
             { "shield_block_off_hand": "q.blocking && q.is_item_name_any('slot.weapon.offhand', 'minecraft:shield') && (v.item_use_normalized <= 0.0) && !q.item_is_charged" },

@@ -2,7 +2,7 @@
 {
   "format_version": "1.10.0",
   "animation_controllers": {
-    "controller.animation.player.compute_swim_and_crawl_amount_exclusive": {
+    "controller.animation.player.compute_swim_crawl_amount_exclusive": {
       "initial_state": "default",
       "states": {
         "default": {
@@ -50,7 +50,7 @@
         }
       }
     },
-    "controller.animation.player.swim_and_crawl": {
+    "controller.animation.player.swim_crawl": {
       "initial_state": "swim_or_crawl_easing",
       "states": {
         "swim_or_crawl_easing": {
