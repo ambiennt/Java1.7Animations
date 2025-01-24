@@ -15,7 +15,7 @@
         },
         "test_hurt_time": {
           "transitions": [
-            { "reset_hurt_time": "v.previous_hurt_time == v.hurt_time" }, // value stopped updating, we can assume the hurt animation is done
+            { "reset_hurt_time": "q.approx_eq(v.previous_hurt_time, v.hurt_time)" }, // value stopped updating, we can assume the hurt animation is done
             { "default": "1.0" }
           ]
         },
