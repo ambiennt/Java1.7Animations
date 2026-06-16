@@ -1,7 +1,7 @@
-// This file was modified by ambient (ambiennt on discord). Do not use or redistribute this file or its contents without explicit permission from the author.
+// This file was modified by ambient (ambient on discord) & BrineFlashYT ( BrineFlashYT on discord). Do not use or redistribute this file or its contents without explicit permission from the authors.
 {
   "format_version" : "1.10.0",
-  "animations": {
+  "animations" : {
     "animation.player.first_person.attack_rotation" : {
       "loop" : true,
       "bones" : {
@@ -28,11 +28,65 @@
         }
       }
     },
-    "animation.player.first_person.swap_item": {
-      "loop": true,
-      "bones": {
-        "leftarm": {
+    "animation.player.first_person.melee_spear_hold" : {
+      "loop" : true,
+      "override_previous_animation": false,
+      "bones" : {
+        "rightarm" : {
+          "position" : [ 13.15, "(v.short_arm_offset_right * 1.8) - 7.45", 10.5 ],
+          "rotation" : [ 95.5, -40, 116.0 ]
+        },
+        "rightitem": {
           "position": [
+              -1.5,
+              "q.get_default_bone_pivot('rightarm',1) - q.get_default_bone_pivot('rightitem',1) - 7.0 + 2.0",
+              "-q.get_default_bone_pivot('rightitem',2) + 3.5"
+          ],
+          "rotation": [ 60.0, 47.5, 0 ]
+        }
+      }
+    },
+    "animation.player.first_person.melee_spear_use" : {
+      "loop" : true,
+      "override_previous_animation": false,
+      "bones" : {
+        "rightarm" : {
+          "position" : [ 13.15, "(v.short_arm_offset_right * 1.8) - 7.45", 10.5 ],
+          "rotation" : [ 95.5, -40.0, 116.0 ]
+        },
+        "rightitem" : {
+          "position" : [
+            "-1.5 + v.fp_melee_spear_use_item_position_x",
+            "q.get_default_bone_pivot('rightarm',1) - q.get_default_bone_pivot('rightitem',1) - 7.0 + 2.0 + v.fp_melee_spear_use_item_position_y",
+            "-q.get_default_bone_pivot('rightitem',2) + 3.5 + v.fp_melee_spear_use_item_position_z"
+          ],
+          "rotation": [ 45.0, "55.0 + v.fp_melee_spear_use_item_rotation_y", "12.5 + v.fp_melee_spear_use_item_rotation_z" ]
+        }
+      }
+    },
+    "animation.player.first_person.melee_spear_attack" : {
+      "loop" : true,
+      "override_previous_animation": false,
+      "bones" : {
+        "rightarm" : {
+          "position" : [ 13.15, "(v.short_arm_offset_right * 1.8) - 7.45", 10.5 ],
+          "rotation" : [ 95.5, -40.0, 116.0 ]
+        },
+        "rightitem" : {
+          "position" : [
+            "-1.5 + v.fp_melee_spear_attack_item_position_x",
+            "q.get_default_bone_pivot('rightarm', 1) - q.get_default_bone_pivot('rightitem', 1) - 7.0 + 2.0 + v.fp_melee_spear_attack_item_position_y",
+            "-q.get_default_bone_pivot('rightitem', 2) + 3.5 + v.fp_melee_spear_attack_item_position_z"
+          ],
+          "rotation" : [ 45.0, "55.0 + v.fp_melee_spear_attack_item_rotation_y", "-12.5 + v.fp_melee_spear_attack_item_rotation_z" ]
+        }
+      }
+    },
+    "animation.player.first_person.swap_item" : {
+      "loop" : true,
+      "bones" : {
+        "leftarm" : {
+          "position" : [
             0.0,
             "q.is_item_name_any('slot.weapon.offhand', 'minecraft:filled_map', 'minecraft:shield') ? 0.0 : (1.0 - c.player_offhand_arm_height) * -10.0",
             0.0
@@ -47,26 +101,26 @@
         }
       }
     },
-    "animation.player.first_person.map_hold": {
-      "loop": true,
-      "bones": {
-        "leftarm": {
-          "position": [
+    "animation.player.first_person.map_hold" : {
+      "loop" : true,
+      "bones" : {
+        "leftarm" : {
+          "position" : [
             -15.5,
             "-7.5 - v.short_arm_offset_left - (v.map_angle * 8.0)",
             "9.0 + v.short_arm_offset_left - (v.map_angle * 8.0)"
           ],
-          "rotation": [
+          "rotation" : [
             37.5,
             -20,
             -150
           ]
         },
         "rightarm": {
-          "position": [
+          "position" : [
             15.5,
-            "-7.0 - v.short_arm_offset_right - (v.map_angle * 8.0)",
-            "8.0 + v.short_arm_offset_right - (v.map_angle * 8.0)"
+            "-7.5 - v.short_arm_offset_left - (v.map_angle * 8.0)",
+            "9.0 + v.short_arm_offset_left - (v.map_angle * 8.0)"
           ],
           "rotation": [
             50,
@@ -76,50 +130,50 @@
         }
       }
     },
-    "animation.player.first_person.map_hold_attack": {
-      "loop": true,
-      "bones": {
-        "leftarm": {
-          "position": [
+    "animation.player.first_person.map_hold_attack" : {
+      "loop" : true,
+      "bones" : {
+        "leftarm" : {
+          "position" : [
             "math.sin(math.pow(v.attack_time, 0.5) * 180.0) * -3.0",
             "math.sin(math.pow(v.attack_time, 0.5) * 360.0) * 3.0",
             "math.sin(math.pow(v.attack_time, 1.0) * 180.0) * 4.0"
           ],
           "rotation": [ "v.map_angle * 90.0", 0, 0 ]
         },
-        "rightarm": {
-          "position": [
+        "rightarm" : {
+          "position" : [
             "math.sin(math.pow(v.attack_time, 0.5) * 180.0) * -8.0",
             "math.sin(math.pow(v.attack_time, 0.5) * 360.0) * 4.5",
             "math.sin(math.pow(v.attack_time, 1.0) * 180.0) * 4.0"
           ],
-          "rotation": [ "v.map_angle * 90.0", 0, 0 ]
+          "rotation" : [ "v.map_angle * 90.0", 0, 0 ]
         }
       }
     },
-    "animation.player.first_person.map_hold_main_hand": {
-      "loop": true,
-      "bones": {
-        "rightarm": {
-          "position" : [
+    "animation.player.first_person.map_hold_main_hand" : {
+      "loop" : true,
+      "bones" : {
+        "rightarm" : {
+          "position" : [ 
             "14.5 - (math.sin(v.attack_time * 180.0) * 2.0)",
             "(v.short_arm_offset_right * 1.5) - 7.0 + (math.sin(math.pow(v.attack_time, 0.5) * 360.0) * 4.0)",
             "9.0 + (math.sin(math.pow(v.attack_time, 0.5) * 180.0) * 3.0)"
           ],
-          "rotation" : [ 90.0, -40.0, 105.0 ]
+          "rotation": [ 90.0, -40.0, 105.0]
         }
       }
     },
-    "animation.player.first_person.map_hold_off_hand": {
-      "loop": true,
-      "bones": {
-        "leftarm": {
-          "position" : [
+    "animation.player.first_person.map_hold_off_hand" : {
+      "loop" : true,
+      "bones" : {
+        "leftarm" : {
+          "position" : [ 
             -14.4,
             "(v.short_arm_offset_left * 1.5) - 7.0",
             9.0
           ],
-          "rotation" : [ -92.5, 135, 77.5 ]
+          "rotation": [ -92.5, 135, 77.5]
         }
       }
     }
